@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://uy31pcufgn7h"]
+
+[ext_resource type="Script" path="res://MainMenu/FriendsList.gd" id="1_cg74m"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_vxsj4"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3_iccs3"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="4_e424s"]
+
+[sub_resource type="FontFile" id="FontFile_ykscf"]
+fallbacks = Array[Font]([ExtResource("3_iccs3")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nrubn"]
+size = Vector2(50, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ulcvx"]
+
+[node name="FriendsList" type="Node2D"]
+script = ExtResource("1_cg74m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_vxsj4")
+
+[node name="Back" type="RichTextLabel" parent="."]
+offset_left = 246.0
+offset_top = 211.0
+offset_right = 295.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_ykscf")
+text = "Back"
+
+[node name="focusAll" type="Sprite2D" parent="."]
+position = Vector2(13, 219)
+texture = ExtResource("4_e424s")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(267, 220)
+shape = SubResource("RectangleShape2D_nrubn")
+
+[node name="Amics" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 13.0
+offset_right = 165.0
+offset_bottom = 32.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_iccs3")
+text = "Amics:"
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 9.0
+offset_top = 139.0
+offset_right = 316.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0.490196, 0.490196, 0.490196, 1)
+theme_override_fonts/font = ExtResource("3_iccs3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ulcvx")
+select_mode = 1
+item_count = 1
+item_0/text = ""
+
+[node name="llistaTriar" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 113.0
+offset_right = 231.0
+offset_bottom = 133.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_iccs3")
+text = "Llistat per triar"
+
+[node name="ListAmics" type="ItemList" parent="."]
+offset_left = 6.0
+offset_top = 39.0
+offset_right = 313.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hovered_color = Color(0.490196, 0.490196, 0.490196, 1)
+theme_override_colors/font_selected_color = Color(0.847059, 0.847059, 0.847059, 1)
+theme_override_fonts/font = ExtResource("3_iccs3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ulcvx")
+select_mode = 1
+item_count = 1
+item_0/text = ""
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]

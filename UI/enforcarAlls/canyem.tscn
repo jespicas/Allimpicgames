@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://0fn7f5uv7vjy"]
+
+[ext_resource type="Script" path="res://UI/enforcarAlls/canyem.gd" id="1_ff0ta"]
+[ext_resource type="Texture2D" uid="uid://c235jcy30majs" path="res://Media/imatges/enforcarAlls/canyemMa01.png" id="2_1vwji"]
+[ext_resource type="Texture2D" uid="uid://vdqkc17iwnwm" path="res://Media/imatges/enforcarAlls/canyem.png" id="2_mlwym"]
+[ext_resource type="Texture2D" uid="uid://cto7bxpp0x73p" path="res://Media/imatges/enforcarAlls/canyemblincatdreta.png" id="3_qwm8o"]
+[ext_resource type="Texture2D" uid="uid://bo2k02kvy5f0w" path="res://Media/imatges/enforcarAlls/canyemMa02.png" id="5_8wb0t"]
+[ext_resource type="Texture2D" uid="uid://mc2dddhnhjl6" path="res://Media/imatges/enforcarAlls/canyemMa03.png" id="6_k263x"]
+[ext_resource type="Texture2D" uid="uid://bxmc6u5k16kih" path="res://Media/imatges/enforcarAlls/canyemMa04.png" id="7_w5k3p"]
+[ext_resource type="Texture2D" uid="uid://ctq77uhv4kgcn" path="res://Media/imatges/enforcarAlls/canyemMa05.png" id="8_f3163"]
+[ext_resource type="Texture2D" uid="uid://bg04k5hfs83t4" path="res://Media/imatges/enforcarAlls/canyemMa06.png" id="9_fuxfh"]
+[ext_resource type="Texture2D" uid="uid://bh2x7a8eb5ho1" path="res://Media/imatges/enforcarAlls/canyemMa06_torcat.png" id="10_un7aa"]
+[ext_resource type="Texture2D" uid="uid://cin3mxc7sk6b" path="res://Media/imatges/enforcarAlls/canyemMa06_torcatMa.png" id="11_gjmw1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3x6hv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8wb0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k263x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w5k3p")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w5k3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_k263x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8wb0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1vwji")
+}],
+"loop": false,
+"name": &"deixar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w5k3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_f3163")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fuxfh")
+}],
+"loop": false,
+"name": &"gira",
+"speed": 5.0
+}]
+
+[node name="Canyem" type="Node2D"]
+script = ExtResource("1_ff0ta")
+
+[node name="canyem" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+texture = ExtResource("2_1vwji")
+
+[node name="canyemDreta" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_qwm8o")
+
+[node name="canyemsol" type="Sprite2D" parent="."]
+position = Vector2(-11, 0)
+texture = ExtResource("2_mlwym")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_3x6hv")
+animation = &"gira"
+
+[node name="torcatNoMa" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_un7aa")
+
+[node name="torcatMa" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_gjmw1")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

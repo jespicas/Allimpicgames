@@ -1,0 +1,76 @@
+[gd_scene load_steps=15 format=3 uid="uid://dwdkn0aj7euh1"]
+
+[ext_resource type="Texture2D" uid="uid://b3rpi1oyucxka" path="res://Media/imatges/baldclientbar/baldclientbar2_1.png" id="1_vha12"]
+[ext_resource type="Script" path="res://Actors/clientdosBarFiraAll/BaldfiraAll.gd" id="1_vi35x"]
+[ext_resource type="Texture2D" uid="uid://ca2dcpr6aui0d" path="res://Media/imatges/baldclientbar/baldclientbar2_8.png" id="2_1l2l6"]
+[ext_resource type="Texture2D" uid="uid://b52pwd77xhlm8" path="res://Media/imatges/baldclientbar/baldclientbar2_2.png" id="2_67l4j"]
+[ext_resource type="Texture2D" uid="uid://ccy7anxsokur0" path="res://Media/imatges/baldclientbar/baldclientbar2_9.png" id="3_oeqqg"]
+[ext_resource type="Texture2D" uid="uid://cxbbmgvs4wfc4" path="res://Media/imatges/baldclientbar/baldclientbar2_3.png" id="3_vv6sr"]
+[ext_resource type="Texture2D" uid="uid://bwohg4w1uqt8v" path="res://Media/imatges/baldclientbar/baldclientbar2_4.png" id="4_dqmd8"]
+[ext_resource type="Texture2D" uid="uid://d240thopypywi" path="res://Media/imatges/baldclientbar/baldclientbar2_10.png" id="4_jlkey"]
+[ext_resource type="Texture2D" uid="uid://d4hs8fqp7llf8" path="res://Media/imatges/baldclientbar/baldclientbar2_5.png" id="5_fknxw"]
+[ext_resource type="Texture2D" uid="uid://bttu6a2lx4qyy" path="res://Media/imatges/baldclientbar/baldclientbar2_11.png" id="5_uxy87"]
+[ext_resource type="Texture2D" uid="uid://b31ub4v1eub7g" path="res://Media/imatges/baldclientbar/baldclientbar2_6.png" id="6_84vig"]
+[ext_resource type="Texture2D" uid="uid://b7cx15r27nvbq" path="res://Media/imatges/baldclientbar/baldclientbar2_7.png" id="7_bxla0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pa38d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1l2l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oeqqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jlkey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uxy87")
+}],
+"loop": true,
+"name": &"birra",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vha12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_67l4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vv6sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dqmd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fknxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_84vig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bxla0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d6tu"]
+
+[node name="BaldBarFiraAll" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_vi35x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_pa38d")
+animation = &"birra"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_8d6tu")
+disabled = true

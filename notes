@@ -1,0 +1,22 @@
+Si es 1 player i te internet llavors ja es online
+Si es 2 player nomes es en local ...puntuacions ???
+Si es 1 player i no te internet doncs juga sol i no guarda puntuacions.
+
+
+Si te internet 2 players no te sentit .. per tant hide. ??? no si volen jugar 2 en local
+Com a molt infomar que juguen 2 players en local
+
+si no te internet 1 player nomes es per practicar 
+
+Generar HASH al obrir i guardar a settings
+Guardar a settings el Nick
+Si no hi ha nick no es pot jugar online
+
+Quan arraca comprova que la API estigui life
+Cada vegada arranca envia quan s' ha conectat
+???? quanta estona juga???
+
+si no hi ha nick i te internet al arrancar
+anar a la pagina d' entrar el nick
+
+---JOCS - Disparar a l' all ??

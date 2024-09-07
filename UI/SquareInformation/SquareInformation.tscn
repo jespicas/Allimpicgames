@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://gbyp1ufqlqfq"]
+
+[ext_resource type="Script" path="res://UI/SquareInformation/SquareInformation.gd" id="1_fdjpg"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_onudq"]
+
+[node name="SquareInformation" type="Node2D"]
+script = ExtResource("1_fdjpg")
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_onudq")
+theme_override_font_sizes/font_size = 18
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="WaitReadyToEnable" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WaitReadyToEnable" to="." method="_on_wait_ready_to_enable_timeout"]

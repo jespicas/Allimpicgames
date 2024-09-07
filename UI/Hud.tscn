@@ -1,0 +1,174 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxwvom72yex22"]
+
+[ext_resource type="FontFile" path="res://fontBase.tres" id="1"]
+[ext_resource type="Script" path="res://UI/Hud.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="3_4l3lb"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3_cvv8r"]
+[ext_resource type="Texture2D" uid="uid://c5r8uihprhlxx" path="res://Media/imatges/squareAlls/abaixdreta.png" id="5_mbp7n"]
+[ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="6_ofsmp"]
+[ext_resource type="Texture2D" uid="uid://dlw46ubgjy63l" path="res://Media/imatges/squareAlls/adaltesquerra.png" id="7_o8epr"]
+[ext_resource type="Texture2D" uid="uid://cot581o5xqtxp" path="res://Media/imatges/squareAlls/adaltdreta.png" id="8_sdcdu"]
+[ext_resource type="Texture2D" uid="uid://bvy4sa43wc4p6" path="res://Media/imatges/squareAlls/background.png" id="9_xkdsk"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("2")
+
+[node name="P1Time" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -70.0
+offset_right = -13.0
+offset_bottom = -33.0
+pivot_offset = Vector2(-498, -119)
+theme_override_fonts/font = ExtResource("1")
+text = "Message"
+
+[node name="Message" type="Label" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -28.0
+offset_right = 68.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1")
+text = "Message"
+
+[node name="Message2" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -10.0
+offset_right = 66.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1")
+text = "Message"
+
+[node name="P2Time" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -69.0
+offset_right = 155.0
+offset_bottom = -32.0
+pivot_offset = Vector2(-498, -119)
+theme_override_fonts/font = ExtResource("1")
+text = "Message"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timing" type="Label" parent="."]
+z_index = 1
+offset_left = 107.0
+offset_top = 49.0
+offset_right = 147.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_cvv8r")
+
+[node name="MessageMiddle" type="CanvasGroup" parent="."]
+
+[node name="Abaixdreta" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(172, 113)
+texture = ExtResource("5_mbp7n")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(79, 113)
+texture = ExtResource("6_ofsmp")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(79, 92)
+texture = ExtResource("7_o8epr")
+
+[node name="Adaltdreta" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(172, 92)
+texture = ExtResource("8_sdcdu")
+
+[node name="Background" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(100, 105)
+texture = ExtResource("9_xkdsk")
+
+[node name="Horitzontal" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(101, 92)
+texture = ExtResource("3_4l3lb")
+
+[node name="Horitzontal2" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(123, 92)
+texture = ExtResource("3_4l3lb")
+
+[node name="Horitzontal3" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(153, 92)
+texture = ExtResource("3_4l3lb")
+
+[node name="Background2" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(121, 105)
+texture = ExtResource("9_xkdsk")
+
+[node name="Background3" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(143, 105)
+texture = ExtResource("9_xkdsk")
+
+[node name="Background4" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(151, 105)
+texture = ExtResource("9_xkdsk")
+
+[node name="Horitzontal4" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(101, 113)
+texture = ExtResource("3_4l3lb")
+flip_v = true
+
+[node name="Horitzontal5" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(123, 113)
+texture = ExtResource("3_4l3lb")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(145, 113)
+texture = ExtResource("3_4l3lb")
+flip_v = true
+
+[node name="Horitzontal7" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(152, 113)
+texture = ExtResource("3_4l3lb")
+flip_v = true
+
+[node name="Horitzontal8" type="Sprite2D" parent="MessageMiddle"]
+position = Vector2(132, 92)
+texture = ExtResource("3_4l3lb")
+
+[node name="TimingGroup" type="CanvasGroup" parent="."]
+
+[node name="Abaixdreta" type="Sprite2D" parent="TimingGroup"]
+position = Vector2(124, 70)
+texture = ExtResource("5_mbp7n")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="TimingGroup"]
+position = Vector2(102, 70)
+texture = ExtResource("6_ofsmp")
+
+[node name="Adaltdreta" type="Sprite2D" parent="TimingGroup"]
+position = Vector2(124, 53)
+texture = ExtResource("8_sdcdu")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="TimingGroup"]
+position = Vector2(102, 53)
+texture = ExtResource("7_o8epr")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

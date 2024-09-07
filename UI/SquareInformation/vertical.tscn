@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drlp45ftgjvs2"]
+
+[ext_resource type="Texture2D" uid="uid://bxjl0fp7hin4b" path="res://Media/imatges/squareAlls/vertical.png" id="1_31odw"]
+
+[node name="Adaltdreta" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_31odw")

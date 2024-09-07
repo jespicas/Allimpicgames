@@ -1,0 +1,244 @@
+[gd_scene load_steps=6 format=3 uid="uid://fmkkei34n6y6"]
+
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_1lfdc"]
+[ext_resource type="Script" path="res://UI/RemappingKeys/RemappingKeys.gd" id="1_3wwkj"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_nayin"]
+[ext_resource type="Texture2D" uid="uid://cu2v3j7xoqx51" path="res://Media/imatges/mainmenu/olimpicring.png" id="3_lnnwi"]
+
+[sub_resource type="FontFile" id="FontFile_o5qyq"]
+fallbacks = Array[Font]([ExtResource("2_nayin")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="RemappingKeys" type="Node2D"]
+script = ExtResource("1_3wwkj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1lfdc")
+
+[node name="Allimpic" type="RichTextLabel" parent="."]
+offset_left = 56.0
+offset_top = 3.0
+offset_right = 256.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0.466667, 0.113725, 0.113725, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_o5qyq")
+text = "Allimpic"
+
+[node name="Games" type="RichTextLabel" parent="."]
+offset_left = 205.0
+offset_top = 36.0
+offset_right = 405.0
+offset_bottom = 76.0
+theme_override_colors/default_color = Color(0.466667, 0.113725, 0.113725, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_o5qyq")
+text = "Games"
+
+[node name="allsrings" type="TextureRect" parent="."]
+offset_left = 128.0
+offset_top = 5.0
+offset_right = 198.0
+offset_bottom = 54.0
+texture = ExtResource("3_lnnwi")
+expand_mode = 1
+
+[node name="P1" type="BoxContainer" parent="."]
+offset_left = 14.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 193.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="P1"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="P1/HBoxContainer"]
+layout_mode = 2
+
+[node name="Amunt" type="Label" parent="P1/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Amunt"
+
+[node name="Avall" type="Label" parent="P1/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Avall"
+
+[node name="Esquerra" type="Label" parent="P1/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Esquerra"
+
+[node name="Dreta" type="Label" parent="P1/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Dreta"
+
+[node name="Accio" type="Label" parent="P1/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Accio"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="P1/HBoxContainer"]
+layout_mode = 2
+
+[node name="Amunt" type="Label" parent="P1/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Amunt"
+
+[node name="Avall" type="Label" parent="P1/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Avall"
+
+[node name="Esquerra" type="Label" parent="P1/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Esquerra"
+
+[node name="Dreta" type="Label" parent="P1/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Dreta"
+
+[node name="Accio" type="Label" parent="P1/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Accio"
+
+[node name="P2" type="BoxContainer" parent="."]
+offset_left = 173.0
+offset_top = 94.0
+offset_right = 319.0
+offset_bottom = 176.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="P2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="P2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Amunt" type="Label" parent="P2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Amunt"
+
+[node name="Avall" type="Label" parent="P2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Avall"
+
+[node name="Esquerra" type="Label" parent="P2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Esquerra"
+
+[node name="Dreta" type="Label" parent="P2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Dreta"
+
+[node name="Accio" type="Label" parent="P2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Accio"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="P2/HBoxContainer"]
+layout_mode = 2
+
+[node name="Amunt" type="Label" parent="P2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Amunt"
+
+[node name="Avall" type="Label" parent="P2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Avall"
+
+[node name="Esquerra" type="Label" parent="P2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Esquerra"
+
+[node name="Dreta" type="Label" parent="P2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Dreta"
+
+[node name="Accio" type="Label" parent="P2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+theme_override_font_sizes/font_size = 10
+text = "Accio"
+
+[node name="Jugador1" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 65.0
+offset_right = 110.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+text = "Jugador 1"
+
+[node name="Jugador2" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 64.0
+offset_right = 271.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_nayin")
+text = "Jugador 2"
+
+[node name="btn_modification" type="Button" parent="."]
+offset_left = 89.0
+offset_top = 86.0
+offset_right = 200.0
+offset_bottom = 117.0
+text = "p1 up press..."

@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://bl80jh3qfx2cu"]
+
+[ext_resource type="Script" path="res://Actors/AlliOliCenital/allioliCenital.gd" id="1_sounl"]
+[ext_resource type="Texture2D" uid="uid://dxadsv200ucx7" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaix.png" id="2_voib4"]
+[ext_resource type="Texture2D" uid="uid://dsujbikxskwel" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixDreta.png" id="3_04fjd"]
+[ext_resource type="Texture2D" uid="uid://cbmh7cl7q30pn" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixXafa.png" id="3_4v5ti"]
+[ext_resource type="Texture2D" uid="uid://bn6cr5n3vfwl4" path="res://Media/imatges/morterCenital/morterAllioliCenitalAdalt.png" id="3_31hhk"]
+[ext_resource type="Texture2D" uid="uid://dwkrb7w7nxwp8" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixXafa2.png" id="4_d8xyp"]
+[ext_resource type="Texture2D" uid="uid://cush7cdfw1tok" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixXafa3.png" id="5_d7kgt"]
+[ext_resource type="Texture2D" uid="uid://r2w7ockqj2oy" path="res://Media/imatges/morterCenital/morterAllioliCenitalAdaltDreta.png" id="5_wsfkj"]
+[ext_resource type="Texture2D" uid="uid://bnnmlo72d00ep" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixDretaXafa.png" id="6_lrrm4"]
+[ext_resource type="Texture2D" uid="uid://ckdi4jll56rm2" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixDretaXafa2.png" id="7_k575g"]
+[ext_resource type="Texture2D" uid="uid://b7neiqyvklr4i" path="res://Media/imatges/morterCenital/morterAllioliCenitalAbaixDretaXafa3.png" id="9_56sug"]
+[ext_resource type="Texture2D" uid="uid://c3p3oisfi6m1b" path="res://Media/imatges/morterCenital/morterAllioliCenitalFentAdalt.png" id="12_1sr5f"]
+[ext_resource type="Texture2D" uid="uid://do3fbq24k2sag" path="res://Media/imatges/morterCenital/morterAllioliCenitalFentDreta.png" id="14_3heb6"]
+[ext_resource type="Texture2D" uid="uid://bruq30gyy6aoc" path="res://Media/imatges/morterCenital/morterAllioliCenitalFentEsquerra.png" id="15_0b4xb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gnyr"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("3_31hhk")
+}, {
+"duration": 0.2,
+"texture": ExtResource("2_voib4")
+}, {
+"duration": 0.2,
+"texture": ExtResource("3_4v5ti")
+}, {
+"duration": 0.2,
+"texture": ExtResource("4_d8xyp")
+}, {
+"duration": 0.2,
+"texture": ExtResource("5_d7kgt")
+}],
+"loop": false,
+"name": &"abaix",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_voib4")
+}],
+"loop": true,
+"name": &"abaixFer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": ExtResource("3_04fjd")
+}, {
+"duration": 0.2,
+"texture": ExtResource("6_lrrm4")
+}, {
+"duration": 0.2,
+"texture": ExtResource("7_k575g")
+}, {
+"duration": 0.2,
+"texture": ExtResource("9_56sug")
+}],
+"loop": false,
+"name": &"abaix_dreta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_31hhk")
+}],
+"loop": true,
+"name": &"adalt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_1sr5f")
+}],
+"loop": true,
+"name": &"adaltFer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wsfkj")
+}],
+"loop": true,
+"name": &"adalt_dreta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3heb6")
+}],
+"loop": true,
+"name": &"dretaFer",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_0b4xb")
+}],
+"loop": true,
+"name": &"esquerraFer",
+"speed": 5.0
+}]
+
+[node name="AllioliCenital" type="Node2D"]
+script = ExtResource("1_sounl")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_7gnyr")
+animation = &"esquerraFer"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+
+[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

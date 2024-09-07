@@ -1,0 +1,364 @@
+[gd_scene load_steps=29 format=3 uid="uid://03axgvvb22rs"]
+
+[ext_resource type="Script" path="res://MiniGames/AgafaAlls.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://bxwvom72yex22" path="res://UI/Hud.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://rn04uhwsm28s" path="res://UI/RetryGame.tscn" id="2_a1dtx"]
+[ext_resource type="PackedScene" path="res://UI/split.tscn" id="3"]
+[ext_resource type="Resource" path="res://Actors/collirAlls/player_1_controls.tres" id="4"]
+[ext_resource type="PackedScene" uid="uid://bqiarivyfmngb" path="res://Actors/collirAlls/RecolectorAlls.tscn" id="5"]
+[ext_resource type="Resource" path="res://Actors/collirAlls/player_2_controls.tres" id="6"]
+[ext_resource type="Texture2D" uid="uid://cb5rxfile5qgc" path="res://Media/imatges/collialls/herbaaalt.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://bec7o8uyvvqwq" path="res://Media/imatges/collialls/allterra.png" id="8"]
+[ext_resource type="PackedScene" uid="uid://buh7l5re38hec" path="res://UI/controls/5ControlsToPress.tscn" id="9"]
+[ext_resource type="Texture2D" uid="uid://rqrfofd5pxt0" path="res://Media/imatges/collialls/terrahort.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://ceckm3qkgxdud" path="res://Media/imatges/collialls/noallterra.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bqkam122k8et2" path="res://Media/imatges/collialls/noallterraesquerra.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://ogyo6v5rxpq7" path="res://Media/imatges/collialls/allterraesquerra.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://dkara8o326sts" path="res://Media/imatges/collialls/spriteallterra.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://c5r8uihprhlxx" path="res://Media/imatges/squareAlls/abaixdreta.png" id="16_hud3i"]
+[ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="17_laisb"]
+[ext_resource type="Texture2D" uid="uid://cot581o5xqtxp" path="res://Media/imatges/squareAlls/adaltdreta.png" id="18_cpss5"]
+[ext_resource type="Texture2D" uid="uid://dlw46ubgjy63l" path="res://Media/imatges/squareAlls/adaltesquerra.png" id="19_d5s38"]
+[ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="20_tfcum"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="21_67iwq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpban"]
+texture = ExtResource("7")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1yp4i"]
+texture = ExtResource("8")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw8cx"]
+texture = ExtResource("10")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fefu"]
+texture = ExtResource("11")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tccfh"]
+texture = ExtResource("12")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdeoe"]
+texture = ExtResource("13")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 8
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/2 = 2
+0:0/2/flip_v = true
+0:0/3 = 3
+0:0/3/flip_h = true
+0:0/3/flip_v = true
+0:0/4 = 4
+0:0/4/transpose = true
+0:0/5 = 5
+0:0/5/flip_h = true
+0:0/5/transpose = true
+0:0/6 = 6
+0:0/6/flip_v = true
+0:0/6/transpose = true
+0:0/7 = 7
+0:0/7/flip_h = true
+0:0/7/flip_v = true
+0:0/7/transpose = true
+
+[sub_resource type="TileSet" id="1"]
+resource_local_to_scene = true
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_qpban")
+sources/1 = SubResource("TileSetAtlasSource_1yp4i")
+sources/2 = SubResource("TileSetAtlasSource_iw8cx")
+sources/3 = SubResource("TileSetAtlasSource_2fefu")
+sources/4 = SubResource("TileSetAtlasSource_tccfh")
+sources/5 = SubResource("TileSetAtlasSource_bdeoe")
+
+[node name="RecollirAlls" type="Node2D"]
+script = ExtResource("1")
+metadata/_edit_horizontal_guides_ = [104.0]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3")]
+offset = Vector2(80, 120)
+transform = Transform2D(1, 0, 0, 1, 80, 120)
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("3")]
+offset = Vector2(240, 120)
+transform = Transform2D(1, 0, 0, 1, 240, 120)
+
+[node name="RetryGame" parent="." instance=ExtResource("2_a1dtx")]
+
+[node name="5controlsleft" parent="." instance=ExtResource("9")]
+
+[node name="Hud" parent="." instance=ExtResource("2")]
+offset = Vector2(45, -20)
+transform = Transform2D(1, 0, 0, 1, 45, -20)
+
+[node name="5controlsleft2" parent="." instance=ExtResource("9")]
+offset = Vector2(170, 0)
+transform = Transform2D(1, 0, 0, 1, 170, 0)
+
+[node name="RecolectorP1" parent="." instance=ExtResource("5")]
+position = Vector2(29, 74)
+controls = ExtResource("4")
+
+[node name="RecolectorP2" parent="." instance=ExtResource("5")]
+position = Vector2(290, 74)
+flip_h = true
+controls = ExtResource("6")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("1")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 131072, 2, 0, 131073, 4, 0, 131074, 5, 0, 131075, 5, 0, 131076, 5, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 3, 0, 131081, 2, 0, 196608, 2, 0, 196609, 4, 0, 196610, 5, 0, 196611, 5, 0, 196612, 5, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 3, 0, 196617, 2, 0, 262144, 2, 0, 262145, 4, 0, 262146, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 3, 0, 262153, 2, 0, 327680, 2, 0, 327681, 4, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 3, 0, 327689, 2, 0, 393216, 2, 0, 393217, 4, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 3, 0, 393225, 2, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0)
+
+[node name="all2P2" type="Sprite2D" parent="."]
+position = Vector2(284, 127)
+texture = ExtResource("14")
+
+[node name="all1P2" type="Sprite2D" parent="."]
+position = Vector2(284, 87)
+texture = ExtResource("14")
+
+[node name="all1P1" type="Sprite2D" parent="."]
+position = Vector2(34, 87)
+texture = ExtResource("14")
+
+[node name="all2P1" type="Sprite2D" parent="."]
+position = Vector2(34, 127)
+texture = ExtResource("14")
+
+[node name="all3P1" type="Sprite2D" parent="."]
+position = Vector2(34, 167)
+texture = ExtResource("14")
+
+[node name="all3P2" type="Sprite2D" parent="."]
+position = Vector2(284, 167)
+texture = ExtResource("14")
+
+[node name="Player1" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Abaixdreta" type="Sprite2D" parent="Player1"]
+position = Vector2(98, 93)
+texture = ExtResource("16_hud3i")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Player1"]
+position = Vector2(47, 93)
+texture = ExtResource("17_laisb")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Player1"]
+position = Vector2(98, 71)
+texture = ExtResource("18_cpss5")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Player1"]
+position = Vector2(47, 71)
+texture = ExtResource("19_d5s38")
+
+[node name="Horitzontal" type="Sprite2D" parent="Player1"]
+position = Vector2(69, 71)
+texture = ExtResource("20_tfcum")
+
+[node name="Horitzontal2" type="Sprite2D" parent="Player1"]
+position = Vector2(81, 71)
+texture = ExtResource("20_tfcum")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Player1"]
+position = Vector2(69, 93)
+texture = ExtResource("20_tfcum")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Player1"]
+position = Vector2(79, 93)
+texture = ExtResource("20_tfcum")
+flip_v = true
+
+[node name="Label" type="Label" parent="Player1"]
+offset_left = 54.0
+offset_top = 69.0
+offset_right = 94.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_67iwq")
+theme_override_font_sizes/font_size = 8
+text = "Jugadr 1"
+
+[node name="Punts" type="Label" parent="Player1"]
+offset_left = 53.0
+offset_top = 80.0
+offset_right = 92.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_67iwq")
+theme_override_font_sizes/font_size = 8
+
+[node name="Player2" type="CanvasLayer" parent="."]
+
+[node name="Abaixdreta" type="Sprite2D" parent="Player2"]
+position = Vector2(296, 93)
+texture = ExtResource("16_hud3i")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Player2"]
+position = Vector2(245, 93)
+texture = ExtResource("17_laisb")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Player2"]
+position = Vector2(296, 71)
+texture = ExtResource("18_cpss5")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Player2"]
+position = Vector2(245, 71)
+texture = ExtResource("19_d5s38")
+
+[node name="Horitzontal" type="Sprite2D" parent="Player2"]
+position = Vector2(267, 71)
+texture = ExtResource("20_tfcum")
+
+[node name="Horitzontal2" type="Sprite2D" parent="Player2"]
+position = Vector2(279, 71)
+texture = ExtResource("20_tfcum")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Player2"]
+position = Vector2(267, 93)
+texture = ExtResource("20_tfcum")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Player2"]
+position = Vector2(277, 93)
+texture = ExtResource("20_tfcum")
+flip_v = true
+
+[node name="Label" type="Label" parent="Player2"]
+offset_left = 252.0
+offset_top = 69.0
+offset_right = 292.0
+offset_bottom = 79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_67iwq")
+theme_override_font_sizes/font_size = 8
+text = "Jugadr 2"
+metadata/_edit_use_anchors_ = true
+
+[node name="Punts" type="Label" parent="Player2"]
+offset_left = 251.0
+offset_top = 80.0
+offset_right = 290.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("21_67iwq")
+theme_override_font_sizes/font_size = 8
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

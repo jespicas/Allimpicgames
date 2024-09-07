@@ -1,0 +1,54 @@
+func ShowSquareP2(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbaixEsquerra,posXAdaltDreta,posYAdaltDreta,posXAbaixDreta,poxYAbaixDreta):
+	show()
+	AddBackgroundWithPos(posXAdaltEsquerra+10,posYAdaltEsquerra,4,3)	
+	for n in posYAdaltEsquerra+20:
+		if n > posYAdaltEsquerra+10:
+			AddObject(posXAdaltEsquerra,n,"vertical",false,false)
+	for n in posYAdaltEsquerra+20:
+		if n > posYAdaltEsquerra+20:
+			AddObject(posXAdaltDreta,n,"vertical",true,false)
+			
+	for n in posXAbaixDreta-10:
+		if n > posYAdaltEsquerra+20:
+			AddObject(n,posYAdaltEsquerra,"horitzontal",false,false)
+
+	for n in posXAbaixDreta-10:
+		if n > posYAdaltEsquerra+10:
+			AddObject(n,poxYAbaixEsquerra,"horitzontal",false,true)				
+			
+	AddObject(posXAdaltEsquerra,posYAdaltEsquerra,"adaltesquerra",false,false)
+	AddObject(posXAbaixEsquerra,poxYAbaixEsquerra,"abaixesquerra",false,false)
+	AddObject(posXAdaltDreta,posYAdaltDreta,"adaltdreta",false,false)
+	AddObject(posXAbaixDreta,poxYAbaixDreta,"abaixdreta",false,false)
+	AddLineText("continua", posXAdaltEsquerra, posYAdaltEsquerra)
+	AddLineText("continua", posXAdaltEsquerra, posYAdaltEsquerra+10)
+	AddLineText("continua", posXAdaltEsquerra, posYAdaltEsquerra+20)
+	#$Timer.start(1)
+	
+	
+	func ShowSquareP2(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbaixEsquerra,posXAdaltDreta,posYAdaltDreta,posXAbaixDreta,poxYAbaixDreta):
+	show()
+	AddBackgroundWithPos(200,60,4,3)	
+	for n in 80:
+		if n > 70:
+			AddObject(190,n,"vertical",false,false)
+	for n in 80:
+		if n > 70:
+			AddObject(280,n,"vertical",true,false)
+			
+	for n in 270:
+		if n > 210:
+			AddObject(n,60,"horitzontal",false,false)
+
+	for n in 270:
+		if n > 200:
+			AddObject(n,100,"horitzontal",false,true)				
+			
+	AddObject(posXAdaltEsquerra,posYAdaltEsquerra,"adaltesquerra",false,false)
+	AddObject(190,100,"abaixesquerra",false,false)
+	AddObject(280,60,"adaltdreta",false,false)
+	AddObject(280,100,"abaixdreta",false,false)
+	AddLineText("continua", 190, 60)
+	AddLineText("continua", 190, 70)
+	AddLineText("continua", 190, 80)
+	#$Timer.start(1)

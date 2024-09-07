@@ -1,0 +1,107 @@
+[gd_scene load_steps=22 format=3 uid="uid://t3kwaiw6tgi6"]
+
+[ext_resource type="Script" path="res://Actors/BiberoOli/BiberoOli.gd" id="1_2dimp"]
+[ext_resource type="Texture2D" uid="uid://bfaxsgusf7l3n" path="res://Media/imatges/BiberoOli/biberoOli01.png" id="1_bhvuh"]
+[ext_resource type="Texture2D" uid="uid://c6irt5ofmif8k" path="res://Media/imatges/BiberoOli/biberoOli02.png" id="2_tqm8m"]
+[ext_resource type="Texture2D" uid="uid://87uy6rfoar5h" path="res://Media/imatges/BiberoOli/biberoOliCauOli05cau.png" id="2_vtqg6"]
+[ext_resource type="Texture2D" uid="uid://f88x87a1a8ij" path="res://Media/imatges/BiberoOli/biberoOli03.png" id="3_hsbbb"]
+[ext_resource type="Texture2D" uid="uid://cbrs7cnhn8f5k" path="res://Media/imatges/BiberoOli/biberoOli04.png" id="4_n6kir"]
+[ext_resource type="Texture2D" uid="uid://cvhbv6po0xxig" path="res://Media/imatges/BiberoOli/biberoOli05.png" id="5_24ga7"]
+[ext_resource type="Texture2D" uid="uid://bcrqs05kjnfmr" path="res://Media/imatges/BiberoOli/biberoOli6.png" id="6_wtao1"]
+[ext_resource type="Texture2D" uid="uid://dtg8qrv1gvic8" path="res://Media/imatges/BiberoOli/biberoOliCauOli01.png" id="9_agckk"]
+[ext_resource type="Texture2D" uid="uid://cp4m1nglvxggd" path="res://Media/imatges/BiberoOli/biberoOliCauOli02.png" id="10_ktlkn"]
+[ext_resource type="Texture2D" uid="uid://8jl3ia67kba8" path="res://Media/imatges/BiberoOli/biberoOliCauOli03.png" id="11_hnf8x"]
+[ext_resource type="Texture2D" uid="uid://bycial0hkdguk" path="res://Media/imatges/BiberoOli/biberoOliCauOli04.png" id="12_crtbw"]
+[ext_resource type="Texture2D" uid="uid://bbfekjf3i2a3k" path="res://Media/imatges/BiberoOli/biberoOliCauOli05Cau.png" id="13_xxyun"]
+[ext_resource type="Texture2D" uid="uid://dfiys7rhvhhfx" path="res://Media/imatges/BiberoOli/biberoOliCauOli06Cau.png" id="14_a3eli"]
+[ext_resource type="Texture2D" uid="uid://b3lccsfinkhn0" path="res://Media/imatges/BiberoOli/biberoOliCauOli07Cau.png" id="15_64cou"]
+[ext_resource type="Texture2D" uid="uid://2i4j3tocuaoh" path="res://Media/imatges/BiberoOli/biberoOliCauOli08Cau.png" id="16_j3jed"]
+[ext_resource type="Texture2D" uid="uid://cwnplvylapcab" path="res://Media/imatges/BiberoOli/biberoOliCauOli09Cau.png" id="17_8fiud"]
+[ext_resource type="Texture2D" uid="uid://kpgkpg71318d" path="res://Media/imatges/BiberoOli/biberoOliCauOli010Cau.png" id="18_04src"]
+[ext_resource type="Texture2D" uid="uid://d3bar1220t5h0" path="res://Media/imatges/BiberoOli/biberoOliCauOli011Cau.png" id="19_apd0p"]
+[ext_resource type="Texture2D" uid="uid://d1jk2523x604a" path="res://Media/imatges/BiberoOli/biberoOliCauOli013Cau.png" id="20_50db1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kq8fq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vtqg6")
+}],
+"loop": true,
+"name": &"cau",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bhvuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tqm8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_hsbbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n6kir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_24ga7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wtao1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_agckk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ktlkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hnf8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_crtbw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xxyun")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_a3eli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_64cou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j3jed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8fiud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_04src")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_apd0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_50db1")
+}],
+"loop": true,
+"name": &"stop",
+"speed": 5.0
+}]
+
+[node name="BiberoOli" type="Node2D"]
+script = ExtResource("1_2dimp")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_kq8fq")
+
+[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

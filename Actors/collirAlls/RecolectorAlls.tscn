@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://bqiarivyfmngb"]
+
+[ext_resource type="Texture2D" uid="uid://bhxi7l5cagxuc" path="res://Media/imatges/recolectorAlls/recolectorAlls_6.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bs4gx3tmaj05r" path="res://Media/imatges/recolectorAlls/recolectorAlls_4.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dgfowf11gsqy7" path="res://Media/imatges/recolectorAlls/recolectorAlls_2.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://l02fgctqqmi6" path="res://Media/imatges/recolectorAlls/recolectorAlls_7.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cpp3vys26c8hv" path="res://Media/imatges/recolectorAlls/recolectorAlls_9.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://vga436t5jyha" path="res://Media/imatges/recolectorAlls/recolectorAlls_5.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://f0n2doipqaxo" path="res://Media/imatges/recolectorAlls/recolectorAlls_1.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://lqufpr28xa5q" path="res://Media/imatges/recolectorAlls/recolectorAlls_8.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bot6lkrk8xvl8" path="res://Media/imatges/recolectorAlls/recolectorAlls_3.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://dx5yxwuy5oknk" path="res://Media/imatges/recolectorAlls/recolectorAlls_13.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://bwb2mmk0fbljm" path="res://Media/imatges/recolectorAlls/recolectorAlls_12.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://bd6v532eyrott" path="res://Media/imatges/recolectorAlls/recolectorAlls_10.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://dd85kn46ghred" path="res://Media/imatges/recolectorAlls/recolectorAlls_11.png" id="13"]
+[ext_resource type="Script" path="res://Actors/collirAlls/RecolectorAlls.gd" id="14"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"01ajupir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}],
+"loop": true,
+"name": &"02recollint",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}],
+"loop": true,
+"name": &"03aixecar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("1")
+script = ExtResource("14")
+
+[connection signal="animation_finished" from="." to="." method="_on_AnimatedSprite_animation_finished"]

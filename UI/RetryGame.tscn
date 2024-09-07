@@ -1,0 +1,286 @@
+[gd_scene load_steps=13 format=3 uid="uid://rn04uhwsm28s"]
+
+[ext_resource type="Script" path="res://UI/RetryGame.gd" id="1_gdrhh"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="2_c3sfn"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3_7wm7m"]
+[ext_resource type="Texture2D" uid="uid://c5r8uihprhlxx" path="res://Media/imatges/squareAlls/abaixdreta.png" id="5_v0oj8"]
+[ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="6_r2jna"]
+[ext_resource type="Texture2D" uid="uid://cot581o5xqtxp" path="res://Media/imatges/squareAlls/adaltdreta.png" id="7_nnmfl"]
+[ext_resource type="Texture2D" uid="uid://dlw46ubgjy63l" path="res://Media/imatges/squareAlls/adaltesquerra.png" id="8_wui5w"]
+[ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="9_sy4fa"]
+[ext_resource type="Texture2D" uid="uid://bxjl0fp7hin4b" path="res://Media/imatges/squareAlls/vertical.png" id="10_v500n"]
+[ext_resource type="Texture2D" uid="uid://bvy4sa43wc4p6" path="res://Media/imatges/squareAlls/background.png" id="11_u5gfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqaq0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik1gc"]
+
+[node name="RetryGame" type="CanvasLayer"]
+script = ExtResource("1_gdrhh")
+metadata/_edit_vertical_guides_ = [44.0, 296.0]
+metadata/_edit_horizontal_guides_ = [204.0, 129.0]
+
+[node name="focusAll" type="Sprite2D" parent="."]
+z_index = 900
+position = Vector2(94, 180)
+texture = ExtResource("2_c3sfn")
+
+[node name="Volstornarhi" type="RichTextLabel" parent="."]
+top_level = true
+z_index = 5
+offset_left = 89.0
+offset_top = 137.0
+offset_right = 276.0
+offset_bottom = 157.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_7wm7m")
+text = "Vols             tornar-hi?"
+
+[node name="Si" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 110.0
+offset_top = 171.0
+offset_right = 129.0
+offset_bottom = 191.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_7wm7m")
+text = "Si"
+
+[node name="siTouch" type="TouchScreenButton" parent="."]
+z_index = 1
+position = Vector2(117, 181)
+shape = SubResource("RectangleShape2D_tqaq0")
+
+[node name="No" type="RichTextLabel" parent="."]
+z_index = 1
+offset_left = 221.0
+offset_top = 168.0
+offset_right = 253.0
+offset_bottom = 190.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_7wm7m")
+text = "No"
+
+[node name="NoTouch" type="TouchScreenButton" parent="."]
+z_index = 1
+position = Vector2(231, 178)
+shape = SubResource("RectangleShape2D_ik1gc")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Vertical2" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(286, 162)
+texture = ExtResource("10_v500n")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(76, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Vertical3" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(286, 173)
+texture = ExtResource("10_v500n")
+flip_h = true
+
+[node name="Horitzontal3" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(96, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(118, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal5" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(139, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(160, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal7" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(181, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal8" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(202, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal9" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(224, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal10" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(246, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Horitzontal11" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(265, 194)
+texture = ExtResource("9_sy4fa")
+flip_v = true
+
+[node name="Background" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(73, 161)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background2" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(76, 174)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background3" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(94, 162)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background4" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(97, 175)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background5" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(112, 157)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background6" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(117, 172)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background7" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(133, 160)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background8" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(137, 178)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background9" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(151, 161)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background10" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(172, 161)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background11" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(157, 173)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background12" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(177, 173)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background13" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(192, 157)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background14" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(198, 173)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background15" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(213, 161)
+rotation = 0.0224588
+texture = ExtResource("11_u5gfc")
+
+[node name="Background16" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(219, 172)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background17" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(235, 161)
+rotation = -0.00170776
+texture = ExtResource("11_u5gfc")
+
+[node name="Background18" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(238, 176)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background19" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(256, 157)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background20" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(260, 173)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background21" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(268, 162)
+texture = ExtResource("11_u5gfc")
+
+[node name="Background22" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(269, 173)
+texture = ExtResource("11_u5gfc")
+
+[node name="Abaixdreta" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(286, 194)
+texture = ExtResource("5_v0oj8")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(54, 194)
+texture = ExtResource("6_r2jna")
+
+[node name="Adaltdreta" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(286, 140)
+texture = ExtResource("7_nnmfl")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(54, 140)
+texture = ExtResource("8_wui5w")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(76, 140)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Horitzontal" type="Sprite2D" parent="CanvasGroup/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal/Horitzontal"]
+position = Vector2(21, 0)
+texture = ExtResource("9_sy4fa")
+
+[node name="Vertical" type="Sprite2D" parent="CanvasGroup"]
+position = Vector2(54, 158)
+texture = ExtResource("10_v500n")
+
+[node name="Vertical" type="Sprite2D" parent="CanvasGroup/Vertical"]
+position = Vector2(0, 14)
+texture = ExtResource("10_v500n")
+
+[connection signal="pressed" from="siTouch" to="." method="_on_si_touch_pressed"]
+[connection signal="pressed" from="NoTouch" to="." method="_on_no_touch_pressed"]

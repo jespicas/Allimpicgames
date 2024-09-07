@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5rxw0hwhkcxq"]
+
+[ext_resource type="Texture2D" uid="uid://u23jkp3ekiwo" path="res://Media/imatges/direccions/direccioamunt/stickadalt_4.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dt0f0o2ykiaf1" path="res://Media/imatges/direccions/direccioamunt/stickadalt_5.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://vivckam06b5f" path="res://Media/imatges/direccions/direccioamunt/stickadalt_3.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dtrfa62kygpii" path="res://Media/imatges/direccions/direccioamunt/stickadalt_1.png" id="6"]
+[ext_resource type="Script" path="res://UI/controls/stickup.gd" id="6_31en0"]
+[ext_resource type="Texture2D" uid="uid://dqnwnprmnbn4j" path="res://Media/imatges/direccions/direccioamunt/stickadalt_6.png" id="6_bp6de"]
+[ext_resource type="Texture2D" uid="uid://c1shuwa25uj3c" path="res://Media/imatges/direccions/direccioamunt/stickadalt_2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://b0a6kb54dcht0" path="res://Media/imatges/direccions/direccioamunt/stickadalt_7.png" id="7_sjkpe"]
+[ext_resource type="Texture2D" uid="uid://cno58dtt16m3m" path="res://Media/imatges/direccions/direccioamunt/stickadalt_8.png" id="8_q6tj4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlgy8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bp6de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sjkpe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q6tj4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("6_31en0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rlgy8")
+autoplay = "default"
+frame = 7
+frame_progress = 1.0

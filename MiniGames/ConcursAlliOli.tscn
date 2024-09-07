@@ -1,0 +1,818 @@
+[gd_scene load_steps=20 format=3 uid="uid://ddj26ds3725ni"]
+
+[ext_resource type="Script" path="res://MiniGames/ConcursAlliOli.gd" id="1_gtp7m"]
+[ext_resource type="PackedScene" uid="uid://f1qs1pih0jfl" path="res://UI/Bilinearbar/Bilinear.tscn" id="2_p6g2l"]
+[ext_resource type="Texture2D" uid="uid://bmq15rqjub241" path="res://Media/imatges/mantellcuadrats.png" id="2_rk1e5"]
+[ext_resource type="PackedScene" uid="uid://cea65ttdkngee" path="res://Actors/AlliOli/allioli.tscn" id="3_gsxpp"]
+[ext_resource type="PackedScene" uid="uid://bl80jh3qfx2cu" path="res://Actors/AlliOliCenital/allioliCenital.tscn" id="4_m3oa0"]
+[ext_resource type="PackedScene" uid="uid://t3kwaiw6tgi6" path="res://Actors/BiberoOli/BiberoOli.tscn" id="5_62355"]
+[ext_resource type="Texture2D" uid="uid://b2n26i3ffi55k" path="res://Media/imatges/splitimage.png" id="6_dv35l"]
+[ext_resource type="PackedScene" uid="uid://dwe83ogsqk02f" path="res://UI/OliIndicator/OliIndicator.tscn" id="8_hrxg7"]
+[ext_resource type="Texture2D" uid="uid://bxjl0fp7hin4b" path="res://Media/imatges/squareAlls/vertical.png" id="9_12vr3"]
+[ext_resource type="FontFile" path="res://fontBase.tres" id="9_r30kb"]
+[ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="10_7kksx"]
+[ext_resource type="PackedScene" uid="uid://bxwvom72yex22" path="res://UI/Hud.tscn" id="10_h51wc"]
+[ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="11_65c2c"]
+[ext_resource type="PackedScene" uid="uid://rn04uhwsm28s" path="res://UI/RetryGame.tscn" id="11_88mqd"]
+[ext_resource type="Texture2D" uid="uid://bvy4sa43wc4p6" path="res://Media/imatges/squareAlls/background.png" id="11_whwrg"]
+[ext_resource type="Texture2D" uid="uid://dlw46ubgjy63l" path="res://Media/imatges/squareAlls/adaltesquerra.png" id="12_noc8r"]
+[ext_resource type="Texture2D" uid="uid://c5r8uihprhlxx" path="res://Media/imatges/squareAlls/abaixdreta.png" id="13_ma6mj"]
+[ext_resource type="Texture2D" uid="uid://cot581o5xqtxp" path="res://Media/imatges/squareAlls/adaltdreta.png" id="14_v5q3m"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="16_lk8r2"]
+
+[node name="ConcursAlliOli" type="Node2D"]
+script = ExtResource("1_gtp7m")
+
+[node name="Mantellcuadrats" type="Sprite2D" parent="."]
+position = Vector2(81, 139)
+texture = ExtResource("2_rk1e5")
+
+[node name="Mantellcuadrats2" type="Sprite2D" parent="."]
+position = Vector2(241, 140)
+texture = ExtResource("2_rk1e5")
+
+[node name="VelocitatIndicatorP2" parent="." instance=ExtResource("2_p6g2l")]
+visible = false
+offset_left = 220.0
+offset_top = 29.0
+offset_right = 298.0
+offset_bottom = 39.0
+
+[node name="VelocitatIndicatorP1" parent="." instance=ExtResource("2_p6g2l")]
+visible = false
+offset_left = 67.0
+offset_top = 29.0
+offset_right = 145.0
+offset_bottom = 39.0
+
+[node name="Allioli" parent="." instance=ExtResource("3_gsxpp")]
+visible = false
+position = Vector2(61, 137)
+scale = Vector2(0.8, 0.8)
+
+[node name="AllioliCenital1" parent="." instance=ExtResource("4_m3oa0")]
+position = Vector2(62, 168)
+scale = Vector2(0.75, 0.75)
+
+[node name="BiberoOliP2" parent="." instance=ExtResource("5_62355")]
+visible = false
+z_index = 2
+position = Vector2(160, 110)
+scale = Vector2(0.75, 0.75)
+
+[node name="BiberoOliP1" parent="." instance=ExtResource("5_62355")]
+visible = false
+z_index = 2
+position = Vector2(-26, 106)
+scale = Vector2(0.75, 0.75)
+
+[node name="ZonaEsquerraPlayer" type="CanvasLayer" parent="."]
+
+[node name="Splitimage" type="Sprite2D" parent="ZonaEsquerraPlayer"]
+z_as_relative = false
+position = Vector2(80, 120)
+texture = ExtResource("6_dv35l")
+
+[node name="ZonaDretaPlayer" type="CanvasLayer" parent="."]
+
+[node name="Splitimage" type="Sprite2D" parent="ZonaDretaPlayer"]
+z_as_relative = false
+position = Vector2(240, 120)
+texture = ExtResource("6_dv35l")
+
+[node name="AllioliCenital2" parent="." instance=ExtResource("4_m3oa0")]
+position = Vector2(224, 168)
+scale = Vector2(0.75, 0.75)
+
+[node name="Info" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Sprite2D34" type="Sprite2D" parent="Info"]
+position = Vector2(47, 163)
+texture = ExtResource("9_12vr3")
+flip_v = true
+
+[node name="Sprite2D33" type="Sprite2D" parent="Info"]
+position = Vector2(47, 141)
+texture = ExtResource("9_12vr3")
+flip_v = true
+
+[node name="Sprite2D32" type="Sprite2D" parent="Info"]
+position = Vector2(47, 119)
+texture = ExtResource("9_12vr3")
+flip_v = true
+
+[node name="Sprite2D31" type="Sprite2D" parent="Info"]
+position = Vector2(47, 97)
+texture = ExtResource("9_12vr3")
+flip_v = true
+
+[node name="Sprite2D30" type="Sprite2D" parent="Info"]
+position = Vector2(47, 75)
+texture = ExtResource("9_12vr3")
+flip_v = true
+
+[node name="Sprite2D24" type="Sprite2D" parent="Info"]
+position = Vector2(134, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D29" type="Sprite2D" parent="Info"]
+z_index = 1
+position = Vector2(47, 185)
+texture = ExtResource("11_65c2c")
+
+[node name="Sprite2D27" type="Sprite2D" parent="Info"]
+z_index = 1
+position = Vector2(69, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D26" type="Sprite2D" parent="Info"]
+z_index = 1
+position = Vector2(91, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D25" type="Sprite2D" parent="Info"]
+z_index = 1
+position = Vector2(113, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Info"]
+position = Vector2(47, 53)
+texture = ExtResource("12_noc8r")
+
+[node name="Sprite2D23" type="Sprite2D" parent="Info"]
+position = Vector2(156, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D22" type="Sprite2D" parent="Info"]
+position = Vector2(178, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D21" type="Sprite2D" parent="Info"]
+position = Vector2(199, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D20" type="Sprite2D" parent="Info"]
+position = Vector2(219, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D19" type="Sprite2D" parent="Info"]
+position = Vector2(241, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D18" type="Sprite2D" parent="Info"]
+position = Vector2(263, 185)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Info"]
+position = Vector2(263, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Info"]
+position = Vector2(243, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Info"]
+position = Vector2(222, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Info"]
+position = Vector2(200, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D28" type="Sprite2D" parent="Info"]
+position = Vector2(285, 185)
+texture = ExtResource("13_ma6mj")
+
+[node name="Sprite2D17" type="Sprite2D" parent="Info"]
+position = Vector2(285, 163)
+texture = ExtResource("9_12vr3")
+flip_h = true
+
+[node name="Sprite2D16" type="Sprite2D" parent="Info"]
+position = Vector2(285, 141)
+texture = ExtResource("9_12vr3")
+flip_h = true
+
+[node name="Sprite2D15" type="Sprite2D" parent="Info"]
+position = Vector2(285, 119)
+texture = ExtResource("9_12vr3")
+flip_h = true
+
+[node name="Sprite2D14" type="Sprite2D" parent="Info"]
+position = Vector2(285, 97)
+texture = ExtResource("9_12vr3")
+flip_h = true
+
+[node name="Sprite2D13" type="Sprite2D" parent="Info"]
+position = Vector2(285, 75)
+texture = ExtResource("9_12vr3")
+flip_h = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="Info"]
+position = Vector2(285, 53)
+texture = ExtResource("14_v5q3m")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Info"]
+position = Vector2(178, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Info"]
+position = Vector2(156, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Info"]
+position = Vector2(135, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Info"]
+position = Vector2(113, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Info"]
+position = Vector2(91, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D71" type="Sprite2D" parent="Info"]
+position = Vector2(91, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D73" type="Sprite2D" parent="Info"]
+position = Vector2(135, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D72" type="Sprite2D" parent="Info"]
+position = Vector2(135, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D74" type="Sprite2D" parent="Info"]
+position = Vector2(113, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D75" type="Sprite2D" parent="Info"]
+position = Vector2(113, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D76" type="Sprite2D" parent="Info"]
+position = Vector2(113, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D77" type="Sprite2D" parent="Info"]
+position = Vector2(113, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D78" type="Sprite2D" parent="Info"]
+position = Vector2(113, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D81" type="Sprite2D" parent="Info"]
+position = Vector2(135, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D80" type="Sprite2D" parent="Info"]
+position = Vector2(135, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D79" type="Sprite2D" parent="Info"]
+position = Vector2(135, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D40" type="Sprite2D" parent="Info"]
+position = Vector2(91, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D39" type="Sprite2D" parent="Info"]
+position = Vector2(69, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D38" type="Sprite2D" parent="Info"]
+position = Vector2(69, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D37" type="Sprite2D" parent="Info"]
+position = Vector2(69, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D36" type="Sprite2D" parent="Info"]
+position = Vector2(69, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D42" type="Sprite2D" parent="Info"]
+position = Vector2(223, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D43" type="Sprite2D" parent="Info"]
+position = Vector2(267, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D44" type="Sprite2D" parent="Info"]
+position = Vector2(267, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D45" type="Sprite2D" parent="Info"]
+position = Vector2(245, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D46" type="Sprite2D" parent="Info"]
+position = Vector2(245, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D47" type="Sprite2D" parent="Info"]
+position = Vector2(245, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D48" type="Sprite2D" parent="Info"]
+position = Vector2(245, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D49" type="Sprite2D" parent="Info"]
+position = Vector2(245, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D52" type="Sprite2D" parent="Info"]
+position = Vector2(267, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D51" type="Sprite2D" parent="Info"]
+position = Vector2(267, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D50" type="Sprite2D" parent="Info"]
+position = Vector2(267, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D53" type="Sprite2D" parent="Info"]
+position = Vector2(179, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D54" type="Sprite2D" parent="Info"]
+position = Vector2(223, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D55" type="Sprite2D" parent="Info"]
+position = Vector2(201, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D56" type="Sprite2D" parent="Info"]
+position = Vector2(201, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D57" type="Sprite2D" parent="Info"]
+position = Vector2(201, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D58" type="Sprite2D" parent="Info"]
+position = Vector2(201, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D59" type="Sprite2D" parent="Info"]
+position = Vector2(201, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D62" type="Sprite2D" parent="Info"]
+position = Vector2(223, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D61" type="Sprite2D" parent="Info"]
+position = Vector2(223, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D60" type="Sprite2D" parent="Info"]
+position = Vector2(223, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D41" type="Sprite2D" parent="Info"]
+position = Vector2(179, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D63" type="Sprite2D" parent="Info"]
+position = Vector2(157, 163)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D64" type="Sprite2D" parent="Info"]
+position = Vector2(157, 141)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D65" type="Sprite2D" parent="Info"]
+position = Vector2(157, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D66" type="Sprite2D" parent="Info"]
+position = Vector2(157, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D67" type="Sprite2D" parent="Info"]
+position = Vector2(157, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D70" type="Sprite2D" parent="Info"]
+position = Vector2(179, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D69" type="Sprite2D" parent="Info"]
+position = Vector2(179, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D68" type="Sprite2D" parent="Info"]
+position = Vector2(179, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D35" type="Sprite2D" parent="Info"]
+position = Vector2(69, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Info"]
+position = Vector2(69, 53)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D84" type="Sprite2D" parent="Info"]
+position = Vector2(91, 75)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D83" type="Sprite2D" parent="Info"]
+position = Vector2(91, 97)
+texture = ExtResource("11_whwrg")
+
+[node name="Sprite2D82" type="Sprite2D" parent="Info"]
+position = Vector2(91, 119)
+texture = ExtResource("11_whwrg")
+
+[node name="Label10" type="Label" parent="Info"]
+offset_left = 43.0
+offset_top = 162.0
+offset_right = 292.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = " i quantitat d' oli  o l'allioli es negara "
+
+[node name="Label9" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 151.0
+offset_right = 294.0
+offset_bottom = 164.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "dispares llavors para Vigila amb la velocitat"
+
+[node name="Label8" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 140.0
+offset_right = 294.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "emplenes amb el boto  de disparar, quan no  "
+
+[node name="Label7" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 128.0
+offset_right = 294.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "s'ha d' emplenar tambe al nivell que toca "
+
+[node name="Label6" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 116.0
+offset_right = 294.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "Tambe tens un indicador d'oli, "
+
+[node name="Label5" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 104.0
+offset_right = 433.0
+offset_bottom = 117.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "vol dir que vas a la velocitat adecuada."
+
+[node name="Label4" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 94.0
+offset_right = 433.0
+offset_bottom = 107.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "ni rapid. Tens un indicador i si es posa verd "
+
+[node name="Label3" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 83.0
+offset_right = 433.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "el morter pero a una velocitat ni massa lent "
+
+[node name="Label2" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 73.0
+offset_right = 433.0
+offset_bottom = 86.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "de morter. lavors has de comencar a rodar "
+
+[node name="Label" type="Label" parent="Info"]
+offset_left = 45.0
+offset_top = 62.0
+offset_right = 433.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 10
+text = "Primer de tots has de xafar els alls amb el ma"
+
+[node name="WaitReadytoHide" type="Timer" parent="Info"]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="InfoPlayer1" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(33, 101)
+texture = ExtResource("11_65c2c")
+
+[node name="Sprite2D8" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(99, 101)
+texture = ExtResource("13_ma6mj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(99, 79)
+texture = ExtResource("14_v5q3m")
+
+[node name="Sprite2D4" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(77, 79)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(77, 101)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(55, 101)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(55, 79)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D" type="Sprite2D" parent="InfoPlayer1"]
+position = Vector2(33, 79)
+texture = ExtResource("12_noc8r")
+
+[node name="Label3" type="Label" parent="InfoPlayer1"]
+offset_left = 39.0
+offset_top = 93.0
+offset_right = 96.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "constant"
+
+[node name="Label2" type="Label" parent="InfoPlayer1"]
+offset_left = 39.0
+offset_top = 84.0
+offset_right = 96.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "a velocitat"
+
+[node name="Label" type="Label" parent="InfoPlayer1"]
+offset_left = 39.0
+offset_top = 75.0
+offset_right = 96.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "Mou joystick "
+
+[node name="TimerInfoPlayer1" type="Timer" parent="InfoPlayer1"]
+wait_time = 2.0
+one_shot = true
+
+[node name="InfoPlayer2" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(213, 101)
+texture = ExtResource("11_65c2c")
+
+[node name="Sprite2D8" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(279, 101)
+texture = ExtResource("13_ma6mj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(279, 79)
+texture = ExtResource("14_v5q3m")
+
+[node name="Sprite2D4" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(257, 79)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D6" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(257, 101)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(235, 101)
+texture = ExtResource("10_7kksx")
+flip_v = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(235, 79)
+texture = ExtResource("10_7kksx")
+
+[node name="Sprite2D" type="Sprite2D" parent="InfoPlayer2"]
+position = Vector2(213, 79)
+texture = ExtResource("12_noc8r")
+
+[node name="Label3" type="Label" parent="InfoPlayer2"]
+offset_left = 219.0
+offset_top = 93.0
+offset_right = 276.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "constant"
+
+[node name="Label2" type="Label" parent="InfoPlayer2"]
+offset_left = 219.0
+offset_top = 84.0
+offset_right = 276.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "a velocitat"
+
+[node name="Label" type="Label" parent="InfoPlayer2"]
+offset_left = 219.0
+offset_top = 75.0
+offset_right = 276.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_lk8r2")
+theme_override_font_sizes/font_size = 8
+text = "Mou joystick "
+
+[node name="TimerInfoPlayer2" type="Timer" parent="InfoPlayer2"]
+wait_time = 2.0
+one_shot = true
+
+[node name="OliIndicatorP2" parent="." instance=ExtResource("8_hrxg7")]
+visible = false
+offset_left = 312.0
+offset_top = 40.0
+offset_right = 390.0
+offset_bottom = 50.0
+
+[node name="OliIndicatorP1" parent="." instance=ExtResource("8_hrxg7")]
+visible = false
+offset_left = 142.0
+offset_top = 45.0
+offset_right = 220.0
+offset_bottom = 55.0
+
+[node name="BackgroundVelocitatP2" type="TextureRect" parent="."]
+visible = false
+offset_left = 162.0
+offset_top = 41.0
+offset_right = 215.0
+offset_bottom = 54.0
+texture = ExtResource("11_whwrg")
+expand_mode = 1
+
+[node name="VelocitatP2" type="Label" parent="."]
+visible = false
+offset_left = 163.0
+offset_top = 40.0
+offset_right = 216.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r30kb")
+theme_override_font_sizes/font_size = 10
+text = "Velocitat"
+
+[node name="BackgroundVelocitatP1" type="TextureRect" parent="."]
+visible = false
+offset_left = 6.0
+offset_top = 39.0
+offset_right = 59.0
+offset_bottom = 52.0
+texture = ExtResource("11_whwrg")
+expand_mode = 1
+
+[node name="VelocitatP1" type="Label" parent="."]
+visible = false
+offset_left = 6.0
+offset_top = 40.0
+offset_right = 59.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r30kb")
+theme_override_font_sizes/font_size = 10
+text = "Velocitat"
+
+[node name="BackgroundOliP2" type="TextureRect" parent="."]
+visible = false
+offset_left = 288.0
+offset_top = 123.0
+offset_right = 319.0
+offset_bottom = 136.0
+texture = ExtResource("11_whwrg")
+expand_mode = 1
+
+[node name="OliP2" type="Label" parent="."]
+visible = false
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 297.0
+offset_top = 123.0
+offset_right = 313.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r30kb")
+theme_override_font_sizes/font_size = 10
+text = "Oli"
+
+[node name="BackgroundOliP1" type="TextureRect" parent="."]
+visible = false
+offset_left = 121.0
+offset_top = 127.0
+offset_right = 152.0
+offset_bottom = 140.0
+texture = ExtResource("11_whwrg")
+expand_mode = 1
+
+[node name="OliP1" type="Label" parent="."]
+visible = false
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = 127.0
+offset_right = 144.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.662745, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r30kb")
+theme_override_font_sizes/font_size = 10
+text = "Oli"
+
+[node name="GameDuration" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="Hud" parent="." instance=ExtResource("10_h51wc")]
+offset = Vector2(48, -40)
+transform = Transform2D(1, 0, 0, 1, 48, -40)
+
+[node name="OlitTimerP2" type="Timer" parent="."]
+
+[node name="RetryGame" parent="." instance=ExtResource("11_88mqd")]
+
+[node name="OlitTimerP1" type="Timer" parent="."]
+
+[connection signal="timeout" from="Info/WaitReadytoHide" to="." method="_on_wait_readyto_hide_timeout"]
+[connection signal="timeout" from="InfoPlayer1/TimerInfoPlayer1" to="." method="_on_timer_info_player_1_timeout"]
+[connection signal="timeout" from="InfoPlayer2/TimerInfoPlayer2" to="." method="_on_timer_info_player_2_timeout"]
+[connection signal="timeout" from="OlitTimerP2" to="." method="_on_olit_timer_p_2_timeout"]
+[connection signal="timeout" from="OlitTimerP1" to="." method="_on_olit_timer_p_1_timeout"]

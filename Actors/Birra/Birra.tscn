@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://7y1yg3ncpn4m"]
+
+[ext_resource type="Texture2D" uid="uid://bw2mrbkxh8kcm" path="res://Media/imatges/birrall/birrallrotacio_1.png" id="1_7cw74"]
+[ext_resource type="Script" path="res://MiniGames/CharacterBody2D.gd" id="1_8dj4m"]
+[ext_resource type="Texture2D" uid="uid://t36ff6btmq7d" path="res://Media/imatges/birrall/birrallrotacio_2.png" id="2_4ophe"]
+[ext_resource type="Texture2D" uid="uid://cbbrkv1pvjate" path="res://Media/imatges/birrall/birrallrotacio_3.png" id="3_15xo3"]
+[ext_resource type="Texture2D" uid="uid://c4bbev4obwewa" path="res://Media/imatges/birrall/birrallrotacio_4.png" id="4_l4vma"]
+[ext_resource type="Texture2D" uid="uid://dikmk6gvturu7" path="res://Media/imatges/birrall/birrallrotacio_5.png" id="5_t0t4f"]
+[ext_resource type="Texture2D" uid="uid://b0ecykkk0uuq2" path="res://Media/imatges/birrall/birrallrotacio_6.png" id="6_fr5a2"]
+[ext_resource type="Texture2D" uid="uid://c1j2evr7bxs4x" path="res://Media/imatges/birrall/birrallrotacio_7.png" id="7_lw10t"]
+[ext_resource type="Texture2D" uid="uid://v1d0xmo42qx4" path="res://Media/imatges/birrall/birrallrotacio_8.png" id="8_jgeo7"]
+[ext_resource type="Texture2D" uid="uid://db2mq336k1b78" path="res://Media/imatges/birrall/birrallrotacio_9.png" id="9_3lb25"]
+[ext_resource type="Texture2D" uid="uid://cl0r2dex1ilbf" path="res://Media/imatges/birrall/birrallrotacio_10.png" id="10_leeib"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1ixx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7cw74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4ophe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_15xo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l4vma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_t0t4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fr5a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lw10t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jgeo7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3lb25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_leeib")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4wosf"]
+size = Vector2(20, 44)
+
+[node name="Birra" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_8dj4m")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CharacterBody2D"]
+visible = false
+offset_left = -10.0
+offset_top = -31.0
+offset_right = 36.0
+offset_bottom = -21.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 5
+text = "Pos"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_w1ixx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_4wosf")
+disabled = true

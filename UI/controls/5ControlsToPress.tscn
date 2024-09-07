@@ -1,0 +1,202 @@
+[gd_scene load_steps=34 format=3 uid="uid://buh7l5re38hec"]
+
+[ext_resource type="Texture2D" uid="uid://dt0f0o2ykiaf1" path="res://Media/imatges/direccions/direccioamunt/stickadalt_5.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://c2dagd1wiud4n" path="res://Media/imatges/butto/button_5.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cm8kw8kqaq31p" path="res://Media/imatges/direccions/stickdreta_1.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cra64y2eoxym4" path="res://Media/imatges/direccions/stickdreta_4.png" id="4"]
+[ext_resource type="Script" path="res://UI/controls/5ControlsToPress.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://ddgppi64f2bu7" path="res://Media/imatges/direccions/stickdreta_5.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://cc3b43o2sae6c" path="res://Media/imatges/direccions/stickdreta_2.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cno58dtt16m3m" path="res://Media/imatges/direccions/direccioamunt/stickadalt_8.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://bcmak5h61g6cw" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_5.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://u23jkp3ekiwo" path="res://Media/imatges/direccions/direccioamunt/stickadalt_4.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://ikfpdfu5vd8l" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_6.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dw2ksuhaoe3fg" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_4.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://cmd8faeuhd0c6" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_2.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://d0wxywjxbrnf8" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_1.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://vivckam06b5f" path="res://Media/imatges/direccions/direccioamunt/stickadalt_3.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://dtrfa62kygpii" path="res://Media/imatges/direccions/direccioamunt/stickadalt_1.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://dqbh13a7i416m" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_2.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://c1shuwa25uj3c" path="res://Media/imatges/direccions/direccioamunt/stickadalt_2.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://c1q2sen4u8brr" path="res://Media/imatges/butto/button_3.png" id="19"]
+[ext_resource type="Texture2D" uid="uid://duevpuhddpytt" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_3.png" id="20"]
+[ext_resource type="Texture2D" uid="uid://j4frrkdpm1qe" path="res://Media/imatges/butto/button_2.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://bmwtc13rt7xqv" path="res://Media/imatges/butto/button_1.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://b4b1gfn8sdb1i" path="res://Media/imatges/butto/button_4.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://bieqin4ymy566" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_3.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://cyvk8tmfxvxqk" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_4.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://1pi7087bkjg6" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_5.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://bs10l600b1ugs" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_1.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://c4s52mbnsrssx" path="res://Media/imatges/direccions/stickdreta_3.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://dqnwnprmnbn4j" path="res://Media/imatges/direccions/direccioamunt/stickadalt_6.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://6ukd1ou8gamy" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_8.png" id="30"]
+[ext_resource type="Texture2D" uid="uid://b0a6kb54dcht0" path="res://Media/imatges/direccions/direccioamunt/stickadalt_7.png" id="31"]
+[ext_resource type="Texture2D" uid="uid://17s7hv4eidhg" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_7.png" id="32"]
+
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": true,
+"name": &"button",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("5")
+
+[node name="controlFirst" type="AnimatedSprite2D" parent="."]
+position = Vector2(-182, 38)
+sprite_frames = SubResource("1")
+animation = &"up"
+autoplay = "up"
+offset = Vector2(206, -8)
+
+[node name="controlFirst2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("1")
+animation = &"up"
+autoplay = "up"
+frame = 4
+offset = Vector2(60, 30)
+
+[node name="controlFirst3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("1")
+animation = &"up"
+autoplay = "up"
+frame = 6
+offset = Vector2(80, 30)
+
+[node name="controlFirst4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("1")
+animation = &"up"
+autoplay = "up"
+frame = 1
+offset = Vector2(100, 30)
+
+[node name="controlFirst5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("1")
+animation = &"up"
+autoplay = "up"
+frame = 5
+offset = Vector2(120, 30)

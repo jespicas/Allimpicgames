@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwe83ogsqk02f"]
+
+[ext_resource type="Script" path="res://UI/OliIndicator/OliIndicator.gd" id="1_6512m"]
+[ext_resource type="Texture2D" uid="uid://bqbk1lcjx6jee" path="res://UI/healthbar/textures/HealthBar.png" id="2_njyt5"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2_njyt5")
+region = Rect2(1, 35, 78, 10)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2_njyt5")
+region = Rect2(1, 19, 78, 10)
+
+[node name="Bilinear" type="CenterContainer"]
+offset_right = 78.0
+offset_bottom = 10.0
+rotation = 1.5708
+script = ExtResource("1_6512m")
+
+[node name="UnderBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_under = SubResource("1")
+texture_progress = SubResource("3")
+tint_under = Color(1, 0.0470588, 0.0352941, 1)
+tint_progress = Color(0.768627, 0.105882, 0.207843, 1)
+
+[node name="OverBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_progress = SubResource("3")
+tint_under = Color(0.988235, 0.403922, 0.458824, 1)
+tint_over = Color(1, 0.0470588, 0, 1)
+tint_progress = Color(0.329412, 0.784314, 0.0745098, 1)
+
+[node name="OverBar2" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_progress = SubResource("3")
+tint_under = Color(0.988235, 0.403922, 0.458824, 1)
+tint_over = Color(0.329412, 0.784314, 0.0745098, 1)
+tint_progress = Color(1, 0.0470588, 0, 1)

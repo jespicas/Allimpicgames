@@ -1,0 +1,181 @@
+[gd_scene load_steps=17 format=3 uid="uid://lm51moqe6bi6"]
+
+[ext_resource type="Script" path="res://MiniGames/enforcar_alls.gd" id="1_3xnma"]
+[ext_resource type="Texture2D" uid="uid://bf0ynr6biyy78" path="res://Media/imatges/enforcarAlls/enforcarAllsInicial.png" id="1_oxb1g"]
+[ext_resource type="PackedScene" uid="uid://0fn7f5uv7vjy" path="res://UI/enforcarAlls/canyem.tscn" id="3_vmmrt"]
+[ext_resource type="Texture2D" uid="uid://b35aegqnobka4" path="res://Media/imatges/enforcarAlls/enforcarAlls_4.png" id="4_5covy"]
+[ext_resource type="Texture2D" uid="uid://cb53pagr6ite4" path="res://Media/imatges/enforcarAlls/enforcarAlls_5.png" id="5_qq4n8"]
+[ext_resource type="Texture2D" uid="uid://bhh1lmfm8kc48" path="res://Media/imatges/enforcarAlls/Alls_6.png" id="6_h3gpj"]
+[ext_resource type="Texture2D" uid="uid://ctb18p62s8ee3" path="res://Media/imatges/enforcarAlls/Alls_7.png" id="7_h8hjg"]
+[ext_resource type="Texture2D" uid="uid://cs6w06yqc06jx" path="res://Media/imatges/enforcarAlls/Alls_8.png" id="8_tjw23"]
+[ext_resource type="Texture2D" uid="uid://dxdtmebrnw68i" path="res://Media/imatges/enforcarAlls/Alls_9.png" id="9_jamg6"]
+[ext_resource type="Texture2D" uid="uid://deqbglu6mdlgq" path="res://Media/imatges/enforcarAlls/Alls_10.png" id="10_uocs7"]
+[ext_resource type="Texture2D" uid="uid://bchpiguyjcuqh" path="res://Media/imatges/enforcarAlls/Alls_11.png" id="11_3irfr"]
+[ext_resource type="Texture2D" uid="uid://d2sytkrahfxpw" path="res://Media/imatges/enforcarAlls/Alls_12.png" id="12_lfhr7"]
+[ext_resource type="Texture2D" uid="uid://dqvpaxsycnoll" path="res://Media/imatges/enforcarAlls/Alls_13.png" id="13_ffxtq"]
+[ext_resource type="Texture2D" uid="uid://bp43ryue66ij7" path="res://Media/imatges/enforcarAlls/Alls_14.png" id="14_nnufc"]
+[ext_resource type="Texture2D" uid="uid://drjnebxjslafh" path="res://Media/imatges/enforcarAlls/Alls_15.png" id="15_t5s2c"]
+[ext_resource type="Texture2D" uid="uid://b2ieye1dbd22n" path="res://Media/imatges/enforcarAlls/Alls_16.png" id="16_b2luw"]
+
+[node name="EnforcarAlls" type="Node2D"]
+script = ExtResource("1_3xnma")
+
+[node name="AllsInicials" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(160, 123)
+texture = ExtResource("1_oxb1g")
+
+[node name="CanyemThird" parent="." instance=ExtResource("3_vmmrt")]
+position = Vector2(109, 195)
+
+[node name="CanyemSecond" parent="." instance=ExtResource("3_vmmrt")]
+position = Vector2(99, 200)
+
+[node name="CanyemFirst" parent="." instance=ExtResource("3_vmmrt")]
+position = Vector2(90, 201)
+
+[node name="All_4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("4_5covy")
+
+[node name="All_5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("5_qq4n8")
+
+[node name="All_6" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("6_h3gpj")
+
+[node name="All_7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("7_h8hjg")
+
+[node name="All_8" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("8_tjw23")
+
+[node name="All_9" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("9_jamg6")
+
+[node name="All_10" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("10_uocs7")
+
+[node name="All_11" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("11_3irfr")
+
+[node name="All_12" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("12_lfhr7")
+
+[node name="All_13" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("13_ffxtq")
+
+[node name="All_14" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("14_nnufc")
+
+[node name="All_15" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("15_t5s2c")
+
+[node name="All_16" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 123)
+texture = ExtResource("16_b2luw")
+
+[node name="SecondPlayer" type="CanvasLayer" parent="."]
+
+[node name="AllsInicials" type="Sprite2D" parent="SecondPlayer"]
+z_index = 1
+position = Vector2(288, 123)
+texture = ExtResource("1_oxb1g")
+
+[node name="CanyemThird" parent="SecondPlayer" instance=ExtResource("3_vmmrt")]
+position = Vector2(109, 195)
+
+[node name="CanyemSecond" parent="SecondPlayer" instance=ExtResource("3_vmmrt")]
+position = Vector2(99, 200)
+
+[node name="CanyemFirst" parent="SecondPlayer" instance=ExtResource("3_vmmrt")]
+position = Vector2(90, 201)
+
+[node name="All_4" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("4_5covy")
+
+[node name="All_5" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("5_qq4n8")
+
+[node name="All_6" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("6_h3gpj")
+
+[node name="All_7" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("7_h8hjg")
+
+[node name="All_8" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("8_tjw23")
+
+[node name="All_9" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("9_jamg6")
+
+[node name="All_10" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("10_uocs7")
+
+[node name="All_11" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("11_3irfr")
+
+[node name="All_12" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("12_lfhr7")
+
+[node name="All_13" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("13_ffxtq")
+
+[node name="All_14" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("14_nnufc")
+
+[node name="All_15" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("15_t5s2c")
+
+[node name="All_16" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(288, 123)
+texture = ExtResource("16_b2luw")

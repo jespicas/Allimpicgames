@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://f1qs1pih0jfl"]
+
+[ext_resource type="Texture2D" uid="uid://bqbk1lcjx6jee" path="res://UI/healthbar/textures/HealthBar.png" id="2_pe2u5"]
+
+[sub_resource type="GDScript" id="GDScript_j3dvd"]
+script/source = "extends CenterContainer
+
+
+signal update_health(amount)
+signal update_health_critical(amount)
+signal reset
+
+@export var value: float = 0.0
+
+func setupHelthBar(direction):
+	if \"RightToLeft\":
+		$UnderBar.set_fill_mode(1)
+		$OverBar.set_fill_mode(1)
+	else:
+		$UnderBar.set_fill_mode(0)
+		$OverBar.set_fill_mode(0)
+	
+
+func _ready() -> void:
+	connect(\"update_health\", Callable(self, \"_on_update_health\"))
+	connect(\"update_health_critical\", Callable(self, \"_on_update_health_critical\"))
+	connect(\"reset\", Callable(self, \"_on_reset\"))
+
+
+func _on_update_health(_value: float) -> void:
+	value = _value
+	var tween = create_tween()
+	$OverBar.visible = true
+	$OverBar2.visible = false
+	tween.tween_property($OverBar, \"value\", value, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($UnderBar, \"value\", value, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+func _on_update_health_critical(_value: float) -> void:
+	value = _value
+	var tween = create_tween()
+	$OverBar.visible = false
+	$OverBar2.visible = true
+
+	tween.tween_property($OverBar2, \"value\", value, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($UnderBar, \"value\", value, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	
+func _on_reset() -> void:
+	value = 0
+	$OverBar.value = value
+	$UnderBar.value = value
+"
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2_pe2u5")
+region = Rect2(1, 35, 78, 10)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2_pe2u5")
+region = Rect2(1, 19, 78, 10)
+
+[node name="Bilinear" type="CenterContainer"]
+offset_right = 78.0
+offset_bottom = 10.0
+script = SubResource("GDScript_j3dvd")
+
+[node name="UnderBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_under = SubResource("1")
+texture_progress = SubResource("3")
+tint_under = Color(1, 0.0470588, 0.0352941, 1)
+tint_progress = Color(0.768627, 0.105882, 0.207843, 1)
+
+[node name="OverBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_progress = SubResource("3")
+tint_under = Color(0.988235, 0.403922, 0.458824, 1)
+tint_over = Color(1, 0.0470588, 0, 1)
+tint_progress = Color(0.329412, 0.784314, 0.0745098, 1)
+
+[node name="OverBar2" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 2
+value = 100.0
+fill_mode = 6
+texture_progress = SubResource("3")
+tint_under = Color(0.988235, 0.403922, 0.458824, 1)
+tint_over = Color(0.329412, 0.784314, 0.0745098, 1)
+tint_progress = Color(1, 0.0470588, 0, 1)

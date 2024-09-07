@@ -1,0 +1,120 @@
+[gd_scene load_steps=10 format=3 uid="uid://dewabpm26848t"]
+
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="1"]
+[ext_resource type="Script" path="res://MainMenu/Settings.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="4_q7be4"]
+
+[sub_resource type="FontFile" id="2"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="3"]
+fallbacks = Array[Font]([ExtResource("1")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="4"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiuv1"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h6nl"]
+size = Vector2(120, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("3")
+
+[node name="LabelNick" type="RichTextLabel" parent="."]
+offset_left = 9.0
+offset_top = 23.0
+offset_right = 56.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("2")
+text = "Nick:"
+
+[node name="Back" type="RichTextLabel" parent="."]
+offset_left = 246.0
+offset_top = 211.0
+offset_right = 295.0
+offset_bottom = 232.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("3")
+text = "Back"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(267, 220)
+shape = SubResource("4")
+
+[node name="Guardar" type="RichTextLabel" parent="."]
+offset_left = 28.0
+offset_top = 207.0
+offset_right = 107.0
+offset_bottom = 229.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1")
+text = "Guardar"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(67, 217)
+shape = SubResource("RectangleShape2D_eiuv1")
+
+[node name="focusAll" type="Sprite2D" parent="."]
+position = Vector2(13, 219)
+texture = ExtResource("4_q7be4")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 51.0
+offset_top = 17.0
+offset_right = 276.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1")
+
+[node name="MessageText2" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 84.0
+offset_right = 298.0
+offset_bottom = 107.0
+theme_override_colors/default_color = Color(0.717647, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1")
+
+[node name="MessageText" type="RichTextLabel" parent="."]
+offset_left = 25.0
+offset_top = 62.0
+offset_right = 293.0
+offset_bottom = 85.0
+theme_override_colors/default_color = Color(0.717647, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1")
+
+[node name="ListFriends" type="RichTextLabel" parent="."]
+offset_left = 28.0
+offset_top = 143.0
+offset_right = 166.0
+offset_bottom = 162.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1")
+text = "Llistat Amics"
+
+[node name="touchlistfriends" type="TouchScreenButton" parent="."]
+position = Vector2(87, 154)
+shape = SubResource("RectangleShape2D_2h6nl")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="touchlistfriends" to="." method="_on_touchlistfriends_pressed"]

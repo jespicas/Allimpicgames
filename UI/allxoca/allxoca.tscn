@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw7cptq3vhd4s"]
+
+[ext_resource type="Texture2D" uid="uid://ctm64fwlpgt5s" path="res://Media/imatges/allxoca/allxoca_1.png" id="1_tt86m"]
+[ext_resource type="Script" path="res://UI/allxoca/allxoca.gd" id="1_wxufd"]
+[ext_resource type="Texture2D" uid="uid://bohegwxaq4gvi" path="res://Media/imatges/allxoca/allxoca_2.png" id="2_jvjen"]
+[ext_resource type="Texture2D" uid="uid://ck2nqpvno8fjy" path="res://Media/imatges/allxoca/allxoca_3.png" id="3_o5gxt"]
+[ext_resource type="Texture2D" uid="uid://bi54f50nsd7o1" path="res://Media/imatges/allxoca/allxoca_4.png" id="4_3x7hx"]
+[ext_resource type="Texture2D" uid="uid://e50y5i8ith5a" path="res://Media/imatges/allxoca/allxoca_5.png" id="5_mkn65"]
+[ext_resource type="Texture2D" uid="uid://bava0k2grxjmc" path="res://Media/imatges/allxoca/allxoca_6.png" id="6_858i3"]
+[ext_resource type="Texture2D" uid="uid://rllutqkfidhs" path="res://Media/imatges/allxoca/allxoca_7.png" id="7_sstp1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osvfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tt86m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tt86m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jvjen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o5gxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3x7hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mkn65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_858i3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sstp1")
+}],
+"loop": false,
+"name": &"xoca",
+"speed": 5.0
+}]
+
+[node name="Allxoca" type="CharacterBody2D"]
+script = ExtResource("1_wxufd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_osvfa")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
