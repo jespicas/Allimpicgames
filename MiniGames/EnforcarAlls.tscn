@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lm51moqe6bi6"]
+[gd_scene load_steps=30 format=3 uid="uid://lm51moqe6bi6"]
 
 [ext_resource type="Script" path="res://MiniGames/enforcar_alls.gd" id="1_3xnma"]
 [ext_resource type="Texture2D" uid="uid://bf0ynr6biyy78" path="res://Media/imatges/enforcarAlls/enforcarAllsInicial.png" id="1_oxb1g"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bp43ryue66ij7" path="res://Media/imatges/enforcarAlls/Alls_14.png" id="14_nnufc"]
 [ext_resource type="Texture2D" uid="uid://drjnebxjslafh" path="res://Media/imatges/enforcarAlls/Alls_15.png" id="15_t5s2c"]
 [ext_resource type="Texture2D" uid="uid://b2ieye1dbd22n" path="res://Media/imatges/enforcarAlls/Alls_16.png" id="16_b2luw"]
+[ext_resource type="Texture2D" uid="uid://dvp10n3eqgmfa" path="res://Media/imatges/enforcarAlls/lligatforcall.png" id="17_wxuya"]
 [ext_resource type="Texture2D" uid="uid://bxjl0fp7hin4b" path="res://Media/imatges/squareAlls/vertical.png" id="18_87ah3"]
 [ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="19_qw8we"]
 [ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="20_353ph"]
@@ -27,6 +28,7 @@
 [ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="25_g5a8t"]
 [ext_resource type="PackedScene" uid="uid://bxwvom72yex22" path="res://UI/Hud.tscn" id="26_120fl"]
 [ext_resource type="PackedScene" uid="uid://rn04uhwsm28s" path="res://UI/RetryGame.tscn" id="27_xwwhi"]
+[ext_resource type="Texture2D" uid="uid://1l8dqjxoogfo" path="res://Media/imatges/enforcarAlls/enforcarAlls_falda.png" id="28_6fa3i"]
 
 [node name="EnforcarAlls" type="Node2D"]
 script = ExtResource("1_3xnma")
@@ -43,6 +45,10 @@ transform = Transform2D(1, 0, 0, 1, 240, 120)
 z_index = 1
 position = Vector2(160, 123)
 texture = ExtResource("1_oxb1g")
+
+[node name="faldaEsquerra" type="Sprite2D" parent="."]
+position = Vector2(161, 119)
+texture = ExtResource("28_6fa3i")
 
 [node name="CanyemThird" parent="." instance=ExtResource("3_vmmrt")]
 position = Vector2(109, 195)
@@ -108,6 +114,11 @@ visible = false
 position = Vector2(160, 123)
 texture = ExtResource("14_nnufc")
 
+[node name="fiAll" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(88, 205)
+texture = ExtResource("17_wxuya")
+
 [node name="All_15" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(160, 123)
@@ -122,7 +133,7 @@ texture = ExtResource("16_b2luw")
 
 [node name="AllsInicials" type="Sprite2D" parent="SecondPlayer"]
 z_index = 1
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("1_oxb1g")
 
 [node name="CanyemThird" parent="SecondPlayer" instance=ExtResource("3_vmmrt")]
@@ -136,67 +147,72 @@ position = Vector2(90, 201)
 
 [node name="All_4" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("4_5covy")
 
 [node name="All_5" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("5_qq4n8")
 
 [node name="All_6" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("6_h3gpj")
 
 [node name="All_7" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("7_h8hjg")
 
 [node name="All_8" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("8_tjw23")
 
 [node name="All_9" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("9_jamg6")
 
 [node name="All_10" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("10_uocs7")
 
 [node name="All_11" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("11_3irfr")
 
 [node name="All_12" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("12_lfhr7")
 
 [node name="All_13" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("13_ffxtq")
 
 [node name="All_14" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("14_nnufc")
+
+[node name="fiAll" type="Sprite2D" parent="SecondPlayer"]
+visible = false
+position = Vector2(248, 205)
+texture = ExtResource("17_wxuya")
 
 [node name="All_15" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("15_t5s2c")
 
 [node name="All_16" type="Sprite2D" parent="SecondPlayer"]
 visible = false
-position = Vector2(288, 123)
+position = Vector2(328, 123)
 texture = ExtResource("16_b2luw")
 
 [node name="Info" type="CanvasLayer" parent="."]
@@ -668,6 +684,7 @@ one_shot = true
 autostart = true
 
 [node name="InfoPlayer1" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="InfoPlayer1"]
 position = Vector2(33, 101)
@@ -738,6 +755,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="InfoPlayer2" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="InfoPlayer2"]
 position = Vector2(213, 101)
@@ -808,7 +826,13 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Hud" parent="." instance=ExtResource("26_120fl")]
+visible = false
 offset = Vector2(48, -40)
 transform = Transform2D(1, 0, 0, 1, 48, -40)
 
 [node name="RetryGame" parent="." instance=ExtResource("27_xwwhi")]
+visible = false
+
+[node name="faldaDreta" type="Sprite2D" parent="."]
+position = Vector2(320, 118)
+texture = ExtResource("28_6fa3i")

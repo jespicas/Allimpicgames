@@ -9,11 +9,18 @@ var posCanyem3 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(89,104),V
 var posCanyem1Pos1 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(78,96),Vector2(78,106),Vector2(89,115),Vector2(70,120),Vector2(95,125),Vector2(79,135),Vector2(100,145),Vector2(70,155),Vector2(100,165),Vector2(84,180),Vector2(105,190),Vector2(68,190),Vector2(72,200),Vector2(100,200)]
 var posCanyem1PosSelect  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(55,95),Vector2(55,106),Vector2(69,115),Vector2(50,120),Vector2(80,125),Vector2(59,135),Vector2(80,145),Vector2(50,155),Vector2(80,165),Vector2(64,180),Vector2(85,190),Vector2(48,190),Vector2(52,200),Vector2(80,200)]
 
-var posCanyem1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(202,106),Vector2(219,106),Vector2(205,106),Vector2(220,125),Vector2(212,135),Vector2(220,145),Vector2(205,155),Vector2(220,165),Vector2(220,180),Vector2(220,190),Vector2(180,190),Vector2(185,200),Vector2(218,200)]
-var posCanyem2P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(211,106),Vector2(226,115),Vector2(212,115),Vector2(235,125),Vector2(219,135),Vector2(235,145),Vector2(212,155),Vector2(235,165),Vector2(225,180),Vector2(244,190),Vector2(205,190),Vector2(210,200),Vector2(242,200)]
-var posCanyem3P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(219,104),Vector2(235,116),Vector2(220,115),Vector2(245,125),Vector2(228,135),Vector2(245,145),Vector2(220,155),Vector2(245,165),Vector2(235,180),Vector2(252,190),Vector2(210,190),Vector2(215,200),Vector2(248,200)]
-var posCanyem1Pos1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(208,96),Vector2(208,106),Vector2(219,115),Vector2(200,120),Vector2(225,125),Vector2(209,135),Vector2(230,145),Vector2(200,155),Vector2(2300,165),Vector2(214,180),Vector2(235,190),Vector2(198,190),Vector2(202,200),Vector2(230,200)]
-var posCanyem1PosSelectP2  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(185,95),Vector2(185,106),Vector2(199,115),Vector2(180,120),Vector2(210,125),Vector2(189,135),Vector2(210,145),Vector2(180,155),Vector2(210,165),Vector2(194,180),Vector2(215,190),Vector2(178,190),Vector2(182,200),Vector2(210,200)]
+var posCanyem1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(242,106),Vector2(259,106),Vector2(245,106),Vector2(260,125),Vector2(252,135),Vector2(260,145),Vector2(245,155),Vector2(260,165),Vector2(260,180),Vector2(260,190),Vector2(220,190),Vector2(225,200),Vector2(258,200)]
+var posCanyem2P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(251,106),Vector2(266,115),Vector2(252,115),Vector2(275,125),Vector2(259,135),Vector2(275,145),Vector2(252,155),Vector2(275,165),Vector2(265,180),Vector2(284,190),Vector2(245,190),Vector2(250,200),Vector2(282,200)]
+var posCanyem3P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(259,104),Vector2(275,116),Vector2(260,115),Vector2(285,125),Vector2(268,135),Vector2(285,145),Vector2(260,155),Vector2(285,165),Vector2(275,180),Vector2(292,190),Vector2(250,190),Vector2(255,200),Vector2(288,200)]
+var posCanyem1Pos1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(248,96),Vector2(248,106),Vector2(259,115),Vector2(240,120),Vector2(265,125),Vector2(249,135),Vector2(270,145),Vector2(240,155),Vector2(270,165),Vector2(254,180),Vector2(275,190),Vector2(238,190),Vector2(242,200),Vector2(270,200)]
+var posCanyem1PosSelectP2  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(225,95),Vector2(225,106),Vector2(239,115),Vector2(220,120),Vector2(250,125),Vector2(229,135),Vector2(250,145),Vector2(220,155),Vector2(250,165),Vector2(234,180),Vector2(255,190),Vector2(218,190),Vector2(222,200),Vector2(250,200)]
+
+
+#var posCanyem1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(202,106),Vector2(219,106),Vector2(205,106),Vector2(220,125),Vector2(212,135),Vector2(220,145),Vector2(205,155),Vector2(220,165),Vector2(220,180),Vector2(220,190),Vector2(180,190),Vector2(185,200),Vector2(218,200)]
+#var posCanyem2P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(211,106),Vector2(226,115),Vector2(212,115),Vector2(235,125),Vector2(219,135),Vector2(235,145),Vector2(212,155),Vector2(235,165),Vector2(225,180),Vector2(244,190),Vector2(205,190),Vector2(210,200),Vector2(242,200)]
+#var posCanyem3P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(219,104),Vector2(235,116),Vector2(220,115),Vector2(245,125),Vector2(228,135),Vector2(245,145),Vector2(220,155),Vector2(245,165),Vector2(235,180),Vector2(252,190),Vector2(210,190),Vector2(215,200),Vector2(248,200)]
+#var posCanyem1Pos1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(208,96),Vector2(208,106),Vector2(219,115),Vector2(200,120),Vector2(225,125),Vector2(209,135),Vector2(230,145),Vector2(200,155),Vector2(2300,165),Vector2(214,180),Vector2(235,190),Vector2(198,190),Vector2(202,200),Vector2(230,200)]
+#var posCanyem1PosSelectP2  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(185,95),Vector2(185,106),Vector2(199,115),Vector2(180,120),Vector2(210,125),Vector2(189,135),Vector2(210,145),Vector2(180,155),Vector2(210,165),Vector2(194,180),Vector2(215,190),Vector2(178,190),Vector2(182,200),Vector2(210,200)]
 
 
 
@@ -94,10 +101,10 @@ func _ready() -> void:
 	$CanyemThird.changeCanyemSolFlip(false)
 	selecciona("first")
 	
-	$SecondPlayer/CanyemFirst.position = Vector2(210,95)
-	$SecondPlayer/CanyemSecond.position = Vector2(218,100)
+	$SecondPlayer/CanyemFirst.position = Vector2(250,95)
+	$SecondPlayer/CanyemSecond.position = Vector2(258,100)
 	$SecondPlayer/CanyemSecond.changeCanyemSolFlip(false)
-	$SecondPlayer/CanyemThird.position= Vector2(228,105)
+	$SecondPlayer/CanyemThird.position= Vector2(268,105)
 	$SecondPlayer/CanyemThird.changeCanyemSolFlip(false)
 	seleccionaP2("first")	
 	pass # Replace with function body.
@@ -309,21 +316,21 @@ func _input(event):
 	if Input.is_action_pressed("p2_move_up"):
 		isTorcatP2 = false		
 		if currentPositionP2 == "All_1":
-			$SeconPlayer/CanyemFirst.unselect(false)
+			$SecondPlayer/CanyemFirst.unselect(false)
 			isCanyemFirstGiraP2 = false
 			isCanyemFirstTorcatP2 = false
-			$SeconPlayer/CanyemFirst.position =  posCanyem1Pos1P2[numAllsEnforcatsP2+3]# Vector2(76,95)
+			$SecondPlayer/CanyemFirst.position =  posCanyem1Pos1P2[numAllsEnforcatsP2+3]# Vector2(76,95)
 		#	print("C1 X:"+str(posCanyem1Pos1[numAllsEnforcats+3].x)+"Y:"+str(posCanyem1Pos1[numAllsEnforcats+3].y))
 			seleccionaP2("first")
 			movimentsP2[0] = false 
 		if currentPositionP2 == "All_2":
-			$SeconPlayer/CanyemSecond.unselect(false)
+			$SecondPlayer/CanyemSecond.unselect(false)
 			isCanyemSecondGiraP2 = false
 			isCanyemSecondTorcatP2 = false
 			seleccionaP2("second")
 			movimentsP2[1] = false
 		if currentPositionP2 == "All_3":
-			$SeconPlayer/CanyemThird.unselect(false)
+			$SecondPlayer/CanyemThird.unselect(false)
 			isCanyemThirdGiraP2 = false
 			isCanyemThirdTorcatP2 = false
 			seleccionaP2("third")
@@ -455,6 +462,7 @@ func _input(event):
 				$CanyemFirst.hide()
 				$CanyemSecond.hide()
 				$CanyemThird.hide()
+				$fiAll.show()
 		
 		pass
 	if Input.is_action_pressed("p2_move_down"):
@@ -486,6 +494,7 @@ func _input(event):
 				$SecondPlayer/CanyemFirst.hide()
 				$SecondPlayer/CanyemSecond.hide()
 				$SecondPlayer/CanyemThird.hide()
+				$SecondPlayer/fiAll.show()
 		
 		pass
 		
