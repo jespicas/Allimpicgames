@@ -1,10 +1,10 @@
+Label
 Sprite2D
 CanvasLayer
 AnimatedSprite2D
 ColorRect
 Polygon2D
 Timer
-Label
 Button
 VBoxContainer
 HBoxContainer

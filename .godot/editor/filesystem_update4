@@ -8,3 +8,5 @@ res://MiniGames/EnforcarAlls.tscn
 res://MiniGames/AgafaAlls.tscn
 res://MiniGames/ConcursAlliOli.tscn
 res://OtherOptions/ShowRecords.tscn
+res://OtherOptions/ShowRecords.gd
+res://Global.gd

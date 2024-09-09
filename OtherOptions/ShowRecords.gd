@@ -2,41 +2,56 @@ extends CanvasLayer
 
 var time = 3 
 
-func _ready():
-	var f := File.new()
-	var doFileExists = f.file_exists("user://save.cfg")
-	if doFileExists == true:
-		f.open("user://save.cfg", File.READ)
-		var text =  f.get_as_text()	
-		var save_data = parse_json(text)
-		f.close()
 
-		save_data.sort_custom(self, "customComparison")
+func _ready():
+	var save_data = Global.GetScores()
+	save_data = [{
+	"score": 0,
+	"name": "NAME",
+	"game": "JOC"
+	}]
+	var new = {
+		"score": 0,
+		"name": "NAME",
+		"game": "JOC"
+	}
+	new["name"] = "labels"
+	new["score"] = int(100)
+	new["game"] = "RecollirAlls"
+	save_data.append(new)	
+	#var json = JSON.new()
+	#save_data = JSON.stringify(save_data)
+	#var f := File.new()
+	#var doFileExists = FileAccess.file_exists(Global.pathScores) #: f.file_exists("user://save.cfg")
+	if save_data != null :
+		
+		#save_data.sort_custom(self, "customComparison")
 
 		for i in range(save_data.size()):
-			if i <= 9:
-				var dynamic_font = DynamicFont.new()
-				dynamic_font.font_data = load("res://assets/fonts/Stacked pixel.ttf")
-				dynamic_font.size = 16
-				dynamic_font.outline_size = 1
-				dynamic_font.outline_color = Color( 1, 1, 1, 1 )
-				dynamic_font.use_filter = true			
+			if i <= 5:
+				var dynamic_font = FontVariation.new()
+				dynamic_font.base_font = load("res://Media/Fonts/zero_cool/ZeroCool.ttf")
+				#dynamic_font. = 16
+				#dynamic_font.outline_size = 1
+				#dynamic_font.outline_color = Color( 1, 1, 1, 1 )
+				#dynamic_font.use_filter = true			
 				var hola = Label.new()
-				hola.text = array_to_string(save_data[i].name)
+				print(save_data[i]["name"])
+				hola.text = save_data[i]["name"]
 				
 				hola.visible = true
 				#hola.add_font_override()
-				hola.add_font_override("font", dynamic_font)
-				hola.add_color_override("font_color", Color(0, 0, 0, 1))
+				#hola.add_font_override("font", dynamic_font)
+				#hola.add_color_override("font_color", Color(0, 0, 0, 1))
 				#hola.add_color_override("font_color", Color.red)
 				var score = Label.new()
-				score.add_font_override("font", dynamic_font)
-				score.add_color_override("font_color", Color(0, 0, 0, 1))
+				#score.add_font_override("font", dynamic_font)
 				#score.add_color_override("font_color", Color(0, 0, 0, 1))
-				score.text = str(save_data[i].score)
+				#score.add_color_override("font_color", Color(0, 0, 0, 1))
+				score.text = str(save_data[i]["score"])
 				score.visible = true
-				$Control2/GridContainer.add_child(hola)
-				$Control2/GridContainer.add_child(score)
+				$Control2/RecollirAlls.add_child(hola)
+				$Control2/RecollirAlls.add_child(score)
 	pass # Replace with function body.
 
 func customComparison(a, b):
@@ -55,4 +70,5 @@ func array_to_string(arr: Array) -> String:
 func _on_Timer_timeout():
 	time -= 1	
 	if time <= 0:
-		Global.goto_Main()
+		pass
+		#Global.goto_Main()

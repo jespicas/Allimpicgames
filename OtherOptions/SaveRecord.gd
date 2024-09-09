@@ -9,7 +9,8 @@ var labelsText = [
 ]
 var save_data = [{
 	"score": 0,
-	"name": "NAME"
+	"name": "NAME",
+	"game": "JOC"
 }]
 
 func _input(event):
@@ -120,10 +121,12 @@ func store():
 		
 		var new = {
 			"score": 0,
-			"name": "NAME"
+			"name": "NAME",
+			"game": "JOC"
 		}
 		new["name"] = labels
 		new["score"] = int($Control/punts.text)
+		new["game"] = Global.currentGame
 		save_data.append(new)
 
 		#var cfgFile = File.new()
@@ -134,6 +137,7 @@ func store():
 	else:
 		save_data[0]["name"] = labels
 		save_data[0]["score"] = int($Control/punts.text)
+		save_data[0]["game"] = Global.currentGame
 		#var cfgFile = File.new()
 		#cfgFile.open("user://save.cfg", File.WRITE)
 		#cfgFile.store_line(to_json(save_data))
