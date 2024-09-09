@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bbtbkxmu21xm4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+text = "Puntuacions"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+text = "Top 10"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control2"]
+layout_mode = 0
+columns = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

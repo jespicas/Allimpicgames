@@ -1,0 +1,244 @@
+[gd_scene load_steps=5 format=3 uid="uid://pyleiblv7dbb"]
+
+[ext_resource type="Script" path="res://OtherOptions/SaveRecord.gd" id="1_ljlqq"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="2_ladmi"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3_fr2hf"]
+[ext_resource type="StyleBox" uid="uid://b6tmabw0jvnb7" path="res://UI/hoverTeclat/HoverTeclat.tres" id="4_tn7w0"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ljlqq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture = ExtResource("2_ladmi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 48.0
+offset_right = 94.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "_"
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 48.0
+offset_right = 104.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "_"
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 48.0
+offset_right = 113.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "_"
+
+[node name="Label4" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 26.0
+offset_right = 60.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "Punts"
+
+[node name="punts" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 26.0
+offset_right = 102.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "0"
+
+[node name="Label6" type="Label" parent="Control"]
+offset_left = 10.0
+offset_top = 48.0
+offset_right = 74.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "Inicials"
+
+[node name="Label7" type="Label" parent="Control"]
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 93.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "En el Joc: "
+
+[node name="nomjoc" type="Label" parent="Control"]
+offset_left = 101.0
+offset_top = 6.0
+offset_right = 151.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_fr2hf")
+text = "Punts"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control2"]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 303.0
+offset_bottom = 201.0
+columns = 11
+
+[node name="End" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "End"
+
+[node name="Del" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "Del"
+
+[node name="A" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = " A "
+
+[node name="B" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "B"
+
+[node name="C" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "C"
+
+[node name="D" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "D"
+
+[node name="E" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "E"
+
+[node name="F" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "F"
+
+[node name="G" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "G"
+
+[node name="H" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "H"
+
+[node name="I" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "I"
+
+[node name="J" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "J"
+
+[node name="K" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "K"
+
+[node name="L" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "L"
+
+[node name="M" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "M"
+
+[node name="N" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "N"
+
+[node name="Ñ" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "ny"
+
+[node name="O" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "O"
+
+[node name="P" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "P"
+
+[node name="Q" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "Q"
+
+[node name="R" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "R"
+
+[node name="S" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "S"
+
+[node name="T" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "T"
+
+[node name="V" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "V"
+
+[node name="W" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "W"
+
+[node name="X" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "X"
+
+[node name="Y" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "Y"
+
+[node name="Z" type="Button" parent="Control2/GridContainer"]
+layout_mode = 2
+theme_override_styles/focus = ExtResource("4_tn7w0")
+text = "Z"

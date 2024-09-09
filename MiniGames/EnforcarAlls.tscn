@@ -216,7 +216,6 @@ position = Vector2(328, 123)
 texture = ExtResource("16_b2luw")
 
 [node name="Info" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Sprite2D34" type="Sprite2D" parent="Info"]
 position = Vector2(47, 163)
@@ -586,7 +585,6 @@ offset_bottom = 175.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = " i quantitat d' oli  o l'allioli es negara "
 
 [node name="Label9" type="Label" parent="Info"]
 offset_left = 45.0
@@ -596,7 +594,6 @@ offset_bottom = 164.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "dispares llavors para Vigila amb la velocitat"
 
 [node name="Label8" type="Label" parent="Info"]
 offset_left = 45.0
@@ -606,7 +603,7 @@ offset_bottom = 153.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "emplenes amb el boto  de disparar, quan no  "
+text = "si apretes amunt es posa be"
 
 [node name="Label7" type="Label" parent="Info"]
 offset_left = 45.0
@@ -616,7 +613,7 @@ offset_bottom = 141.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "s'ha d' emplenar tambe al nivell que toca "
+text = "proxim all. encas de doblegar el que no vols"
 
 [node name="Label6" type="Label" parent="Info"]
 offset_left = 45.0
@@ -626,7 +623,7 @@ offset_bottom = 129.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "Tambe tens un indicador d'oli, "
+text = "doblegar el canyem i apretar avall per el "
 
 [node name="Label5" type="Label" parent="Info"]
 offset_left = 45.0
@@ -636,7 +633,7 @@ offset_bottom = 117.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "vol dir que vas a la velocitat adecuada."
+text = "canyem, pulsar als dos botons a l'hora per"
 
 [node name="Label4" type="Label" parent="Info"]
 offset_left = 45.0
@@ -646,7 +643,7 @@ offset_bottom = 107.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "ni rapid. Tens un indicador i si es posa verd "
+text = "En el joc has de agafar el primer i ultim "
 
 [node name="Label3" type="Label" parent="Info"]
 offset_left = 45.0
@@ -656,7 +653,7 @@ offset_bottom = 96.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "el morter pero a una velocitat ni massa lent "
+text = "i amb el canyem o fer com un lligat."
 
 [node name="Label2" type="Label" parent="Info"]
 offset_left = 45.0
@@ -666,7 +663,7 @@ offset_bottom = 86.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "de morter. lavors has de comencar a rodar "
+text = "Per enforcar has s'ha d' agafar l' all "
 
 [node name="Label" type="Label" parent="Info"]
 offset_left = 45.0
@@ -676,12 +673,11 @@ offset_bottom = 75.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 10
-text = "Primer de tots has de xafar els alls amb el ma"
+text = "El mes rapid d' enforcar els alls guanya"
 
 [node name="WaitReadytoHide" type="Timer" parent="Info"]
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
-autostart = true
 
 [node name="InfoPlayer1" type="CanvasLayer" parent="."]
 visible = false
@@ -728,7 +724,6 @@ offset_bottom = 103.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 8
-text = "constant"
 
 [node name="Label2" type="Label" parent="InfoPlayer1"]
 offset_left = 39.0
@@ -738,7 +733,6 @@ offset_bottom = 94.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 8
-text = "a velocitat"
 
 [node name="Label" type="Label" parent="InfoPlayer1"]
 offset_left = 39.0
@@ -748,7 +742,6 @@ offset_bottom = 85.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("25_g5a8t")
 theme_override_font_sizes/font_size = 8
-text = "Mou joystick "
 
 [node name="TimerInfoPlayer1" type="Timer" parent="InfoPlayer1"]
 wait_time = 2.0
@@ -827,12 +820,14 @@ one_shot = true
 
 [node name="Hud" parent="." instance=ExtResource("26_120fl")]
 visible = false
-offset = Vector2(48, -40)
-transform = Transform2D(1, 0, 0, 1, 48, -40)
+offset = Vector2(40, -70)
+transform = Transform2D(1, 0, 0, 1, 40, -70)
 
 [node name="RetryGame" parent="." instance=ExtResource("27_xwwhi")]
 visible = false
 
 [node name="faldaDreta" type="Sprite2D" parent="."]
-position = Vector2(320, 118)
+position = Vector2(318, 118)
 texture = ExtResource("28_6fa3i")
+
+[connection signal="timeout" from="Info/WaitReadytoHide" to="." method="_on_wait_readyto_hide_timeout"]

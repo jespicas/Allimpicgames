@@ -16,14 +16,6 @@ var posCanyem1Pos1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(248
 var posCanyem1PosSelectP2  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(225,95),Vector2(225,106),Vector2(239,115),Vector2(220,120),Vector2(250,125),Vector2(229,135),Vector2(250,145),Vector2(220,155),Vector2(250,165),Vector2(234,180),Vector2(255,190),Vector2(218,190),Vector2(222,200),Vector2(250,200)]
 
 
-#var posCanyem1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(202,106),Vector2(219,106),Vector2(205,106),Vector2(220,125),Vector2(212,135),Vector2(220,145),Vector2(205,155),Vector2(220,165),Vector2(220,180),Vector2(220,190),Vector2(180,190),Vector2(185,200),Vector2(218,200)]
-#var posCanyem2P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(211,106),Vector2(226,115),Vector2(212,115),Vector2(235,125),Vector2(219,135),Vector2(235,145),Vector2(212,155),Vector2(235,165),Vector2(225,180),Vector2(244,190),Vector2(205,190),Vector2(210,200),Vector2(242,200)]
-#var posCanyem3P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(219,104),Vector2(235,116),Vector2(220,115),Vector2(245,125),Vector2(228,135),Vector2(245,145),Vector2(220,155),Vector2(245,165),Vector2(235,180),Vector2(252,190),Vector2(210,190),Vector2(215,200),Vector2(248,200)]
-#var posCanyem1Pos1P2 = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(208,96),Vector2(208,106),Vector2(219,115),Vector2(200,120),Vector2(225,125),Vector2(209,135),Vector2(230,145),Vector2(200,155),Vector2(2300,165),Vector2(214,180),Vector2(235,190),Vector2(198,190),Vector2(202,200),Vector2(230,200)]
-#var posCanyem1PosSelectP2  = [Vector2(10,10),Vector2(10,10),Vector2(10,10),Vector2(185,95),Vector2(185,106),Vector2(199,115),Vector2(180,120),Vector2(210,125),Vector2(189,135),Vector2(210,145),Vector2(180,155),Vector2(210,165),Vector2(194,180),Vector2(215,190),Vector2(178,190),Vector2(182,200),Vector2(210,200)]
-
-
-
 var currentPosAlls = 2
 var currentPosAllsP2 = 2
 
@@ -58,6 +50,14 @@ var numAllsEnforcatsP2 = 0
 
 var isTorcat = false
 var isTorcatP2 = false
+
+var tempsP1 = 0
+var tempsP2 = 0
+var gameStart = false
+var is_Showing_Square = false
+
+var player1End = false
+var player2End = false
 
 func resetSelects():
 	isCanyemFirstGira = false
@@ -94,6 +94,9 @@ func resetSelectsP2():
 		seleccionaP2("third")	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.setCurrentGame("EnforcarAlls")
+	is_Showing_Square = true
+	
 	$CanyemFirst.position = Vector2(80,95)
 	$CanyemSecond.position = Vector2(88,100)
 	$CanyemSecond.changeCanyemSolFlip(false)
@@ -101,6 +104,8 @@ func _ready() -> void:
 	$CanyemThird.changeCanyemSolFlip(false)
 	selecciona("first")
 	
+	if Global.tipusdeJoc == "practicar":
+		hide_SecondPlayer()
 	$SecondPlayer/CanyemFirst.position = Vector2(250,95)
 	$SecondPlayer/CanyemSecond.position = Vector2(258,100)
 	$SecondPlayer/CanyemSecond.changeCanyemSolFlip(false)
@@ -109,11 +114,38 @@ func _ready() -> void:
 	seleccionaP2("first")	
 	pass # Replace with function body.
 
-
+func hide_SecondPlayer():
+	$SecondPlayer.hide()
+	$faldaDreta.hide()
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.tipusdeJoc == "practicar":
+		gameStart = false
+		$RetryGame.menuRetry = true
+		$RetryGame.show()
+		$RetryGame.ShowRetry()
+		
+		pass
+	else:
+		if player1End == true and player2End == true:
+			gameStart = false
+			$Hud.show()
+			$Hud.hideTiming()
+			$Hud.hideMessageP1()
+			$Hud.hideMessageP2()
+			if tempsP1 > tempsP2:
+				$Hud.show_message("P2 guanya")	
+			else:
+				$Hud.show_message("P1 guanya")
+			
+			$RetryGame.show()
+			$RetryGame.ShowRetry()
+		
+		if gameStart == true:
+			tempsP1 += delta
+			tempsP2 += delta
 	pass
-
 
 func selecciona(position):
 	if position == "first":
@@ -221,280 +253,301 @@ func seleccionaP2(position):
 		if isCanyemSecondTorcatP2 == true:
 			$SecondPlayer/CanyemSecond.deixaTorcatNoMa(false)
 			
-
-
 func _input(event):
-	if Input.is_action_pressed("p2_press_button"):
-		if currentPositionP2 == "All_1":
-#			print(currentPosition)
-			$SecondPlayer/CanyemFirst.agafa()
-		if currentPositionP2 == "All_2":
-#			print(currentPosition)
-			$SecondPlayer/CanyemSecond.agafa()
-		if currentPositionP2 == "All_3":
-#			print(currentPosition)
-			$SecondPlayer/CanyemThird.agafa()
-	if Input.is_action_pressed("p1_press_button"):
-		if currentPosition == "All_1":
-#			print(currentPosition)
-			$CanyemFirst.agafa()
-		if currentPosition == "All_2":
-#			print(currentPosition)
-			$CanyemSecond.agafa()
-		if currentPosition == "All_3":
-#			print(currentPosition)
-			$CanyemThird.agafa()
-	if Input.is_action_just_released("p1_press_button"):
-		isTorcat = false
-		if currentPosition == "All_1":
-			if isCanyemFirstGira == true:
-				$CanyemFirst.deixaTorcat(true)
-				isCanyemFirstTorcat = true
-			else:
-#				print(currentPosition)
-				$CanyemFirst.deixa()
-		if currentPosition == "All_2":
-			if isCanyemSecondGira == true:
-				$CanyemSecond.deixaTorcat(false)
-				isCanyemSecondTorcat = true
-			else:
-#				print(currentPosition)
-				$CanyemSecond.deixa()
-		if currentPosition == "All_3":
-			if isCanyemThirdGira == true:
-				$CanyemThird.deixaTorcat(false)
-				isCanyemThirdTorcat = true
-			else:
-#				print(currentPosition)
-				$CanyemThird.deixa()
-	if Input.is_action_just_released("p2_press_button"):
-		isTorcatP2 = false
-		if currentPositionP2 == "All_1":
-			if isCanyemFirstGiraP2 == true:
-				$SecondPlayer/CanyemFirst.deixaTorcat(true)
-				isCanyemFirstTorcatP2 = true
-			else:
-#				print(currentPosition)
-				$SecondPlayer/CanyemFirst.deixa()
-		if currentPositionP2 == "All_2":
-			if isCanyemSecondGiraP2 == true:
-				$SecondPlayer/CanyemSecond.deixaTorcat(false)
-				isCanyemSecondTorcatP2 = true
-			else:
-#				print(currentPosition)
-				$SecondPlayer/CanyemSecond.deixa()
-		if currentPositionP2 == "All_3":
-			if isCanyemThirdGiraP2 == true:
-				$SecondPlayer/CanyemThird.deixaTorcat(false)
-				isCanyemThirdTorcatP2 = true
-			else:
-#				print(currentPosition)
-				$SecondPlayer/CanyemThird.deixa()				
-	if Input.is_action_pressed("p1_move_up"):
-		isTorcat = false		
-		if currentPosition == "All_1":
-			$CanyemFirst.unselect(false)
-			isCanyemFirstGira = false
-			isCanyemFirstTorcat = false
-			$CanyemFirst.position =  posCanyem1Pos1[numAllsEnforcats+3]# Vector2(76,95)
-			print("C1 X:"+str(posCanyem1Pos1[numAllsEnforcats+3].x)+"Y:"+str(posCanyem1Pos1[numAllsEnforcats+3].y))
-			selecciona("first")
-			moviments[0] = false 
-		if currentPosition == "All_2":
-			$CanyemSecond.unselect(false)
-			isCanyemSecondGira = false
-			isCanyemSecondTorcat = false
-			selecciona("second")
-			moviments[1] = false
-		if currentPosition == "All_3":
-			$CanyemThird.unselect(false)
-			isCanyemThirdGira = false
-			isCanyemThirdTorcat = false
-			selecciona("third")
-			moviments[2] = false
-		pass
-	if Input.is_action_pressed("p2_move_up"):
-		isTorcatP2 = false		
-		if currentPositionP2 == "All_1":
-			$SecondPlayer/CanyemFirst.unselect(false)
-			isCanyemFirstGiraP2 = false
-			isCanyemFirstTorcatP2 = false
-			$SecondPlayer/CanyemFirst.position =  posCanyem1Pos1P2[numAllsEnforcatsP2+3]# Vector2(76,95)
-		#	print("C1 X:"+str(posCanyem1Pos1[numAllsEnforcats+3].x)+"Y:"+str(posCanyem1Pos1[numAllsEnforcats+3].y))
-			seleccionaP2("first")
-			movimentsP2[0] = false 
-		if currentPositionP2 == "All_2":
-			$SecondPlayer/CanyemSecond.unselect(false)
-			isCanyemSecondGiraP2 = false
-			isCanyemSecondTorcatP2 = false
-			seleccionaP2("second")
-			movimentsP2[1] = false
-		if currentPositionP2 == "All_3":
-			$SecondPlayer/CanyemThird.unselect(false)
-			isCanyemThirdGiraP2 = false
-			isCanyemThirdTorcatP2 = false
-			seleccionaP2("third")
-			movimentsP2[2] = false
-		pass		
-	if Input.is_action_pressed("p1_press_buton2"):
-		isTorcat = true # and Input.is_action_pressed("p1_move_right"):
-		if currentPosition == "All_1":
-			$CanyemFirst.gira()
-			isCanyemFirstGira = true
-			moviments[0] = true
-		#	currentPosition = "All_2"
-		if currentPosition == "All_2":
-			$CanyemSecond.gira()
-			isCanyemSecondGira = true
-			moviments[1] = true
-		#	currentPosition = "All_3"
-		if currentPosition == "All_3":
-			$CanyemThird.gira()
-			isCanyemThirdGira = true
-#			print(isCanyemThirdGira)
-			moviments[2] = true
-		#	currentPosition = "All_1"	
-	if Input.is_action_pressed("p2_press_buton2"):
-		isTorcatP2 = true # and Input.is_action_pressed("p1_move_right"):
-		if currentPositionP2 == "All_1":
-			$SecondPlayer/CanyemFirst.gira()
-			isCanyemFirstGiraP2 = true
-			movimentsP2[0] = true
-		#	currentPosition = "All_2"
-		if currentPositionP2 == "All_2":
-			$SecondPlayer/CanyemSecond.gira()
-			isCanyemSecondGiraP2 = true
-			movimentsP2[1] = true
-		#	currentPosition = "All_3"
-		if currentPositionP2 == "All_3":
-			$SecondPlayer/CanyemThird.gira()
-			isCanyemThirdGiraP2 = true
-#			print(isCanyemThirdGira)
-			movimentsP2[2] = true
-	if Input.is_action_pressed("p1_move_left"):
-		if isTorcat == false :
-			lastPressed = "left"
-			$AllsInicials.show()
+	if is_Showing_Square == true:
+		if Input.is_action_pressed("p1_press_button") or  Input.is_action_pressed("p2_press_button") :
+			$Info/WaitReadytoHide.start()
+	else:
+		if Input.is_action_pressed("p2_press_button"):
+			if currentPositionP2 == "All_1":
+	#			print(currentPosition)
+				$SecondPlayer/CanyemFirst.agafa()
+			if currentPositionP2 == "All_2":
+	#			print(currentPosition)
+				$SecondPlayer/CanyemSecond.agafa()
+			if currentPositionP2 == "All_3":
+	#			print(currentPosition)
+				$SecondPlayer/CanyemThird.agafa()
+		if Input.is_action_pressed("p1_press_button"):
 			if currentPosition == "All_1":
-				selecciona("third")
-		#		print("left")
-				currentPosition = "All_3"
-			elif currentPosition == "All_2":
+	#			print(currentPosition)
+				$CanyemFirst.agafa()
+			if currentPosition == "All_2":
+	#			print(currentPosition)
+				$CanyemSecond.agafa()
+			if currentPosition == "All_3":
+	#			print(currentPosition)
+				$CanyemThird.agafa()
+		if Input.is_action_just_released("p1_press_button"):
+			isTorcat = false
+			if currentPosition == "All_1":
+				if isCanyemFirstGira == true:
+					$CanyemFirst.deixaTorcat(true)
+					isCanyemFirstTorcat = true
+				else:
+	#				print(currentPosition)
+					$CanyemFirst.deixa()
+			if currentPosition == "All_2":
+				if isCanyemSecondGira == true:
+					$CanyemSecond.deixaTorcat(false)
+					isCanyemSecondTorcat = true
+				else:
+	#				print(currentPosition)
+					$CanyemSecond.deixa()
+			if currentPosition == "All_3":
+				if isCanyemThirdGira == true:
+					$CanyemThird.deixaTorcat(false)
+					isCanyemThirdTorcat = true
+				else:
+	#				print(currentPosition)
+					$CanyemThird.deixa()
+		if Input.is_action_just_released("p2_press_button"):
+			isTorcatP2 = false
+			if currentPositionP2 == "All_1":
+				if isCanyemFirstGiraP2 == true:
+					$SecondPlayer/CanyemFirst.deixaTorcat(true)
+					isCanyemFirstTorcatP2 = true
+				else:
+	#				print(currentPosition)
+					$SecondPlayer/CanyemFirst.deixa()
+			if currentPositionP2 == "All_2":
+				if isCanyemSecondGiraP2 == true:
+					$SecondPlayer/CanyemSecond.deixaTorcat(false)
+					isCanyemSecondTorcatP2 = true
+				else:
+	#				print(currentPosition)
+					$SecondPlayer/CanyemSecond.deixa()
+			if currentPositionP2 == "All_3":
+				if isCanyemThirdGiraP2 == true:
+					$SecondPlayer/CanyemThird.deixaTorcat(false)
+					isCanyemThirdTorcatP2 = true
+				else:
+	#				print(currentPosition)
+					$SecondPlayer/CanyemThird.deixa()				
+		if Input.is_action_pressed("p1_move_up"):
+			isTorcat = false		
+			if currentPosition == "All_1":
+				$CanyemFirst.unselect(false)
+				isCanyemFirstGira = false
+				isCanyemFirstTorcat = false
+				$CanyemFirst.position =  posCanyem1Pos1[numAllsEnforcats+3]# Vector2(76,95)
+				print("C1 X:"+str(posCanyem1Pos1[numAllsEnforcats+3].x)+"Y:"+str(posCanyem1Pos1[numAllsEnforcats+3].y))
 				selecciona("first")
-		#		print("left")
-				currentPosition = "All_1"
-			elif currentPosition == "All_3":
+				moviments[0] = false 
+			if currentPosition == "All_2":
+				$CanyemSecond.unselect(false)
+				isCanyemSecondGira = false
+				isCanyemSecondTorcat = false
 				selecciona("second")
-		#		print("left")
-				currentPosition = "All_2"	
-			
-			pass
-	if Input.is_action_pressed("p2_move_left"):
-		if isTorcatP2 == false :
-			lastPressedP2 = "left"
-			$SecondPlayer/AllsInicials.show()
-			if currentPositionP2 == "All_1":
-				seleccionaP2("third")
-		#		print("left")
-				currentPositionP2 = "All_3"
-			elif currentPositionP2 == "All_2":
-				seleccionaP2("first")
-		#		print("left")
-				currentPositionP2 = "All_1"
-			elif currentPositionP2 == "All_3":
-				seleccionaP2("second")
-		#		print("left")
-				currentPositionP2 = "All_2"	
-			
-			pass			
-	if Input.is_action_pressed("p1_move_right"):
-		if isTorcat == false:
-			lastPressed = "right"
-			if currentPosition == "All_1":
-				selecciona("second")
-				currentPosition = "All_2"
-			elif currentPosition == "All_2":
-			#	pass
+				moviments[1] = false
+			if currentPosition == "All_3":
+				$CanyemThird.unselect(false)
+				isCanyemThirdGira = false
+				isCanyemThirdTorcat = false
 				selecciona("third")
-				currentPosition = "All_3"
-			elif currentPosition == "All_3":
-				selecciona("first")			
-				currentPosition = "All_1"		
+				moviments[2] = false
 			pass
-	if Input.is_action_pressed("p2_move_right"):
-		if isTorcatP2 == false:
-			lastPressedP2 = "right"
+		if Input.is_action_pressed("p2_move_up"):
+			isTorcatP2 = false		
 			if currentPositionP2 == "All_1":
+				$SecondPlayer/CanyemFirst.unselect(false)
+				isCanyemFirstGiraP2 = false
+				isCanyemFirstTorcatP2 = false
+				$SecondPlayer/CanyemFirst.position =  posCanyem1Pos1P2[numAllsEnforcatsP2+3]# Vector2(76,95)
+			#	print("C1 X:"+str(posCanyem1Pos1[numAllsEnforcats+3].x)+"Y:"+str(posCanyem1Pos1[numAllsEnforcats+3].y))
+				seleccionaP2("first")
+				movimentsP2[0] = false 
+			if currentPositionP2 == "All_2":
+				$SecondPlayer/CanyemSecond.unselect(false)
+				isCanyemSecondGiraP2 = false
+				isCanyemSecondTorcatP2 = false
 				seleccionaP2("second")
-				currentPositionP2 = "All_2"
-			elif currentPositionP2 == "All_2":
-			#	pass
+				movimentsP2[1] = false
+			if currentPositionP2 == "All_3":
+				$SecondPlayer/CanyemThird.unselect(false)
+				isCanyemThirdGiraP2 = false
+				isCanyemThirdTorcatP2 = false
 				seleccionaP2("third")
-				currentPositionP2 = "All_3"
-			elif currentPositionP2 == "All_3":
-				seleccionaP2("first")			
-				currentPositionP2 = "All_1"		
-			pass			
-	if Input.is_action_pressed("p1_move_down"):
-		if moviments[0] == true and moviments[2] == true and moviments[1] == false:
-			numAllsEnforcats += 1
-			print(numAllsEnforcats)
-			if numAllsEnforcats <= 13:
-				var next = currentPosAlls+1
-				#print(str(alls.size()))
-				#print(str(next))
+				movimentsP2[2] = false
+			pass		
+		if Input.is_action_pressed("p1_press_buton2"):
+			isTorcat = true # and Input.is_action_pressed("p1_move_right"):
+			if currentPosition == "All_1":
+				$CanyemFirst.gira()
+				isCanyemFirstGira = true
+				moviments[0] = true
+			#	currentPosition = "All_2"
+			if currentPosition == "All_2":
+				$CanyemSecond.gira()
+				isCanyemSecondGira = true
+				moviments[1] = true
+			#	currentPosition = "All_3"
+			if currentPosition == "All_3":
+				$CanyemThird.gira()
+				isCanyemThirdGira = true
+	#			print(isCanyemThirdGira)
+				moviments[2] = true
+			#	currentPosition = "All_1"	
+		if Input.is_action_pressed("p2_press_buton2"):
+			isTorcatP2 = true # and Input.is_action_pressed("p1_move_right"):
+			if currentPositionP2 == "All_1":
+				$SecondPlayer/CanyemFirst.gira()
+				isCanyemFirstGiraP2 = true
+				movimentsP2[0] = true
+			#	currentPosition = "All_2"
+			if currentPositionP2 == "All_2":
+				$SecondPlayer/CanyemSecond.gira()
+				isCanyemSecondGiraP2 = true
+				movimentsP2[1] = true
+			#	currentPosition = "All_3"
+			if currentPositionP2 == "All_3":
+				$SecondPlayer/CanyemThird.gira()
+				isCanyemThirdGiraP2 = true
+	#			print(isCanyemThirdGira)
+				movimentsP2[2] = true
+		if Input.is_action_pressed("p1_move_left"):
+			if isTorcat == false :
+				lastPressed = "left"
+				$AllsInicials.show()
+				if currentPosition == "All_1":
+					selecciona("third")
+			#		print("left")
+					currentPosition = "All_3"
+				elif currentPosition == "All_2":
+					selecciona("first")
+			#		print("left")
+					currentPosition = "All_1"
+				elif currentPosition == "All_3":
+					selecciona("second")
+			#		print("left")
+					currentPosition = "All_2"	
 				
-				if alls.size() > next:
-					var objectToShow = get_node(alls[currentPosAlls+1])
-					objectToShow.show()
-					$CanyemFirst.position = posCanyem1[currentPosAlls+1]
-					#print("C1 X:"+str(posCanyem1[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$CanyemFirst.unselect(true)
-					$CanyemSecond.position = posCanyem2[currentPosAlls+1]
-					#print("C2 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$CanyemSecond.unselect(false)
-					$CanyemThird.position = posCanyem3[currentPosAlls+1]
-					#print("C3 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$CanyemThird.unselect(false)
-					currentPosAlls += 1
-				resetSelects()
-			else:
-				$CanyemFirst.hide()
-				$CanyemSecond.hide()
-				$CanyemThird.hide()
-				$fiAll.show()
-		
+				pass
+		if Input.is_action_pressed("p2_move_left"):
+			if isTorcatP2 == false :
+				lastPressedP2 = "left"
+				$SecondPlayer/AllsInicials.show()
+				if currentPositionP2 == "All_1":
+					seleccionaP2("third")
+			#		print("left")
+					currentPositionP2 = "All_3"
+				elif currentPositionP2 == "All_2":
+					seleccionaP2("first")
+			#		print("left")
+					currentPositionP2 = "All_1"
+				elif currentPositionP2 == "All_3":
+					seleccionaP2("second")
+			#		print("left")
+					currentPositionP2 = "All_2"	
+				
+				pass			
+		if Input.is_action_pressed("p1_move_right"):
+			if isTorcat == false:
+				lastPressed = "right"
+				if currentPosition == "All_1":
+					selecciona("second")
+					currentPosition = "All_2"
+				elif currentPosition == "All_2":
+				#	pass
+					selecciona("third")
+					currentPosition = "All_3"
+				elif currentPosition == "All_3":
+					selecciona("first")			
+					currentPosition = "All_1"		
+				pass
+		if Input.is_action_pressed("p2_move_right"):
+			if isTorcatP2 == false:
+				lastPressedP2 = "right"
+				if currentPositionP2 == "All_1":
+					seleccionaP2("second")
+					currentPositionP2 = "All_2"
+				elif currentPositionP2 == "All_2":
+				#	pass
+					seleccionaP2("third")
+					currentPositionP2 = "All_3"
+				elif currentPositionP2 == "All_3":
+					seleccionaP2("first")			
+					currentPositionP2 = "All_1"		
+				pass			
+		if Input.is_action_pressed("p1_move_down"):
+			if moviments[0] == true and moviments[2] == true and moviments[1] == false:
+				numAllsEnforcats += 1
+				print(numAllsEnforcats)
+				if numAllsEnforcats <= 13:
+					var next = currentPosAlls+1
+					#print(str(alls.size()))
+					#print(str(next))
+					
+					if alls.size() > next:
+						var objectToShow = get_node(alls[currentPosAlls+1])
+						objectToShow.show()
+						$CanyemFirst.position = posCanyem1[currentPosAlls+1]
+						#print("C1 X:"+str(posCanyem1[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$CanyemFirst.unselect(true)
+						$CanyemSecond.position = posCanyem2[currentPosAlls+1]
+						#print("C2 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$CanyemSecond.unselect(false)
+						$CanyemThird.position = posCanyem3[currentPosAlls+1]
+						#print("C3 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$CanyemThird.unselect(false)
+						currentPosAlls += 1
+					resetSelects()
+				else:
+					$CanyemFirst.hide()
+					$CanyemSecond.hide()
+					$CanyemThird.hide()
+					$fiAll.show()
+					player1End = true
+					var temps = tempsP1
+					$InfoPlayer1.show()
+					$InfoPlayer1/Label.text =" Has acabat"
+					$InfoPlayer1/Label2.text =" amb un  "
+					$InfoPlayer1/Label3.text =" Temps de:"+(str(int(temps)))
+			
+			pass
+		if Input.is_action_pressed("p2_move_down"):
+			print("P2down")
+			if movimentsP2[0] == true and movimentsP2[2] == true and movimentsP2[1] == false:
+				numAllsEnforcatsP2 += 1
+				print(numAllsEnforcatsP2)
+				var obj = get_node(allsP2[3])
+				print(obj)
+				if numAllsEnforcatsP2 <= 13:
+					var next = currentPosAllsP2+1
+					#print(str(alls.size()))
+					#print(str(next))
+					if allsP2.size() > next:
+						var objectToShow = get_node(allsP2[currentPosAllsP2+1])
+						objectToShow.show()
+						$SecondPlayer/CanyemFirst.position = posCanyem1P2[currentPosAllsP2+1]
+						#print("C1 X:"+str(posCanyem1[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$SecondPlayer/CanyemFirst.unselect(true)
+						$SecondPlayer/CanyemSecond.position = posCanyem2P2[currentPosAllsP2+1]
+						#print("C2 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$SecondPlayer/CanyemSecond.unselect(false)
+						$SecondPlayer/CanyemThird.position = posCanyem3P2[currentPosAllsP2+1]
+						#print("C3 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
+						$SecondPlayer/CanyemThird.unselect(false)
+						currentPosAllsP2 += 1
+					resetSelectsP2()
+				else:
+					$SecondPlayer/CanyemFirst.hide()
+					$SecondPlayer/CanyemSecond.hide()
+					$SecondPlayer/CanyemThird.hide()
+					$SecondPlayer/fiAll.show()
+					
+					player2End = true
+					var temps = tempsP2
+					$InfoPlayer2.show()
+					$InfoPlayer2/Label.text =" Has acabat"
+					$InfoPlayer2/Label2.text =" amb un  "
+					$InfoPlayer2/Label3.text =" Temps de:"+(str(int(temps)))
 		pass
-	if Input.is_action_pressed("p2_move_down"):
-		print("P2down")
-		if movimentsP2[0] == true and movimentsP2[2] == true and movimentsP2[1] == false:
-			numAllsEnforcatsP2 += 1
-			print(numAllsEnforcatsP2)
-			var obj = get_node(allsP2[3])
-			print(obj)
-			if numAllsEnforcatsP2 <= 13:
-				var next = currentPosAllsP2+1
-				#print(str(alls.size()))
-				#print(str(next))
-				if allsP2.size() > next:
-					var objectToShow = get_node(allsP2[currentPosAllsP2+1])
-					objectToShow.show()
-					$SecondPlayer/CanyemFirst.position = posCanyem1P2[currentPosAllsP2+1]
-					#print("C1 X:"+str(posCanyem1[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$SecondPlayer/CanyemFirst.unselect(true)
-					$SecondPlayer/CanyemSecond.position = posCanyem2P2[currentPosAllsP2+1]
-					#print("C2 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$SecondPlayer/CanyemSecond.unselect(false)
-					$SecondPlayer/CanyemThird.position = posCanyem3P2[currentPosAllsP2+1]
-					#print("C3 X:"+str(posCanyem2[currentPosAlls+1].x)+"Y:"+str(posCanyem1[currentPosAlls+1].y))
-					$SecondPlayer/CanyemThird.unselect(false)
-					currentPosAllsP2 += 1
-				resetSelectsP2()
-			else:
-				$SecondPlayer/CanyemFirst.hide()
-				$SecondPlayer/CanyemSecond.hide()
-				$SecondPlayer/CanyemThird.hide()
-				$SecondPlayer/fiAll.show()
 		
-		pass
-		
+
+func _on_wait_readyto_hide_timeout() -> void:
+	is_Showing_Square = false
+	$Info.hide()
+	gameStart = true
+	$Info/WaitReadytoHide.stop()
+	pass # Replace with function body.

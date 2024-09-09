@@ -25,6 +25,7 @@ var keymapsFile = "user://keymaps.dat"
 var defaultKeymapFile = "res://keymaps.dat"
 var keymaps: Dictionary
 
+var score = 0
 #var urlApi = "https://allimpicgames-api-dev.azurewebsites.net/"
 var urlApi = "http://localhost:5267/"
 
@@ -517,6 +518,7 @@ func _deferred_goto_scene(path):
 		current_scene.free()
 	
 	var s = ResourceLoader.load(path)
+	print(path)
 	current_scene = s.instantiate()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)		

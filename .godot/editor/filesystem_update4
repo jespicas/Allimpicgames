@@ -1,9 +1,10 @@
 res://default_env.tres
-res://MiniGames/EnforcarAlls.tscn
+res://OtherOptions/SaveRecord.tscn
 res://UI/OliIndicator/OliIndicator.gd
 res://UI/enforcarAlls/canyem.gdshader
 res://UI/enforcarAlls/canyem1.gdshader
-res://MiniGames/enforcar_alls.gd
-res://MiniGames/ConcursAlliOli.tscn
-res://UI/enforcarAlls/canyem.tscn
+res://OtherOptions/SaveRecord.gd
+res://MiniGames/EnforcarAlls.tscn
 res://MiniGames/AgafaAlls.tscn
+res://MiniGames/ConcursAlliOli.tscn
+res://OtherOptions/ShowRecords.tscn

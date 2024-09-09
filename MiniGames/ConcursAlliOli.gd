@@ -265,11 +265,13 @@ func finished():
 	#	"   "+str(puntOKP2)+" ml"
 	#]
 	#$InfoPlayer2/SquareInformationP2.ShowSquareFixed(190,70,190,100,280,70,280,100,textParticipant)
-	
-	$InfoPlayer2.show()
-	$InfoPlayer2/Label.text = " Quantitat "
-	$InfoPlayer2/Label2.text = " all i oli "
-	$InfoPlayer2/Label3.text = " "+str(puntOKP2)+" ml"
+	if Global.tipusdeJoc == "practicar":
+		pass
+	else:
+		$InfoPlayer2.show()
+		$InfoPlayer2/Label.text = " Quantitat "
+		$InfoPlayer2/Label2.text = " all i oli "
+		$InfoPlayer2/Label3.text = " "+str(puntOKP2)+" ml"
 	#textParticipant = [
 	#	"Quantitat",
 	#	"all i oli",
@@ -306,11 +308,15 @@ func squarefinished():
 	$InfoPlayer1/Label3.text = " prem buto "
 	$InfoPlayer1/TimerInfoPlayer1.start()
 	
-	$InfoPlayer2.show()
-	$InfoPlayer2/Label.text = " "
-	$InfoPlayer2/Label2.text = " xafa els alls "
-	$InfoPlayer2/Label3.text = " prem buto "
-	$InfoPlayer2/TimerInfoPlayer2.start()
+	if Global.tipusdeJoc == "practicar":
+		$InfoPlayer2.hide()
+		$AllioliCenital2.hide()
+	else:
+		$InfoPlayer2.show()
+		$InfoPlayer2/Label.text = " "
+		$InfoPlayer2/Label2.text = " xafa els alls "
+		$InfoPlayer2/Label3.text = " prem buto "
+		$InfoPlayer2/TimerInfoPlayer2.start()
 
 	
 func finisthTimerP2():

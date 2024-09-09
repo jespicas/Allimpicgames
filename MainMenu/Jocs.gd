@@ -178,6 +178,9 @@ func GoToGame():
 		Global.goto_scene("res://MiniGames/TiraAll.tscn")
 	elif Global.currentGame == "ConcursAlliOli":
 		Global.goto_scene("res://MiniGames/ConcursAlliOli.tscn")
+	elif Global.currentGame == "EnforcarAlls":
+		Global.goto_scene("res://MiniGames/EnforcarAlls.tscn")
+		
 
 func _on_backtouch_pressed(extra_arg_0):
 	if extra_arg_0 == "btnBack":
@@ -233,6 +236,8 @@ func _input(event):
 			GoToGame()			
 			pass
 		elif currentPosition == menupositions.JOCLLIGAR:
+			Global.setCurrentGame("EnforcarAlls")
+			GoToGame()			
 			pass
 #		elif currentPosition == menupositions.JOCRECOLLIR:
 #			pass
