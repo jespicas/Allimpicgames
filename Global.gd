@@ -29,7 +29,9 @@ var score = 0
 #var urlApi = "https://allimpicgames-api-dev.azurewebsites.net/"
 var urlApi = "http://localhost:5267/"
 
-
+func goto_Records():
+	Global.goto_scene("res://OtherOptions/ShowRecords.tscn")
+	pass
 func goto_Main():
 	Global.goto_scene("res://MainMenu/MainMenu.tscn")
 	pass

@@ -1,12 +1,13 @@
 res://default_env.tres
-res://OtherOptions/SaveRecord.tscn
+res://OtherOptions/ShowRecords.tscn
 res://UI/OliIndicator/OliIndicator.gd
+res://UI/hoverTeclat/HoverTeclat.tres
 res://UI/enforcarAlls/canyem.gdshader
 res://UI/enforcarAlls/canyem1.gdshader
-res://OtherOptions/SaveRecord.gd
+res://OtherOptions/ShowRecords.gd
 res://MiniGames/EnforcarAlls.tscn
 res://MiniGames/AgafaAlls.tscn
 res://MiniGames/ConcursAlliOli.tscn
-res://OtherOptions/ShowRecords.tscn
-res://OtherOptions/ShowRecords.gd
+res://OtherOptions/SaveRecord.tscn
+res://OtherOptions/SaveRecord.gd
 res://Global.gd

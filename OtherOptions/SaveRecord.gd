@@ -7,11 +7,11 @@ var labelsText = [
 	$Control/Label2,
 	$Control/Label3
 ]
-var save_data = [{
-	"score": 0,
-	"name": "NAME",
-	"game": "JOC"
-}]
+#var save_data = [{
+#	"score": 0,
+#	"name": "NAME",
+#	"game": "JOC"
+#}]
 
 func _input(event):
 
@@ -75,7 +75,7 @@ func _ready():
 	redrawName()
 	
 	var total = Global.score
-	Global.setCurrentGame("savereocrds")
+	#Global.setCurrentGame("savereocrds")
 	$Control/punts.text = str(total)
 	$Control/nomjoc.text = Global.currentGame
 	$Control2/GridContainer/End.grab_focus()
@@ -113,6 +113,8 @@ func removeLabel():
 #			$Control.get_children()[i].text = labels[i]
 func store():
 	if fileExists() == true:
+		var save_file = Global.GetScores()
+		
 		#var f := File.new()
 		#f.open("user://save.cfg", File.READ)
 		#var text =  f.get_as_text()	
@@ -120,34 +122,37 @@ func store():
 		#f.close()
 		
 		var new = {
-			"score": 0,
-			"name": "NAME",
-			"game": "JOC"
-		}
-		new["name"] = labels
-		new["score"] = int($Control/punts.text)
-		new["game"] = Global.currentGame
-		save_data.append(new)
-
+			"score": int($Control/punts.text),
+			"name": labels[0]+labels[1]+labels[2],
+			"game": Global.currentGame
+		}		
+		save_file.append(new)
+		var save_fileOverride = FileAccess.open(Global.pathScores, FileAccess.WRITE)
+		var json_string = JSON.stringify(save_file)
+		save_fileOverride.store_line(json_string)		
+		
+	
 		#var cfgFile = File.new()
 		#cfgFile.open("user://save.cfg", File.WRITE)
 		#cfgFile.store_line(to_json(save_data))
 		#cfgFile.close()
 		
 	else:
-		save_data[0]["name"] = labels
-		save_data[0]["score"] = int($Control/punts.text)
-		save_data[0]["game"] = Global.currentGame
+		var new = [{
+			"score": int($Control/punts.text),
+			"name": labels[0]+labels[1]+labels[2],
+			"game": Global.currentGame
+		}]
+		var save_file = FileAccess.open(Global.pathScores, FileAccess.WRITE)
+		var json_string = JSON.stringify(new)
+		save_file.store_line(json_string)		
 		#var cfgFile = File.new()
 		#cfgFile.open("user://save.cfg", File.WRITE)
 		#cfgFile.store_line(to_json(save_data))
 		#cfgFile.close()
 
 func fileExists():
-	var exists = false
-	#var file2Check = File.new()
-	#exists = file2Check.file_exists("user://save.cfg")		
-	return exists
+	return FileAccess.file_exists(Global.pathScores)
 	
 func _button_pressed(button):
 	print(button)
@@ -159,4 +164,4 @@ func _button_pressed(button):
 	else:
 		addLabel(button.text)
 func nextlevel():
-	Global.goto_records()
+	Global.goto_Records()
