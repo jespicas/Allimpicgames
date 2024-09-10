@@ -243,5 +243,9 @@ theme_override_fonts/font = ExtResource("15_0rhlu")
 theme_override_font_sizes/font_size = 8
 metadata/_edit_use_anchors_ = true
 
+[node name="TimerGotoRecords" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="TimerP2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimerP1" to="." method="_on_timer_p_1_timeout"]
+[connection signal="timeout" from="TimerGotoRecords" to="." method="_on_timer_goto_records_timeout"]

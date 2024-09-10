@@ -326,4 +326,8 @@ de punts"
 
 [node name="RetryGame" parent="." instance=ExtResource("14_f1j5r")]
 
+[node name="TimerGotoRecords" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerGotoRecords" to="." method="_on_timer_goto_records_timeout"]

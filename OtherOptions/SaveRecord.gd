@@ -115,14 +115,8 @@ func store():
 	if fileExists() == true:
 		var save_file = Global.GetScores()
 		
-		#var f := File.new()
-		#f.open("user://save.cfg", File.READ)
-		#var text =  f.get_as_text()	
-		#save_data = parse_json(text)
-		#f.close()
-		
 		var new = {
-			"score": int($Control/punts.text),
+			"score": Global.score,
 			"name": labels[0]+labels[1]+labels[2],
 			"game": Global.currentGame
 		}		
@@ -131,25 +125,16 @@ func store():
 		var json_string = JSON.stringify(save_file)
 		save_fileOverride.store_line(json_string)		
 		
-	
-		#var cfgFile = File.new()
-		#cfgFile.open("user://save.cfg", File.WRITE)
-		#cfgFile.store_line(to_json(save_data))
-		#cfgFile.close()
-		
 	else:
 		var new = [{
-			"score": int($Control/punts.text),
+			"score": Global.score,
 			"name": labels[0]+labels[1]+labels[2],
 			"game": Global.currentGame
 		}]
 		var save_file = FileAccess.open(Global.pathScores, FileAccess.WRITE)
 		var json_string = JSON.stringify(new)
 		save_file.store_line(json_string)		
-		#var cfgFile = File.new()
-		#cfgFile.open("user://save.cfg", File.WRITE)
-		#cfgFile.store_line(to_json(save_data))
-		#cfgFile.close()
+
 
 func fileExists():
 	return FileAccess.file_exists(Global.pathScores)

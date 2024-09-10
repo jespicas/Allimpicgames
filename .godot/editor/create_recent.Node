@@ -1,14 +1,14 @@
+CanvasGroup
+RichTextLabel
+Timer
 Label
 Sprite2D
 CanvasLayer
 AnimatedSprite2D
 ColorRect
 Polygon2D
-Timer
 Button
 VBoxContainer
 HBoxContainer
 BoxContainer
 TextureRect
-CanvasGroup
-TileMap

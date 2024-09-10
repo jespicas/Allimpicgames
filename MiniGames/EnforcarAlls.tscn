@@ -830,4 +830,8 @@ visible = false
 position = Vector2(318, 118)
 texture = ExtResource("28_6fa3i")
 
+[node name="TimerGotoRecords" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="Info/WaitReadytoHide" to="." method="_on_wait_readyto_hide_timeout"]
+[connection signal="timeout" from="TimerGotoRecords" to="." method="_on_timer_goto_records_timeout"]

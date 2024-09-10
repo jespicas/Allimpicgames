@@ -23,6 +23,8 @@ var scoreSent = false
 var willSendScore = false
 
 var started = false
+var timerFinishGame = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	fillArrCurrentMovement()
@@ -175,11 +177,17 @@ func _process(delta):
 			var guanya = ""
 			if timeP1 > timeP2:
 				guanya = "P2"
+				Global.setScore(str(timeP2).substr(0,5))
 			else:
 				guanya = "P1"
+				Global.setScore(str(timeP1).substr(0,5))
 			$Hud.show_message("Guanya " + guanya)
-			$RetryGame.menuRetry = true
-			$RetryGame.ShowRetry()
+			if timerFinishGame == false:
+				$TimerGoToRecords.start()
+				timerFinishGame = true
+				print("finishgame")
+			#$RetryGame.menuRetry = true
+			#$RetryGame.ShowRetry()
 			
 	else:
 		if Global.numPlayers == 1 and P1finish == true:
@@ -227,4 +235,12 @@ func countDown():
 func _on_Timer_timeout():
 	$Hud.hideMessage()
 	print("timeout")	
+	pass # Replace with function body.
+
+
+func _on_timer_go_to_records_timeout() -> void:
+	print("timeoutGotoREcords")
+	# Mirar si ha de guardar records
+	# El record esta dintre dels 5 ?
+	Global.goto_SaveRecords()
 	pass # Replace with function body.

@@ -22,6 +22,8 @@ func _ready() -> void:
 
 func _on_update_health(_value: float) -> void:
 	value = _value
+	if value > 100:
+		value = 100
 	var tween = create_tween()
 	tween.tween_property($OverBar, "value", value, 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property($UnderBar, "value", value, 0.25).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

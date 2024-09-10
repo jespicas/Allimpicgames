@@ -278,9 +278,15 @@ func finished():
 	#	"   "+str(puntOKP1)+" ml"
 	#]
 	#$InfPlayer1/SquareInformationP1.ShowSquareFixed(30,70,30,100,120,70,120,100,textParticipant)		
-	
-	$RetryGame.menuRetry = true
-	$RetryGame.ShowRetry()	
+	if Global.numPlayers == 2:
+		if puntOKP1 > puntOKP2:
+			Global.setScore(puntOKP1)
+		else:
+			Global.setScore(puntOKP2)
+		$TimerGotoRecords.start()
+	else:
+		$RetryGame.menuRetry = true
+		$RetryGame.ShowRetry()	
 
 	pass	
 func animationBiberoFinished():
@@ -433,4 +439,9 @@ func _on_timer_info_player_2_timeout() -> void:
 func _on_timer_info_player_1_timeout() -> void:
 	$InfoPlayer1.hide()
 	$InfoPlayer1/TimerInfoPlayer1.stop()
+	pass # Replace with function body.
+
+
+func _on_timer_goto_records_timeout() -> void:
+	Global.goto_SaveRecords()
 	pass # Replace with function body.

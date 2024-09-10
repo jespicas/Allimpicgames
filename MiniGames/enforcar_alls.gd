@@ -59,6 +59,7 @@ var is_Showing_Square = false
 var player1End = false
 var player2End = false
 
+var gameFinishedTimer = false
 func resetSelects():
 	isCanyemFirstGira = false
 	isCanyemSecondGira = false
@@ -135,12 +136,19 @@ func _process(delta: float) -> void:
 			$Hud.hideMessageP1()
 			$Hud.hideMessageP2()
 			if tempsP1 > tempsP2:
+				Global.setScore(str(tempsP2).substr(0,5))
 				$Hud.show_message("P2 guanya")	
 			else:
+				Global.setScore(str(tempsP1).substr(0,5))
 				$Hud.show_message("P1 guanya")
 			
-			$RetryGame.show()
-			$RetryGame.ShowRetry()
+			if Global.numPlayers == 2:
+				if gameFinishedTimer == false:
+					$TimerGotoRecords.start()
+					gameFinishedTimer = true
+			else:
+				$RetryGame.show()
+				$RetryGame.ShowRetry()
 		
 		if gameStart == true:
 			tempsP1 += delta
@@ -550,4 +558,9 @@ func _on_wait_readyto_hide_timeout() -> void:
 	$Info.hide()
 	gameStart = true
 	$Info/WaitReadytoHide.stop()
+	pass # Replace with function body.
+
+
+func _on_timer_goto_records_timeout() -> void:
+	Global.goto_SaveRecords()
 	pass # Replace with function body.

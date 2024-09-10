@@ -208,6 +208,15 @@ theme_override_fonts/font = ExtResource("3")
 theme_override_font_sizes/font_size = 12
 text = "D' Acord"
 
+[node name="Puntuacions" type="RichTextLabel" parent="."]
+offset_left = 108.0
+offset_top = 213.0
+offset_right = 232.0
+offset_bottom = 235.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3")
+text = "Puntuacions"
+
 [connection signal="pressed" from="settingsTouch" to="." method="_on_TouchScreenButton_pressed" binds= ["btnSettings"]]
 [connection signal="pressed" from="allimpictouch" to="." method="_on_TouchScreenButton_pressed" binds= ["btnCompetir"]]
 [connection signal="pressed" from="practicarTouch" to="." method="_on_TouchScreenButton_pressed" binds= ["btnPracticar"]]

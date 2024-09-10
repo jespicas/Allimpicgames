@@ -221,13 +221,30 @@ func _on_timer_timeout():
 		$CanvasLayer/tornJugador.text = "Jugador 2"
 		readyToStart = true
 	elif currentPlayer == "Player 2":
-		$Hud/Message2.text = "Fi de la partida"	
-		$Information.show()
-		$Information/Label.text = " Fi de la partida"
+		var guanya = 0
+		if Global.numPlayers == 2:
+			if puntsP1 > puntsP2:
+				guanya = puntsP1
+				Global.setScore(puntsP1)
+				$Hud/Message2.text = "Guanya P1"	
+				$Information.show()
+				$Information/Label.text = " Guanya P1"
+				
+			else:
+				guanya = puntsP2
+				Global.setScore(puntsP2)
+				$Hud/Message2.text = "Guanya P2"	
+				$Information.show()
+				$Information/Label.text = "Guanya P2"
+		
 		readyToStart = false 
 		endgame = true
-		$RetryGame.menuRetry = true
-		$RetryGame.ShowRetry()
+		if Global.numPlayers == 2:
+			$TimerGotoRecords.start()
+			pass
+		else:
+			$RetryGame.menuRetry = true
+			$RetryGame.ShowRetry()
 	else:
 		$Hud/Message2.text = "Fi de la partida"	
 		$Information.show()
@@ -241,4 +258,9 @@ func _on_timer_timeout():
 
 func _on_timer_square_information_timeout():
 	$TimerSquareInformation.stop()
+	pass # Replace with function body.
+
+
+func _on_timer_goto_records_timeout() -> void:
+	Global.goto_SaveRecords()
 	pass # Replace with function body.

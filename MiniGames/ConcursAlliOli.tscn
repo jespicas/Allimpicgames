@@ -811,8 +811,12 @@ transform = Transform2D(1, 0, 0, 1, 48, -40)
 
 [node name="OlitTimerP1" type="Timer" parent="."]
 
+[node name="TimerGotoRecords" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="Info/WaitReadytoHide" to="." method="_on_wait_readyto_hide_timeout"]
 [connection signal="timeout" from="InfoPlayer1/TimerInfoPlayer1" to="." method="_on_timer_info_player_1_timeout"]
 [connection signal="timeout" from="InfoPlayer2/TimerInfoPlayer2" to="." method="_on_timer_info_player_2_timeout"]
 [connection signal="timeout" from="OlitTimerP2" to="." method="_on_olit_timer_p_2_timeout"]
 [connection signal="timeout" from="OlitTimerP1" to="." method="_on_olit_timer_p_1_timeout"]
+[connection signal="timeout" from="TimerGotoRecords" to="." method="_on_timer_goto_records_timeout"]

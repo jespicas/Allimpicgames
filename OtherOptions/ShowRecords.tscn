@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbtbkxmu21xm4"]
+[gd_scene load_steps=11 format=3 uid="uid://bbtbkxmu21xm4"]
 
 [ext_resource type="Script" path="res://OtherOptions/ShowRecords.gd" id="1_0sd3f"]
 [ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_p08js"]
 [ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_wywwg"]
+[ext_resource type="Texture2D" uid="uid://bvy4sa43wc4p6" path="res://Media/imatges/squareAlls/background.png" id="4_kibv2"]
+[ext_resource type="Texture2D" uid="uid://dlw46ubgjy63l" path="res://Media/imatges/squareAlls/adaltesquerra.png" id="5_ka7g1"]
+[ext_resource type="Texture2D" uid="uid://p4txl2j552ao" path="res://Media/imatges/squareAlls/horitzontal.png" id="5_m7u8d"]
+[ext_resource type="Texture2D" uid="uid://baia8sxp0simw" path="res://Media/imatges/squareAlls/abaixesquerra.png" id="6_wbs1q"]
+[ext_resource type="Texture2D" uid="uid://c5r8uihprhlxx" path="res://Media/imatges/squareAlls/abaixdreta.png" id="7_17ldj"]
+[ext_resource type="Texture2D" uid="uid://bxjl0fp7hin4b" path="res://Media/imatges/squareAlls/vertical.png" id="8_3j8wt"]
+[ext_resource type="Texture2D" uid="uid://cot581o5xqtxp" path="res://Media/imatges/squareAlls/adaltdreta.png" id="9_rkfxf"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0sd3f")
@@ -38,13 +45,62 @@ text = "Top 5"
 layout_mode = 3
 anchors_preset = 0
 
-[node name="RecollirAlls" type="GridContainer" parent="Control2"]
-layout_mode = 0
+[node name="CanvasGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(0, -1)
+
+[node name="Background" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(85, 60.5)
+scale = Vector2(3.09091, 2.68182)
+texture = ExtResource("4_kibv2")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(47, 40)
+texture = ExtResource("5_ka7g1")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(47, 78)
+texture = ExtResource("6_wbs1q")
+
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(117, 78)
+texture = ExtResource("7_17ldj")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(47, 58)
+texture = ExtResource("8_3j8wt")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(117, 40)
+texture = ExtResource("9_rkfxf")
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(117, 58)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(87, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(67, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(98, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/CanvasGroup"]
+position = Vector2(99, 78)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="RecollirAlls" type="GridContainer" parent="Control2/CanvasGroup"]
 offset_left = 51.0
-offset_top = 29.0
+offset_top = 37.0
 offset_right = 120.0
-offset_bottom = 93.0
-columns = 2
+offset_bottom = 79.0
+columns = 3
 
 [node name="TirarBirrall" type="GridContainer" parent="Control2"]
 layout_mode = 2
@@ -52,7 +108,7 @@ offset_left = 190.0
 offset_top = 30.0
 offset_right = 270.0
 offset_bottom = 94.0
-columns = 2
+columns = 3
 
 [node name="TirAll" type="GridContainer" parent="Control2"]
 layout_mode = 2
@@ -60,7 +116,7 @@ offset_left = 52.0
 offset_top = 102.0
 offset_right = 119.0
 offset_bottom = 166.0
-columns = 2
+columns = 3
 
 [node name="Allioli" type="GridContainer" parent="Control2"]
 layout_mode = 2
@@ -68,15 +124,15 @@ offset_left = 191.0
 offset_top = 101.0
 offset_right = 270.0
 offset_bottom = 165.0
-columns = 2
+columns = 3
 
 [node name="EnforArlls" type="GridContainer" parent="Control2"]
 layout_mode = 2
 offset_left = 120.0
 offset_top = 175.0
-offset_right = 188.0
+offset_right = 228.0
 offset_bottom = 238.0
-columns = 2
+columns = 3
 
 [node name="TirarBirrall2" type="Label" parent="Control2"]
 layout_mode = 0
@@ -103,10 +159,10 @@ text = "Recollir Alls"
 
 [node name="TirAll2" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 61.0
-offset_top = 89.0
-offset_right = 131.0
-offset_bottom = 104.0
+offset_left = 53.0
+offset_top = 92.0
+offset_right = 123.0
+offset_bottom = 107.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
@@ -136,7 +192,18 @@ theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
 text = "Enforcar Alls"
 
+[node name="Horitzontal4" type="Sprite2D" parent="Control2"]
+position = Vector2(68, 77)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/Horitzontal4"]
+position = Vector2(22, 0)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

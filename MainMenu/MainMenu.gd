@@ -2,7 +2,7 @@ extends Node2D
 
 var currentPosition = null
 
-enum menupositions {PLAYER1, PLAYER2, COMPETIR, PRACTICAR, OPTIONS, SHOWNGAMES}
+enum menupositions {PLAYER1, PLAYER2, COMPETIR, PRACTICAR, PUNTUACIONS, SHOWNGAMES}
 
 var keymapsFile = "user://keymaps.dat"
 
@@ -165,6 +165,8 @@ func _input(event):
 			buttonCompetirPressed()
 		elif currentPosition == menupositions.PRACTICAR:
 			buttonPracticarPressed()
+		elif currentPosition == menupositions.PUNTUACIONS:
+			Global.goto_Records()
 		#elif currentPosition == menupositions.OPTIONS:
 		#	buttonSettingsPressed()
 		#elif currentPosition == menupositions.SHOWNGAMES:
@@ -193,6 +195,9 @@ func _input(event):
 		#	$focusAll.position.x = 200
 		#	$focusAll.position.y = 220
 		if currentPosition == menupositions.PLAYER1 or currentPosition == menupositions.PLAYER2:
+			currentPosition = menupositions.PUNTUACIONS
+			$focusAll.position.x = 80
+			$focusAll.position.y = 220
 			pass
 		#	currentPosition = menupositions.OPTIONS
 		#	$focusAll.position.x = 200
@@ -226,7 +231,12 @@ func _input(event):
 			$'2playertouch'.show()
 			Global.setNumPlayers(null)
 			Global.setPlayers(null)
-			
+		if currentPosition == menupositions.PUNTUACIONS:
+			currentPosition = menupositions.PLAYER1
+			$focusAll.position.x = 43
+			$focusAll.position.y = 161	
+			Global.setNumPlayers(null)
+			Global.setPlayers(null)
 		#if currentPosition == menupositions.OPTIONS:
 		#	print("OPTIONS")
 		#	if Global.players != null:

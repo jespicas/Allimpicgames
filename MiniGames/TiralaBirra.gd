@@ -86,8 +86,10 @@ func finished():
 	if Global.numPlayers == 2:
 		if puntsP1 > puntsP2:
 			$Hud.show_message("Guanya Jugador 1")
+			Global.setScore(puntsP1)
 		else:
 			$Hud.show_message("Guanya Jugador 2")
+			Global.setScore(puntsP2)
 	$TimerP1.stop()
 	$TimerP2.stop()
 	readyP2 = false
@@ -96,9 +98,11 @@ func finished():
 	$HealthBarP1.emit_signal("reset") 
 	$HealthBarP1.hide()
 	$HealthBarP2.hide()
-	
-	$RetryGame.menuRetry = true
-	$RetryGame.ShowRetry()
+	if Global.numPlayers == 2:
+		$TimerGotoRecords.start()		
+	else:
+		$RetryGame.menuRetry = true
+		$RetryGame.ShowRetry()
 	pass
 func BaldArrived():
 	$BaldBarFiraAll/CharacterBody2D/AnimatedSprite2D.stop()
@@ -401,4 +405,9 @@ func _on_si_touch_pressed():
 
 func _on_no_touch_pressed():
 	Global.goto_scene("res://MainMenu/Jocs.tscn")
+	pass # Replace with function body.
+
+
+func _on_timer_goto_records_timeout() -> void:
+	Global.goto_SaveRecords()
 	pass # Replace with function body.
