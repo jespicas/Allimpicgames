@@ -48,8 +48,8 @@ func ReadyToCheckSilentWolf():
 func _on_GetScores_request_completed(result, response_code, headers, body) -> void:
 	var status_check = SilentWolf.SWUtils.check_http_response(response_code, headers, body)
 	SilentWolf.free_request(wrGetScores, GetScores)
-	print("status")
-	print(status_check)
+	#print("status")
+	#print(status_check)
 	if status_check:
 		Global.set_SilentWolfWorks(true)
 	else:
@@ -152,7 +152,7 @@ func buttonPlayer2Pressed():
 #	currentPosition = menupositions.COMPETIR
 	Global.setNumPlayers(2)
 	#buttonCompetirPressed()	
-	print("player2")
+#	print("player2")
 	
 func buttonSettingsPressed():
 	Global.goto_scene("res://MainMenu/Settings.tscn")
@@ -177,7 +177,7 @@ func _input(event):
 	#print(event)
 	#print(event.is_action_released())
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
-		print(currentPosition)
+#		print(currentPosition)
 		if currentPosition == menupositions.PLAYER1:
 			Global.setPlayers("player1")
 			Global.setNumPlayers(1)
@@ -191,11 +191,11 @@ func _input(event):
 			Global.goto_Records()
 		elif currentPosition == menupositions.INFO:
 			Global.goto_scene("res://Instruccions/JocsInstruccions.tscn")
-	#	elif currentPosition == menupositions.REDEFINIR:
-	#		Global.goto_scene("res://UI/RemappingKeys/RemappingKeys.tscn")
-		print("enter")
+		elif currentPosition == menupositions.REDEFINIR:
+			Global.goto_scene("res://UI/RemappingKeys/RemappingKeys.tscn")
+#		print("enter")
 	if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left"):
-		print("left")
+#		print("left")
 		if currentPosition == menupositions.PLAYER2:
 			currentPosition = menupositions.PLAYER1
 			$focusAll.position.x = 43	
@@ -205,9 +205,9 @@ func _input(event):
 			if Global.hasConnection == false && Global.numPlayers == 1:
 				currentPosition = menupositions.INFO
 				$focusAll.position.x = 165
-	#	elif currentPosition == menupositions.REDEFINIR:
-	#		currentPosition = menupositions.INFO
-	#		$focusAll.position.x = 43
+		elif currentPosition == menupositions.REDEFINIR:
+			currentPosition = menupositions.INFO
+			$focusAll.position.x = 43
 		#	$focusAll.position.x = 43#elif currentPosition == menupositions.INFO:
 		#	HidePlayedGames()
 
@@ -245,13 +245,13 @@ func _input(event):
 		if currentPosition == menupositions.PLAYER1:
 			currentPosition = menupositions.PLAYER2
 			$focusAll.position.x = 165
-	#	elif currentPosition == menupositions.REDEFINIR:
-	#		currentPosition = menupositions.INFO
-	#		$focusAll.position.x = 165
+		elif currentPosition == menupositions.REDEFINIR:
+			currentPosition = menupositions.INFO
+			$focusAll.position.x = 165
 	#		pass
-	#	elif currentPosition == menupositions.INFO:
-	#		currentPosition = menupositions.REDEFINIR
-	#		$focusAll.position.x = 165
+		elif currentPosition == menupositions.INFO:
+			currentPosition = menupositions.REDEFINIR
+			$focusAll.position.x = 165
 			
 			
 			#MoveToBack()

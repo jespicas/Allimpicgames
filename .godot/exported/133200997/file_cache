@@ -2,7 +2,7 @@ res://Actors/collirAlls/player_1_controls.tres::fa06c7378e65d87d49733e20da0449ee
 res://Actors/collirAlls/player_2_controls.tres::5c9cdf8ddb2f5536ca3cd2e27633538f::1702064769::res://.godot/exported/133200997/export-1319ae6e65a6ed7478ed88724f2e1130-player_2_controls.res
 res://Actors/collirAlls/RecolectorAlls.tscn::cecd368ea2d0bcf257ab793f67de80dd::1723712192::res://.godot/exported/133200997/export-a33e51fd5ab034dac7c2f2990002521b-RecolectorAlls.scn
 res://MainMenu/Jocs.tscn::ac4f4cfea9bcba960e3b090e570465e4::1726263839::res://.godot/exported/133200997/export-aca16628f96f8f71913dd309c901e894-Jocs.scn
-res://MainMenu/MainMenu.tscn::165b0758e2f21a1a56c9b84c8ae31cd6::1726415716::res://.godot/exported/133200997/export-bc43d44b4a3cb1e05881b15b869d237a-MainMenu.scn
+res://MainMenu/MainMenu.tscn::3c67e574d0f4a999b2dba2328fc0472f::1726416176::res://.godot/exported/133200997/export-bc43d44b4a3cb1e05881b15b869d237a-MainMenu.scn
 res://MainMenu/Settings.tscn::7d05b79aca61c9beb4bdf4d3b2aaa21c::1725829490::res://.godot/exported/133200997/export-2f950223c03edea8400da7fd1f2d722f-Settings.scn
 res://MiniGames/AgafaAlls.tscn::60300537632055fb4257c49d55f91e77::1726047773::res://.godot/exported/133200997/export-04fa0aa55c28f1b89047ea68e81a7ab8-AgafaAlls.scn
 res://UI/controls/5ControlsToPress.tscn::6995320cd5c4d7cbb50343f463836569::1702116693::res://.godot/exported/133200997/export-3b1e674a56af85e393d5b189528e9e8a-5ControlsToPress.scn
@@ -13,7 +13,7 @@ res://UI/controls/stickesquerra.tscn::70ff52afc9a8bdc387d109afaf8e0dc7::17020647
 res://UI/controls/stickup.tscn::5cc61f511921c7c9159b22dc02dbbcd9::1702074093::res://.godot/exported/133200997/export-7fa46319fb86beea62658a1a05cc601d-stickup.scn
 res://UI/Hud.tscn::690373c3e8d076bce8fbf76bf8aaf241::1723712192::res://.godot/exported/133200997/export-f9aa47b9ac964854be75f995b252fe50-Hud.scn
 res://UI/split.tscn::a9d2b3863dab85859968b32139fe8834::1702064769::res://.godot/exported/133200997/export-8060a21606d42fa9d62b286095ab5dc5-split.scn
-res://default_env.tres::1659898fec5e76bbea1be6eb32e3f4b7::1726415717::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://default_env.tres::1659898fec5e76bbea1be6eb32e3f4b7::1726416176::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
 res://fontBase.tres::d951610d64f4964a2a2fe80efe3cca7f::1702064769::res://.godot/exported/133200997/export-70eefa9436bf423668a1265b8db97869-fontBase.res
 res://Actors/Barman/barman.tscn::0a3366228523f43978d97799fbc03b29::1708795730::res://.godot/exported/133200997/export-434f50072b61aec983e78e2d6c7201c3-barman.scn
 res://Actors/Birra/Birra.tscn::c5dbe041c9db5cbeb4b5f5aa0d2bf43e::1719777974::res://.godot/exported/133200997/export-beea1013449b58487d31a4fbf8b320a0-Birra.scn

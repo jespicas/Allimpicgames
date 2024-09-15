@@ -191,6 +191,15 @@ func checkHasConnection():
 		hasConnection = false
 		push_error("An error occurred in the HTTP request.")
 
+func storeCurrentProjectSettingsKeyMaps():
+		var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.WRITE)
+		#keymaps = fileDefault.get_var(true) as Dictionary
+		for action in InputMap.get_actions():
+			if InputMap.action_get_events(action).size() != 0:
+				keymaps[action] = InputMap.action_get_events(action)[0]		
+		fileDefault.store_var(keymaps, true)
+		fileDefault.close()
+		
 func save_keymap() -> void:
 	# For saving the keymap, we just save the entire dictionary as a var.
 	var file := FileAccess.open(keymapsFile, FileAccess.WRITE)
@@ -261,6 +270,7 @@ func load_keymap() -> void:
 	#	InputMap.action_add_event(action, keymaps[action])
 
 func _ready():
+	storeCurrentProjectSettingsKeyMaps()
 	#if existsKeyMapsUser() == false:
 	#	save_keymap()
 	#else:
