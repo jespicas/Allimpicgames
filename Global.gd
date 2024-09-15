@@ -22,8 +22,10 @@ var pathScores = "user://scores.json"
 var pathPartiesPendingToPlay = "user://pendings.json"
 
 var keymapsFile = "user://keymaps.dat"
-var defaultKeymapFile = "res://keymaps.dat"
+var defaultKeymapFile = "res://keymapsOrg.cfg"
 var keymaps: Dictionary
+var OriginalKeymaps: Dictionary
+
 var agafaAll = "AgafaAlls";
 var tiralabirra = "TiralaBirra";
 var tirall = "Tirall";
@@ -51,6 +53,7 @@ func goto_Main():
 	Global.goto_scene("res://MainMenu/MainMenu.tscn")
 	pass
 func goto_Jocs():
+	currentGame = ""	
 	Global.goto_scene("res://MainMenu/Jocs.tscn")
 	pass	
 func setPlayWithYou(contratu):
@@ -195,38 +198,74 @@ func save_keymap() -> void:
 	keymaps = fileDefault.get_var(true) as Dictionary
 	file.store_var(keymaps, true)
 	file.close()
-	fileDefault.close()
+	fileDefault.close()	
+	#OnlyEnable to store first time defaultkeymapfile
+	#if not FileAccess.file_exists(defaultKeymapFile):
+	#	var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.WRITE)
+	#	#keymaps = fileDefault.get_var(true) as Dictionary
+	#	for action in InputMap.get_actions():
+	#		if InputMap.action_get_events(action).size() != 0:
+	#			keymaps[action] = InputMap.action_get_events(action)[0]		
+	#	file.store_var(keymaps, true)
+	#	file.close()
+	#	fileDefault.store_var(keymaps, true)
+	#	fileDefault.close()
+	#else:
+	#	var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.READ)
+	#	keymaps = fileDefault.get_var(true) as Dictionary
+	#	file.store_var(keymaps, true)
+	#	file.close()
+	#	fileDefault.close()
 
 func load_keymap() -> void:
-	if not FileAccess.file_exists(keymapsFile):
-		save_keymap() # There is no save file yet, so let's create one.
-		return
-	print("loadKEyMap")
-	var file = FileAccess.open(keymapsFile, FileAccess.READ)
-	var keymaps = file.get_var(true) as Dictionary
-	
-	file.close()
+	if FileAccess.file_exists(defaultKeymapFile):
+		var fileOriginal = FileAccess.open(defaultKeymapFile, FileAccess.READ)
+		var OriginalKeymaps = fileOriginal.get_var(true) as Dictionary	
+		fileOriginal.close()
+		if not FileAccess.file_exists(keymapsFile):
+			save_keymap() # There is no save file yet, so let's create one.
+			return
+		print("loadKEyMap")
+		var file = FileAccess.open(keymapsFile, FileAccess.READ)
+		var keymaps = file.get_var(true) as Dictionary	
+		file.close()
 	# We don't just replace the keymaps dictionary, because if you
 	# updated your game and removed/added keymaps, the data of this
 	# save file may have invalid actions. So we check one by one to
 	# make sure that the keymap dictionary really has all current actions.
-	for action in keymaps.keys():
+#		print(OriginalKeymaps.keys())
+#		print(keymaps.keys())
+		for action in OriginalKeymaps.keys():
+			var b = keymaps.get(action)
+			
+			if b != null:
+				InputMap.action_erase_events(action)
+				InputMap.action_add_event(action, b)
+			else:
+				InputMap.action_erase_events(action)
+				InputMap.action_add_event(action, OriginalKeymaps[action])
+				#print_debug(action)
+				#print_debug(e)
+		#if keymaps[action] != null:
+		#	InputMap.action_erase_events(action)
+		#	InputMap.action_add_event(action, keymaps[action])
+		#else:
+		#	InputMap.action_erase_events(action)
+		#	InputMap.action_add_event(action, OriginalKeymaps[action])
+	#for action in keymaps.keys():
 	#	if temp_keymap.has(action):
 	#		keymaps[action] = temp_keymap[action]
 			# Whilst setting the keymap dictionary, we also set the
 			# correct InputMap event
-		InputMap.action_erase_events(action)
-		InputMap.action_add_event(action, keymaps[action])
-		print(action)
+	#	InputMap.action_erase_events(action)
+	#	InputMap.action_add_event(action, keymaps[action])
 
 func _ready():
 	#if existsKeyMapsUser() == false:
-	#	for action in InputMap.get_actions():
-	#		if InputMap.action_get_events(action).size() != 0:
-	#			keymaps[action] = InputMap.action_get_events(action)[0]
 	#	save_keymap()
 	#else:
 	#	load_keymap()
+	
 	checkHasConnection()
 	
 	if fileExists() == true:

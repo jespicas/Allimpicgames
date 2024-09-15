@@ -322,6 +322,9 @@ func RestartAvi():
 	pass
 
 func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Jocs()
+	
 	if participant2Disabled == false and event.is_action_pressed("p2_press_button") and readyP2 == true && finishGame == false:
 		$TimerP2.stop()
 		$textProgressP2.text = str(numberprogressP2)+" %"

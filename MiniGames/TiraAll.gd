@@ -141,6 +141,9 @@ func _process(delta):
 	pass
 
 func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Jocs()
+	
 	if readyToStart == true:
 		if event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
 			$Hud/Message2.text = ""

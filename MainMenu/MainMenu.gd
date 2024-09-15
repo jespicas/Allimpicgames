@@ -18,6 +18,7 @@ func existsKeyMapsUser():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ReadyToCheckSilentWolf()
+	#Global.load_keymap()
 	#if existsKeyMapsUser() == false:
 	#	Global.goto_scene("res://UI/RemappingKeys/RemappingKeys.tscn")
 	#else:
@@ -173,6 +174,7 @@ func HidePlayedGames():
 	$focusAll.position.x = 43	
 	
 func _input(event):
+	#print(event)
 	#print(event.is_action_released())
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
 		print(currentPosition)
@@ -189,8 +191,8 @@ func _input(event):
 			Global.goto_Records()
 		elif currentPosition == menupositions.INFO:
 			Global.goto_scene("res://Instruccions/JocsInstruccions.tscn")
-		#elif currentPosition == menupositions.SHOWNGAMES:
-		#	HidePlayedGames()
+	#	elif currentPosition == menupositions.REDEFINIR:
+	#		Global.goto_scene("res://UI/RemappingKeys/RemappingKeys.tscn")
 		print("enter")
 	if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left"):
 		print("left")
@@ -203,9 +205,9 @@ func _input(event):
 			if Global.hasConnection == false && Global.numPlayers == 1:
 				currentPosition = menupositions.INFO
 				$focusAll.position.x = 165
-		elif currentPosition == menupositions.REDEFINIR:
-			currentPosition = menupositions.INFO
-			$focusAll.position.x = 43
+	#	elif currentPosition == menupositions.REDEFINIR:
+	#		currentPosition = menupositions.INFO
+	#		$focusAll.position.x = 43
 		#	$focusAll.position.x = 43#elif currentPosition == menupositions.INFO:
 		#	HidePlayedGames()
 
@@ -243,14 +245,13 @@ func _input(event):
 		if currentPosition == menupositions.PLAYER1:
 			currentPosition = menupositions.PLAYER2
 			$focusAll.position.x = 165
-		elif currentPosition == menupositions.REDEFINIR:
-			currentPosition = menupositions.INFO
-			$focusAll.position.x = 165
-			pass
-		elif currentPosition == menupositions.INFO:
-			currentPosition = menupositions.REDEFINIR
-			$focusAll.position.x = 165
+	#	elif currentPosition == menupositions.REDEFINIR:
+	#		currentPosition = menupositions.INFO
+	#		$focusAll.position.x = 165
+	#		pass
+	#	elif currentPosition == menupositions.INFO:
+	#		currentPosition = menupositions.REDEFINIR
+	#		$focusAll.position.x = 165
 			
 			
 			#MoveToBack()
-		print("right")

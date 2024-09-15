@@ -105,7 +105,7 @@ func _ready() -> void:
 	$CanyemThird.changeCanyemSolFlip(false)
 	selecciona("first")
 	
-	if Global.tipusdeJoc == "practicar":
+	if Global.numPlayers == 1:
 		hide_SecondPlayer()
 	$SecondPlayer/CanyemFirst.position = Vector2(250,95)
 	$SecondPlayer/CanyemSecond.position = Vector2(258,100)
@@ -122,12 +122,13 @@ func hide_SecondPlayer():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.numPlayers == 1:
-		gameStart = false
-		Global.setScore(str(tempsP1).substr(0,5))
-		$RetryGame.menuRetry = true
-		$RetryGame.show()
-		$RetryGame.ShowRetry()
-		
+		#gameStart = false
+		if player1End == true:
+			gameStart = false
+			Global.setScore(str(tempsP1).substr(0,5))
+			$RetryGame.menuRetry = true
+			$RetryGame.show()
+			$RetryGame.ShowRetry()		
 		pass
 	else:
 		if player1End == true and player2End == true:
@@ -151,9 +152,9 @@ func _process(delta: float) -> void:
 				$RetryGame.show()
 				$RetryGame.ShowRetry()
 		
-		if gameStart == true:
-			tempsP1 += delta
-			tempsP2 += delta
+	if gameStart == true:
+		tempsP1 += delta
+		tempsP2 += delta
 	pass
 
 func selecciona(position):
@@ -263,6 +264,9 @@ func seleccionaP2(position):
 			$SecondPlayer/CanyemSecond.deixaTorcatNoMa(false)
 			
 func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Jocs()
+	
 	if is_Showing_Square == true:
 		if Input.is_action_pressed("p1_press_button") or  Input.is_action_pressed("p2_press_button") :
 			$Info/WaitReadytoHide.start()

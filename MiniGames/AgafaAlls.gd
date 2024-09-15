@@ -43,6 +43,9 @@ func _ready():
 	$Player2.hide()
 	pass # Replace with function body.
 
+func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Jocs()
 func fillArrCurrentMovement():
 	for j in 4:
 		currentMovement = []

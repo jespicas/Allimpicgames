@@ -20,6 +20,8 @@ var labelsText = [
 #}]
 
 func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Main()
 
 	var posGrid = 0
 	var posCurrentFocus = 0

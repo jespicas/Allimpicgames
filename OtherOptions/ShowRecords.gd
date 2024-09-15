@@ -42,7 +42,10 @@ func _ready():
 			fillGrid(concursallioli,allioliRecords)
 			fillGrid(enforcaralls,enforcarAllsRecords)
 	pass # Replace with function body.
-
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("exit"):
+		Global.goto_Main()
+	
 func fillGrid(gridName,values):
 	if values.size()> 0:
 		#values.sort_custom(self, "customComparison")

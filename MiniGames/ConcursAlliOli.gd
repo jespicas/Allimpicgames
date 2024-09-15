@@ -43,6 +43,9 @@ var puntsFailP1 = 0
 var finishedGame = false
 
 func _input(event):
+	if Input.is_action_pressed("exit"):
+		Global.goto_Jocs()
+	
 	if is_Showing_Square == false:
 		if estasFentP1 == true:
 			timeLastInputPressP1 = timeP1
