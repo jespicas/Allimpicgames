@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvu6gsrn3la7j"]
+
+[ext_resource type="Script" path="res://Instruccions/back_instructions.gd" id="1_ed04r"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_vbexi"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_1cpy6"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="3_ppp7u"]
+
+[node name="AllIOliInstructions" type="Node2D"]
+script = ExtResource("1_ed04r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_vbexi")
+
+[node name="Torna" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 214.0
+offset_right = 291.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1cpy6")
+text = "torna"
+
+[node name="titol" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 12.0
+offset_right = 221.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1cpy6")
+text = "Concurs all i oli"
+
+[node name="body" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 37.0
+offset_right = 303.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1cpy6")
+theme_override_font_sizes/font_size = 12
+text = "Objectiu: Fer el maxim d' allioli
+Com: Primer s'han de xafar els alls, amb el
+boto.
+Despres s' ha afegir oli, amb el boto i rodar 
+amb les direccions a una velocitat constant
+hi ha un indicador velocitat quan es posa 
+verd vol dir que estas a la bona velocitat
+has d' intentar mantenir el maxim.
+com mes temps mes allioli faras"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 222)
+texture = ExtResource("3_ppp7u")

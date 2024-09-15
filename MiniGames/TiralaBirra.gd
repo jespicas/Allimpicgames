@@ -101,6 +101,7 @@ func finished():
 	if Global.numPlayers == 2:
 		$TimerGotoRecords.start()		
 	else:
+		Global.setScore(puntsP1)
 		$RetryGame.menuRetry = true
 		$RetryGame.ShowRetry()
 	pass
@@ -409,5 +410,9 @@ func _on_no_touch_pressed():
 
 
 func _on_timer_goto_records_timeout() -> void:
-	Global.goto_SaveRecords()
+
+	if await Global.ShouldAddScore():
+		Global.goto_SaveRecords()
+	else:
+		Global.goto_Jocs()
 	pass # Replace with function body.

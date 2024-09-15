@@ -1,5 +1,11 @@
 extends Node2D
 
+var agafaAll = "AgafaAlls";
+var tiralabirra = "TiralaBirra";
+var tirall = "Tirall";
+var concursallioli = "ConcursAlliOli";
+var enforcaralls = "EnforcarAlls";
+
 var labels = ["_","_","_"]
 var pos = 0
 var labelsText = [
@@ -112,28 +118,40 @@ func removeLabel():
 #		for i in 2:
 #			$Control.get_children()[i].text = labels[i]
 func store():
-	if fileExists() == true:
-		var save_file = Global.GetScores()
-		
-		var new = {
-			"score": Global.score,
-			"name": labels[0]+labels[1]+labels[2],
-			"game": Global.currentGame
-		}		
-		save_file.append(new)
-		var save_fileOverride = FileAccess.open(Global.pathScores, FileAccess.WRITE)
-		var json_string = JSON.stringify(save_file)
-		save_fileOverride.store_line(json_string)		
-		
+	if Global.silentWolfWorks:
+		if Global.currentGame == agafaAll:
+			SilentWolf.Scores.save_score(labels[0]+labels[1]+labels[2], Global.score, "agafaalls")
+		if Global.currentGame == tiralabirra:
+			SilentWolf.Scores.save_score(labels[0]+labels[1]+labels[2], Global.score, "tiralabirra")
+		if Global.currentGame == tirall:
+			SilentWolf.Scores.save_score(labels[0]+labels[1]+labels[2], Global.score, "tirall")
+		if Global.currentGame == concursallioli:
+			SilentWolf.Scores.save_score(labels[0]+labels[1]+labels[2], Global.score, "allioli")
+		if Global.currentGame == enforcaralls:
+			SilentWolf.Scores.save_score(labels[0]+labels[1]+labels[2], Global.score, "enforcaralls")
 	else:
-		var new = [{
-			"score": Global.score,
-			"name": labels[0]+labels[1]+labels[2],
-			"game": Global.currentGame
-		}]
-		var save_file = FileAccess.open(Global.pathScores, FileAccess.WRITE)
-		var json_string = JSON.stringify(new)
-		save_file.store_line(json_string)		
+		if fileExists() == true:
+			var save_file = Global.GetScores()
+			
+			var new = {
+				"score": Global.score,
+				"name": labels[0]+labels[1]+labels[2],
+				"game": Global.currentGame
+			}		
+			save_file.append(new)
+			var save_fileOverride = FileAccess.open(Global.pathScores, FileAccess.WRITE)
+			var json_string = JSON.stringify(save_file)
+			save_fileOverride.store_line(json_string)		
+			
+		else:
+			var new = [{
+				"score": Global.score,
+				"name": labels[0]+labels[1]+labels[2],
+				"game": Global.currentGame
+			}]
+			var save_file = FileAccess.open(Global.pathScores, FileAccess.WRITE)
+			var json_string = JSON.stringify(new)
+			save_file.store_line(json_string)		
 
 
 func fileExists():
@@ -149,4 +167,12 @@ func _button_pressed(button):
 	else:
 		addLabel(button.text)
 func nextlevel():
+	if Global.silentWolfWorks:
+		$TimerSilentWorlf.start()
+	else:
+		Global.goto_Records()
+
+
+func _on_timer_silent_worlf_timeout() -> void:
 	Global.goto_Records()
+	pass # Replace with function body.

@@ -243,9 +243,11 @@ func _on_timer_timeout():
 			$TimerGotoRecords.start()
 			pass
 		else:
+			Global.setScore(puntsP1)
 			$RetryGame.menuRetry = true
 			$RetryGame.ShowRetry()
 	else:
+		Global.setScore(puntsP1)
 		$Hud/Message2.text = "Fi de la partida"	
 		$Information.show()
 		$Information/Label.text = " Fi de la partida"
@@ -262,5 +264,9 @@ func _on_timer_square_information_timeout():
 
 
 func _on_timer_goto_records_timeout() -> void:
-	Global.goto_SaveRecords()
+
+	if await Global.ShouldAddScore():
+		Global.goto_SaveRecords()
+	else:
+		Global.goto_Jocs()
 	pass # Replace with function body.

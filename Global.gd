@@ -24,10 +24,19 @@ var pathPartiesPendingToPlay = "user://pendings.json"
 var keymapsFile = "user://keymaps.dat"
 var defaultKeymapFile = "res://keymaps.dat"
 var keymaps: Dictionary
-
+var agafaAll = "AgafaAlls";
+var tiralabirra = "TiralaBirra";
+var tirall = "Tirall";
+var concursallioli = "ConcursAlliOli";
+var enforcaralls = "EnforcarAlls";
 var score = 0
 #var urlApi = "https://allimpicgames-api-dev.azurewebsites.net/"
 var urlApi = "http://localhost:5267/"
+
+var silentWolfWorks = false
+
+func set_SilentWolfWorks(value):
+	silentWolfWorks = value
 
 func setScore(value):
 	score = value
@@ -41,7 +50,9 @@ func goto_SaveRecords():
 func goto_Main():
 	Global.goto_scene("res://MainMenu/MainMenu.tscn")
 	pass
-	
+func goto_Jocs():
+	Global.goto_scene("res://MainMenu/Jocs.tscn")
+	pass	
 func setPlayWithYou(contratu):
 	playWithYou = contratu
 	
@@ -209,7 +220,6 @@ func load_keymap() -> void:
 		print(action)
 
 func _ready():
-	
 	#if existsKeyMapsUser() == false:
 	#	for action in InputMap.get_actions():
 	#		if InputMap.action_get_events(action).size() != 0:
@@ -217,7 +227,6 @@ func _ready():
 	#	save_keymap()
 	#else:
 	#	load_keymap()
-		
 	checkHasConnection()
 	
 	if fileExists() == true:
@@ -317,6 +326,7 @@ func AddFriends(nick):
 		file.store_string(JSON.stringify(nick))
 		file.close()
 
+
 func StoreGamePending(nick,game):
 	var gamesPending = GetPlayedPendingFromFile()
 	
@@ -351,15 +361,108 @@ func GetPlayedPendingFromFile():
 	pass		
 
 func GetScores():
-	if FileAccess.file_exists(pathScores):
-		var file = FileAccess.open(pathScores, FileAccess.READ_WRITE)
-		var json = JSON.new()
-		var a = file.get_file_as_string(pathScores)	
-		var data = json.parse_string(a)
-	
-		return data
+	if Global.silentWolfWorks:
+		return "SomethingtoContinue"
+	else:
+		if FileAccess.file_exists(pathScores):
+			var file = FileAccess.open(pathScores, FileAccess.READ_WRITE)
+			var json = JSON.new()
+			var a = file.get_file_as_string(pathScores)	
+			var data = json.parse_string(a)
+		
+			return data
 	pass		
+
+func ShouldAddScoreSilentWolf(leaderboard):
+	var nameJoc = currentGame
+	var scores = await GetRecordsFromSilentWolf(leaderboard)
+	if scores.size() >= 5:
+		if nameJoc == "AgafaAlls" or nameJoc == "EnforcarAlls":
+			if str(scores[4]["score"]).to_float() < str(score).to_float():
+				return false
+			else:
+				return true
+		else:
+			if str(scores[4]["score"]).to_float() > str(score).to_float():
+				return false
+			else:
+				return true
+	else:
+		return true	
+		
+func ShouldAddScore():
+	var nameJoc = currentGame
+	if Global.silentWolfWorks:
+		var silengame = ""
+		if nameJoc == agafaAll:
+			silengame = "agafaalls"
+		if nameJoc == concursallioli:
+			silengame = "allioli"
+		if nameJoc == enforcaralls:
+			silengame = "enforcaralls"
+		if nameJoc == tiralabirra:
+			silengame = "tiralabirra"
+		if nameJoc == tirall:
+			silengame = "tirall"				
+		return await ShouldAddScoreSilentWolf(silengame)
+	else:
+		if FileAccess.file_exists(pathScores):
+			var scores = GetScores()
+			scores = GetRecordsFromGame(nameJoc,scores)
+			if scores.size() >= 5:
+				if nameJoc == agafaAll or nameJoc == enforcaralls:
+					print("current score" + score)
+					print("p5 score "+scores[4]["score"])
+					if str(scores[4]["score"]).to_float() < str(score).to_float():
+						return false
+					else:
+						return true
+				else:
+					if str(scores[4]["score"]).to_float() > str(score).to_float():
+						print("current score" + score)
+						print("p5 score "+scores[4]["score"])
+						return false
+					else:
+						return true
+			else:
+				return true
+		else:
+			return true	
+		
+func GetRecordsFromGame(game, save_data):
+	var new_game = []
 	
+	for line in save_data:
+		if line["game"] == game:
+			var gameRecord = {
+				"score": line["score"],
+				"name": line["name"]
+			}
+			new_game.append(gameRecord)
+
+	if game == agafaAll or game == enforcaralls:
+		new_game.sort_custom(func(a, b): return str(a["score"]).to_float() < str(b["score"]).to_float())
+	else:
+		new_game.sort_custom(func(a, b): return str(a["score"]).to_float() > str(b["score"]).to_float())			
+	return new_game
+	
+func GetRecordsFromSilentWolf(leaderboard):
+	var sw_result = await SilentWolf.Scores.get_scores(0, leaderboard).sw_get_scores_complete
+	var scores = sw_result.scores
+	print(scores)
+	var new_game = []
+	for score in scores:
+		var gameRecord = {
+			"score": score["score"],
+			"name": score["player_name"]
+		}
+		new_game.append(gameRecord)
+		
+	if leaderboard == agafaAll or leaderboard == enforcaralls:
+		new_game.sort_custom(func(a, b): return str(a["score"]).to_float() < str(b["score"]).to_float())
+	else:
+		new_game.sort_custom(func(a, b): return str(a["score"]).to_float() > str(b["score"]).to_float())			
+	return new_game		
 func GetSettings():
 	var file = FileAccess.open(pathSave, FileAccess.READ_WRITE)
 	var json = JSON.new()
@@ -477,30 +580,7 @@ func RemovePendingGameFromFile(nick,game):
 	
 		
 	pass
-func ExistsScore(player1,score1,player2,score2,game):
-	var scoresContent = GetScores()
-	var exists = false
-	if scoresContent != null:
-		for scoreContent in scoresContent["Scores"]:
-			if scoreContent.Player1 == player1 and scoreContent.ScoreP1 == score1 and scoreContent.Player2 == player2 and scoreContent.ScoreP2 == score2 and scoreContent.Game == game:
-				exists = true 
-	return exists
 
-func StoreScores(player1,score1,player2,score2,game):
-	var scoresContent = GetScores()
-	var scores = []	
-	if scoresContent != null:
-		scores = scoresContent["Scores"]
-		
-	if ExistsScore(player1,score1,player2,score2,game) == false:	
-		var scoreLine = { "Player1": player1, "ScoreP1": score1, "Player2": player2, "ScoreP2":score2, "Game": game, }
-		scores.append(scoreLine)	
-		var fileToSave = FileAccess.open(pathScores, FileAccess.WRITE)
-		var scoresValues = { "Scores": scores}
-		fileToSave.store_string(JSON.stringify(scoresValues))
-		fileToSave.close()	
-	pass
-	
 func GetPlayedGames():
 	var http_request = HTTPRequest.new()	
 	add_child(http_request)

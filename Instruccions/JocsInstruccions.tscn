@@ -1,0 +1,287 @@
+[gd_scene load_steps=20 format=3 uid="uid://0utdnv08uwgw"]
+
+[ext_resource type="Script" path="res://Instruccions/jocs_instruccions.gd" id="1_02nuf"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="2_8n3bs"]
+[ext_resource type="Texture2D" uid="uid://cu2v3j7xoqx51" path="res://Media/imatges/mainmenu/olimpicring.png" id="3_lubfl"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="4_bfmqt"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="5_myknk"]
+
+[sub_resource type="FontFile" id="FontFile_yw6hk"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_5roc3"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_q3qpg"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_7dsbv"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_7k5e4"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="FontFile_jp7u7"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ujeq"]
+size = Vector2(140, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo83s"]
+size = Vector2(140, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mevcf"]
+size = Vector2(100, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flihb"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7dx1"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_371a5"]
+size = Vector2(120, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78rfa"]
+size = Vector2(50, 20)
+
+[sub_resource type="FontFile" id="FontFile_07oui"]
+fallbacks = Array[Font]([ExtResource("4_bfmqt")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="JocsInstruccions" type="Node2D"]
+script = ExtResource("1_02nuf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("2_8n3bs")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 172.0
+offset_top = 3.0
+offset_right = 332.0
+offset_bottom = 123.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_lubfl")
+
+[node name="agafarall" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 44.0
+offset_right = 226.0
+offset_bottom = 65.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_yw6hk")
+text = "Recollir alls"
+
+[node name="birrall" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 64.0
+offset_right = 209.0
+offset_bottom = 85.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_5roc3")
+text = "Tira la Birrall "
+
+[node name="tiralall" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 85.0
+offset_right = 224.0
+offset_bottom = 105.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_q3qpg")
+text = "Tir a l' all"
+
+[node name="allioli" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 106.0
+offset_right = 182.0
+offset_bottom = 126.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_7dsbv")
+text = "All i oli"
+
+[node name="lligaralls" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 126.0
+offset_right = 184.0
+offset_bottom = 149.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_7k5e4")
+text = "Enforcar alls"
+
+[node name="recollirall" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 30.0
+offset_top = 148.0
+offset_right = 193.0
+offset_bottom = 170.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_jp7u7")
+text = "Recollir alls"
+
+[node name="agafaAll" type="TouchScreenButton" parent="."]
+position = Vector2(100, 51)
+shape = SubResource("RectangleShape2D_0ujeq")
+
+[node name="birralltouch" type="TouchScreenButton" parent="."]
+position = Vector2(100, 72)
+shape = SubResource("RectangleShape2D_uo83s")
+shape_centered = false
+
+[node name="tiralltouch" type="TouchScreenButton" parent="."]
+position = Vector2(80, 93)
+shape = SubResource("RectangleShape2D_mevcf")
+
+[node name="alliolitouch" type="TouchScreenButton" parent="."]
+position = Vector2(90, 113)
+shape = SubResource("RectangleShape2D_flihb")
+
+[node name="lligartouch" type="TouchScreenButton" parent="."]
+position = Vector2(90, 134)
+shape = SubResource("RectangleShape2D_a7dx1")
+
+[node name="recolliralltouch" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(89, 158)
+shape = SubResource("RectangleShape2D_371a5")
+
+[node name="backtouch" type="TouchScreenButton" parent="."]
+position = Vector2(274, 208)
+shape = SubResource("RectangleShape2D_78rfa")
+
+[node name="back" type="RichTextLabel" parent="."]
+offset_left = 253.0
+offset_top = 199.0
+offset_right = 310.0
+offset_bottom = 222.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("FontFile_07oui")
+text = "torna"
+
+[node name="focusAll" type="Sprite2D" parent="."]
+position = Vector2(21, 53)
+texture = ExtResource("5_myknk")
+
+[node name="ContentCompetir" type="TextureRect" parent="."]
+visible = false
+offset_left = 48.0
+offset_top = 8.0
+offset_right = 328.0
+offset_bottom = 191.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ContentCompetir"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 252.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bfmqt")
+text = "Volen competir contra tu:"
+
+[node name="ListCompetidor" type="ItemList" parent="ContentCompetir"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 24.0
+offset_right = 243.0
+offset_bottom = 79.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ContentCompetir"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 79.0
+offset_right = 252.0
+offset_bottom = 103.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bfmqt")
+text = "Vols competir contra:"
+
+[node name="ListAmics" type="ItemList" parent="ContentCompetir"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 97.0
+offset_right = 243.0
+offset_bottom = 186.0
+
+[node name="AcceptCompetir" type="TextureRect" parent="."]
+visible = false
+offset_left = -1.0
+offset_top = 101.0
+offset_right = 318.0
+offset_bottom = 177.0
+
+[node name="VolsCompetir" type="RichTextLabel" parent="AcceptCompetir"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 10.0
+offset_right = 294.0
+offset_bottom = 56.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bfmqt")
+text = "Vols competir contra "
+
+[node name="Si" type="RichTextLabel" parent="AcceptCompetir"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 46.0
+offset_right = 117.0
+offset_bottom = 69.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bfmqt")
+text = "Si"
+
+[node name="No" type="RichTextLabel" parent="AcceptCompetir"]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 44.0
+offset_right = 227.0
+offset_bottom = 69.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_bfmqt")
+text = "No"
+
+[node name="allAccept" type="Sprite2D" parent="AcceptCompetir"]
+position = Vector2(62, 54)
+texture = ExtResource("5_myknk")

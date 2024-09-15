@@ -245,3 +245,9 @@ text = "Y"
 layout_mode = 2
 theme_override_styles/focus = ExtResource("4_tn7w0")
 text = "Z"
+
+[node name="TimerSilentWorlf" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="TimerSilentWorlf" to="." method="_on_timer_silent_worlf_timeout"]

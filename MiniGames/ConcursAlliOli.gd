@@ -258,33 +258,20 @@ func finished():
 	$InfoPlayer1/Label.text = " Quantitat "
 	$InfoPlayer1/Label2.text = " all i oli "
 	$InfoPlayer1/Label3.text = " "+str(puntOKP1)+" ml"
-	#if Global.numPlayers == 2:
-	#var textParticipant = [
-	#	"Quantitat",
-	#	"all i oli",
-	#	"   "+str(puntOKP2)+" ml"
-	#]
-	#$InfoPlayer2/SquareInformationP2.ShowSquareFixed(190,70,190,100,280,70,280,100,textParticipant)
-	if Global.tipusdeJoc == "practicar":
-		pass
-	else:
+	
+	if Global.numPlayers == 2:
 		$InfoPlayer2.show()
 		$InfoPlayer2/Label.text = " Quantitat "
 		$InfoPlayer2/Label2.text = " all i oli "
 		$InfoPlayer2/Label3.text = " "+str(puntOKP2)+" ml"
-	#textParticipant = [
-	#	"Quantitat",
-	#	"all i oli",
-	#	"   "+str(puntOKP1)+" ml"
-	#]
-	#$InfPlayer1/SquareInformationP1.ShowSquareFixed(30,70,30,100,120,70,120,100,textParticipant)		
-	if Global.numPlayers == 2:
+		
 		if puntOKP1 > puntOKP2:
 			Global.setScore(puntOKP1)
 		else:
 			Global.setScore(puntOKP2)
 		$TimerGotoRecords.start()
 	else:
+		Global.setScore(puntOKP1)
 		$RetryGame.menuRetry = true
 		$RetryGame.ShowRetry()	
 
@@ -314,7 +301,7 @@ func squarefinished():
 	$InfoPlayer1/Label3.text = " prem buto "
 	$InfoPlayer1/TimerInfoPlayer1.start()
 	
-	if Global.tipusdeJoc == "practicar":
+	if Global.numPlayers == 1:
 		$InfoPlayer2.hide()
 		$AllioliCenital2.hide()
 	else:
@@ -443,5 +430,9 @@ func _on_timer_info_player_1_timeout() -> void:
 
 
 func _on_timer_goto_records_timeout() -> void:
-	Global.goto_SaveRecords()
+
+	if await Global.ShouldAddScore():
+		Global.goto_SaveRecords()
+	else:
+		Global.goto_Jocs()
 	pass # Replace with function body.

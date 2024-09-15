@@ -121,8 +121,9 @@ func hide_SecondPlayer():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Global.tipusdeJoc == "practicar":
+	if Global.numPlayers == 1:
 		gameStart = false
+		Global.setScore(str(tempsP1).substr(0,5))
 		$RetryGame.menuRetry = true
 		$RetryGame.show()
 		$RetryGame.ShowRetry()
@@ -562,5 +563,9 @@ func _on_wait_readyto_hide_timeout() -> void:
 
 
 func _on_timer_goto_records_timeout() -> void:
-	Global.goto_SaveRecords()
+
+	if await Global.ShouldAddScore():
+		Global.goto_SaveRecords()
+	else:
+		Global.goto_Jocs()
 	pass # Replace with function body.

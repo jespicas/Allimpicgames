@@ -186,30 +186,13 @@ func _process(delta):
 				$TimerGoToRecords.start()
 				timerFinishGame = true
 				print("finishgame")
-			#$RetryGame.menuRetry = true
-			#$RetryGame.ShowRetry()
-			
+
 	else:
 		if Global.numPlayers == 1 and P1finish == true:
-			if Global.tipusdeJoc == "practicar":
-				$RetryGame.menuRetry = true
-				$RetryGame.ShowRetry()
-
-			elif Global.tipusdeJoc == "competir":
-				if scoreSent == false:
-					scoreSent = true
-					await Global.AddGameToApi(timeP1)
-					
-					if Global.scoreNickCompetir != null:
-						Global.StoreScores(Global.currentNick, timeP1, Global.nickCompetir, Global.scoreNickCompetir,"AgafaAlls")
-						if timeP1 < Global.scoreNickCompetir:
-							$Hud.show_message("Has guanyat a " + Global.nickCompetir)
-							$Hud.show_message2(" Te un temps de "+ str(Global.scoreNickCompetir))
-						else:
-							$Hud.show_message("Has perdut contra: " + Global.nickCompetir)
-							$Hud.show_message2(" Te un temps de "+ str(Global.scoreNickCompetir))
-					else:
-						Global.StoreGamePending(Global.nickCompetir,"AgafaAlls")
+			Global.setScore(str(timeP1).substr(0,5))
+			$RetryGame.menuRetry = true
+			$RetryGame.ShowRetry()
+			
 	
 
 func moveNextRecolector(player):
@@ -242,5 +225,13 @@ func _on_timer_go_to_records_timeout() -> void:
 	print("timeoutGotoREcords")
 	# Mirar si ha de guardar records
 	# El record esta dintre dels 5 ?
-	Global.goto_SaveRecords()
+	
+	if await Global.ShouldAddScore():
+		Global.goto_SaveRecords()
+	else:
+		Global.goto_Jocs()
+	#if Global.ShouldAddScore():
+	#	Global.goto_SaveRecords()
+	#else:
+	#	Global.goto_Jocs()
 	pass # Replace with function body.

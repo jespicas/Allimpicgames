@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp163x46y2got"]
+
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_nnn3d"]
+[ext_resource type="Script" path="res://Instruccions/back_instructions.gd" id="1_ykuig"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_hdhgy"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="3_lhxqk"]
+[ext_resource type="Texture2D" uid="uid://b0ogk7d445tv0" path="res://Media/imatges/barraforca.png" id="4_psqj2"]
+
+[node name="TiralaBirra" type="Node2D"]
+script = ExtResource("1_ykuig")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_nnn3d")
+
+[node name="Torna" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 214.0
+offset_right = 291.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hdhgy")
+text = "torna"
+
+[node name="titol" type="Label" parent="."]
+offset_left = 111.0
+offset_top = 12.0
+offset_right = 188.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hdhgy")
+text = "Tira la Birra"
+
+[node name="body" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 38.0
+offset_right = 305.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_hdhgy")
+theme_override_font_sizes/font_size = 12
+text = "Objectiu: El cambrer ha de tirar la birraAll 
+el mes aprop possible del client
+Com: Sortiran un client hi ha una barra
+que va amunt i avall, 
+
+quan mes amunt amb 
+mes forca tires. Quan apretes el boto es quan
+es para i alla on es queda es la forca
+
+Com mes aprop del client mes punts"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 222)
+texture = ExtResource("3_lhxqk")
+
+[node name="Barraforca" type="Sprite2D" parent="."]
+position = Vector2(225, 111)
+texture = ExtResource("4_psqj2")

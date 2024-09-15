@@ -198,7 +198,7 @@ offset_right = 310.0
 offset_bottom = 222.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = SubResource("14")
-text = "back"
+text = "torna"
 
 [node name="focusAll" type="Sprite2D" parent="."]
 position = Vector2(21, 53)

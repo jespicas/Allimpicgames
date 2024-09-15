@@ -2,9 +2,13 @@ extends Node2D
 
 var currentPosition = null
 
-enum menupositions {PLAYER1, PLAYER2, COMPETIR, PRACTICAR, PUNTUACIONS, SHOWNGAMES}
+enum menupositions {PLAYER1, PLAYER2, REDEFINIR, INFO, PUNTUACIONS, INFO2}
 
 var keymapsFile = "user://keymaps.dat"
+
+var GetScores = null
+var wrGetScores = null
+var latest_max = 10
 
 func existsKeyMapsUser():
 	var exists = false
@@ -13,6 +17,7 @@ func existsKeyMapsUser():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	ReadyToCheckSilentWolf()
 	#if existsKeyMapsUser() == false:
 	#	Global.goto_scene("res://UI/RemappingKeys/RemappingKeys.tscn")
 	#else:
@@ -20,12 +25,35 @@ func _ready():
 	#	pass
 	$playerOne.grab_focus()
 	currentPosition = menupositions.PLAYER1
-	ShowHideOthers(false)
-	CheckGamesPending()
+	#ShowHideOthers(false)
+	#CheckGamesPending()
 	
 	# si no hi ha nick i te internet
 	# anar a la pagina d' entrar el nick
 	pass # Replace with function bod
+
+func ReadyToCheckSilentWolf():
+	var prepared_http_req = SilentWolf.prepare_http_request()
+	GetScores = prepared_http_req.request
+	wrGetScores = prepared_http_req.weakref
+	GetScores.request_completed.connect(_on_GetScores_request_completed)
+	#SWLogger.info("Calling SilentWolf backend to get scores...")
+	# resetting the latest_number value in case the first requests times out, we need to request the same amount of top scores in the retry
+	latest_max = 10
+	#var request_url = "https://api.silentwolf.com/get_scores/" + str(SilentWolf.config.game_id) + "?max=" + str(10)  + "&ldboard_name=" + str("main") 
+	var request_url = "https://api.silentwolf.com/"
+	SilentWolf.send_get_request(GetScores, request_url)
+		
+func _on_GetScores_request_completed(result, response_code, headers, body) -> void:
+	var status_check = SilentWolf.SWUtils.check_http_response(response_code, headers, body)
+	SilentWolf.free_request(wrGetScores, GetScores)
+	print("status")
+	print(status_check)
+	if status_check:
+		Global.set_SilentWolfWorks(true)
+	else:
+		Global.set_SilentWolfWorks(false)
+	
 func checkedconnection():
 	pass
 
@@ -53,7 +81,7 @@ func CheckGamesPending():
 						else:
 							$ListPlayedGames/ItemList.add_item("No")
 						$ListPlayedGames/ItemList.add_item("AgafaAlls")
-						currentPosition = menupositions.SHOWNGAMES
+						currentPosition = menupositions.INFO
 					pass
 			if Global.ExistsGamePendingInSettings(game.nick,"AgafaAlls"):
 				if game.nickToPlay == Global.currentNick:
@@ -68,7 +96,7 @@ func CheckGamesPending():
 						else:
 							$ListPlayedGames/ItemList.add_item("Si")
 						$ListPlayedGames/ItemList.add_item("AgafaAlls")
-						currentPosition = menupositions.SHOWNGAMES
+						currentPosition = menupositions.INFO
 					pass
 			#Exists in Score? -> nothing
 			
@@ -90,11 +118,11 @@ func CheckGamesPending():
 		#$ListPlayedGames/ItemList.add_item("No")
 		#$ListPlayedGames/ItemList.add_item("AgafaAlls")
 	
-func ShowHideOthers(show):
-	$practicar.visible = show
-	$practicarTouch.visible = show
-	$competir.visible = show
-	$competir.visible = show
+#func ShowHideOthers(show):
+#	$practicar.visible = show
+#	$practicarTouch.visible = show
+#	$competir.visible = show
+#	$competir.visible = show
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
@@ -102,14 +130,14 @@ func buttonPlayer1Pressed():
 	Global.setPlayers("player1")
 	$"playerTwo".hide()
 	$"2playertouch".visible = false
-	ShowHideOthers(true)
+	#ShowHideOthers(true)
 	$focusAll.position.y = 190
-	currentPosition = menupositions.COMPETIR	
+#	currentPosition = menupositions.COMPETIR	
 	Global.setNumPlayers(1)
 	if Global.hasConnection == false:
 		$competir.hide()
 		$allimpictouch.hide()
-		currentPosition = menupositions.PRACTICAR
+#		currentPosition = menupositions.PRACTICAR
 		$focusAll.position.x = 165	
 #	print("player1")
 	
@@ -117,22 +145,17 @@ func buttonPlayer2Pressed():
 	Global.setPlayers("player2")		
 	$"playerOne".hide()
 	$"1playertouch".visible = false
-	ShowHideOthers(true)	
+	#ShowHideOthers(true)	
 	$focusAll.position.y = 190
 	$focusAll.position.x = 43
-	currentPosition = menupositions.COMPETIR
+#	currentPosition = menupositions.COMPETIR
 	Global.setNumPlayers(2)
-	buttonCompetirPressed()	
+	#buttonCompetirPressed()	
 	print("player2")
 	
 func buttonSettingsPressed():
 	Global.goto_scene("res://MainMenu/Settings.tscn")
-func buttonPracticarPressed():
-	Global.setTipusJoc("practicar")
-	Global.goto_scene("res://MainMenu/Jocs.tscn")
-func buttonCompetirPressed():	
-	Global.setTipusJoc("competir")
-	Global.goto_scene("res://MainMenu/Jocs.tscn")
+
 
 func _on_TouchScreenButton_pressed(extra_arg_0):
 	if extra_arg_0 == "btnSettings":
@@ -141,10 +164,6 @@ func _on_TouchScreenButton_pressed(extra_arg_0):
 		buttonPlayer1Pressed()
 	if extra_arg_0 == "btnPlayer2":
 		buttonPlayer2Pressed()
-	if extra_arg_0 == "btnPracticar":
-		buttonPracticarPressed()
-	if extra_arg_0 == "btnCompetir":
-		buttonCompetirPressed()
 	if extra_arg_0 == "btnDacord":
 		$ListPlayedGames.hide()		
 	pass # Replace with function body.
@@ -158,17 +177,18 @@ func _input(event):
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
 		print(currentPosition)
 		if currentPosition == menupositions.PLAYER1:
-			buttonPlayer1Pressed()
+			Global.setPlayers("player1")
+			Global.setNumPlayers(1)
+			Global.goto_scene("res://MainMenu/Jocs.tscn")
 		elif currentPosition == menupositions.PLAYER2:
-			buttonPlayer2Pressed()
-		elif currentPosition == menupositions.COMPETIR:
-			buttonCompetirPressed()
-		elif currentPosition == menupositions.PRACTICAR:
-			buttonPracticarPressed()
+			Global.setPlayers("player2")
+			Global.setNumPlayers(2)
+			Global.goto_scene("res://MainMenu/Jocs.tscn")
+			#buttonPlayer2Pressed()
 		elif currentPosition == menupositions.PUNTUACIONS:
 			Global.goto_Records()
-		#elif currentPosition == menupositions.OPTIONS:
-		#	buttonSettingsPressed()
+		elif currentPosition == menupositions.INFO:
+			Global.goto_scene("res://Instruccions/JocsInstruccions.tscn")
 		#elif currentPosition == menupositions.SHOWNGAMES:
 		#	HidePlayedGames()
 		print("enter")
@@ -177,92 +197,60 @@ func _input(event):
 		if currentPosition == menupositions.PLAYER2:
 			currentPosition = menupositions.PLAYER1
 			$focusAll.position.x = 43	
-		elif currentPosition == menupositions.PRACTICAR:
-			currentPosition = menupositions.COMPETIR
+		elif currentPosition == menupositions.INFO:
+			currentPosition = menupositions.REDEFINIR
 			$focusAll.position.x = 43
 			if Global.hasConnection == false && Global.numPlayers == 1:
-				currentPosition = menupositions.PRACTICAR
+				currentPosition = menupositions.INFO
 				$focusAll.position.x = 165
-		elif currentPosition == menupositions.SHOWNGAMES:
-			HidePlayedGames()
+		elif currentPosition == menupositions.REDEFINIR:
+			currentPosition = menupositions.INFO
+			$focusAll.position.x = 43
+		#	$focusAll.position.x = 43#elif currentPosition == menupositions.INFO:
+		#	HidePlayedGames()
 
 			pass
 	if event.is_action_pressed("p1_move_down") or event.is_action_pressed("p2_move_down"):
 #		print("down")
-		if currentPosition == menupositions.COMPETIR or currentPosition == menupositions.PRACTICAR:
-			pass
-		#	currentPosition = menupositions.OPTIONS
-		#	$focusAll.position.x = 200
-		#	$focusAll.position.y = 220
-		if currentPosition == menupositions.PLAYER1 or currentPosition == menupositions.PLAYER2:
+		if currentPosition == menupositions.INFO or currentPosition == menupositions.REDEFINIR:
 			currentPosition = menupositions.PUNTUACIONS
-			$focusAll.position.x = 80
+			$focusAll.position.x = 43
 			$focusAll.position.y = 220
+		if currentPosition == menupositions.PLAYER1 or currentPosition == menupositions.PLAYER2:
+			currentPosition = menupositions.INFO
+			$focusAll.position.x = 43
+			$focusAll.position.y = 190
 			pass
-		#	currentPosition = menupositions.OPTIONS
-		#	$focusAll.position.x = 200
-		#	$focusAll.position.y = 220
-		elif currentPosition == menupositions.SHOWNGAMES:
-			HidePlayedGames()
+
 			
 	if event.is_action_pressed("p1_move_up") or event.is_action_pressed("p2_move_up"):
-		if currentPosition == menupositions.SHOWNGAMES:
-			HidePlayedGames()
-		
-		if (currentPosition == menupositions.COMPETIR or currentPosition == menupositions.PRACTICAR) and Global.numPlayers == 2:
-			currentPosition = menupositions.PLAYER2
-			Global.setNumPlayers(null)
-			Global.setPlayers(null)
-			$focusAll.position.x = 165
-			$focusAll.position.y = 161
-			$competir.hide()
-			$allimpictouch.hide()
-			$practicar.hide()
-			$practicarTouch.hide()
-			$playerOne.show()
-			$'1playertouch'.show()			
-		if  Global.hasConnection == false and currentPosition == menupositions.PRACTICAR and Global.numPlayers == 1:
-			currentPosition = menupositions.PLAYER1
-			$focusAll.position.x = 43
-			$focusAll.position.y = 161
-			$practicar.hide()
-			$practicarTouch.hide()
-			$playerTwo.show()
-			$'2playertouch'.show()
-			Global.setNumPlayers(null)
-			Global.setPlayers(null)
-		if currentPosition == menupositions.PUNTUACIONS:
+		if currentPosition == menupositions.INFO  or currentPosition == menupositions.REDEFINIR:
 			currentPosition = menupositions.PLAYER1
 			$focusAll.position.x = 43
 			$focusAll.position.y = 161	
 			Global.setNumPlayers(null)
 			Global.setPlayers(null)
-		#if currentPosition == menupositions.OPTIONS:
-		#	print("OPTIONS")
-		#	if Global.players != null:
-		#		$focusAll.position.y = 190
-		#		$focusAll.position.x = 43
-		#		currentPosition = menupositions.COMPETIR
-		#		if Global.hasConnection == false and Global.numPlayers != null :
-		#			currentPosition = menupositions.PRACTICAR
-		#			$focusAll.position.x = 165
-		#	if Global.players == null:
-		#		currentPosition = menupositions.PLAYER1
-		#		$focusAll.position.x = 43
-		#		$focusAll.position.y = 161
-		#		Global.setNumPlayers(null)
-		#		Global.setPlayers(null)
+		
+		if currentPosition == menupositions.PUNTUACIONS:
+			currentPosition = menupositions.INFO
+			$focusAll.position.x = 43
+			$focusAll.position.y = 190	
+			Global.setNumPlayers(null)
+			Global.setPlayers(null)
+
 		pass
 	if event.is_action_pressed("p1_move_right") or event.is_action_pressed("p2_move_right"):
 		if currentPosition == menupositions.PLAYER1:
 			currentPosition = menupositions.PLAYER2
 			$focusAll.position.x = 165
-		elif currentPosition == menupositions.COMPETIR:
-			currentPosition = menupositions.PRACTICAR
+		elif currentPosition == menupositions.REDEFINIR:
+			currentPosition = menupositions.INFO
 			$focusAll.position.x = 165
 			pass
-		elif currentPosition == menupositions.SHOWNGAMES:
-			HidePlayedGames()
+		elif currentPosition == menupositions.INFO:
+			currentPosition = menupositions.REDEFINIR
+			$focusAll.position.x = 165
+			
 			
 			#MoveToBack()
 		print("right")

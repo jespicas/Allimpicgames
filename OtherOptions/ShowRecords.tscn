@@ -13,10 +13,13 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_0sd3f")
-metadata/_edit_horizontal_guides_ = [30.0, 103.0, 176.0]
-metadata/_edit_vertical_guides_ = [15.0, 189.0, 51.0, 119.0]
+metadata/_edit_horizontal_guides_ = [48.0, 130.0, 149.0]
+metadata/_edit_vertical_guides_ = [10.0, 220.0, 100.0, 310.0, 115.0, 206.0]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+offset_top = -1.0
+offset_right = 320.0
+offset_bottom = 239.0
 texture = ExtResource("1_p08js")
 
 [node name="Control" type="Control" parent="."]
@@ -26,8 +29,9 @@ anchors_preset = 0
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 82.0
+offset_top = 5.0
 offset_right = 191.0
-offset_bottom = 19.0
+offset_bottom = 24.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 text = "Puntuacions"
@@ -35,8 +39,9 @@ text = "Puntuacions"
 [node name="Label2" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 231.0
+offset_top = 5.0
 offset_right = 283.0
-offset_bottom = 23.0
+offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 text = "Top 5"
@@ -45,101 +50,396 @@ text = "Top 5"
 layout_mode = 3
 anchors_preset = 0
 
-[node name="CanvasGroup" type="CanvasGroup" parent="Control2"]
-position = Vector2(0, -1)
+[node name="RecollirAllGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(-26, 23)
 
-[node name="Background" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Background" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(85, 60.5)
 scale = Vector2(3.09091, 2.68182)
 texture = ExtResource("4_kibv2")
 
-[node name="Adaltesquerra" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(47, 40)
 texture = ExtResource("5_ka7g1")
 
-[node name="Abaixesquerra" type="Sprite2D" parent="Control2/CanvasGroup"]
-position = Vector2(47, 78)
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(47, 96)
 texture = ExtResource("6_wbs1q")
 
-[node name="Abaixdreta" type="Sprite2D" parent="Control2/CanvasGroup"]
-position = Vector2(117, 78)
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(117, 96)
 texture = ExtResource("7_17ldj")
 
-[node name="Vertical" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Vertical3" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(47, 75)
+texture = ExtResource("8_3j8wt")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(47, 58)
 texture = ExtResource("8_3j8wt")
 
-[node name="Adaltdreta" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(117, 40)
 texture = ExtResource("9_rkfxf")
 
-[node name="Vertical2" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Vertical4" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(117, 74)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(117, 58)
 texture = ExtResource("8_3j8wt")
 flip_h = true
 
-[node name="Horitzontal2" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(87, 40)
 texture = ExtResource("5_m7u8d")
 
-[node name="Horitzontal" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Horitzontal" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(67, 40)
 texture = ExtResource("5_m7u8d")
 
-[node name="Horitzontal3" type="Sprite2D" parent="Control2/CanvasGroup"]
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/RecollirAllGroup"]
 position = Vector2(98, 40)
 texture = ExtResource("5_m7u8d")
 
-[node name="Horitzontal5" type="Sprite2D" parent="Control2/CanvasGroup"]
-position = Vector2(99, 78)
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(98, 96)
 texture = ExtResource("5_m7u8d")
 flip_v = true
 
-[node name="RecollirAlls" type="GridContainer" parent="Control2/CanvasGroup"]
+[node name="Horitzontal6" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(89, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/RecollirAllGroup"]
+position = Vector2(68, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="RecollirAlls" type="GridContainer" parent="Control2/RecollirAllGroup"]
 offset_left = 51.0
-offset_top = 37.0
+offset_top = 39.0
 offset_right = 120.0
-offset_bottom = 79.0
+offset_bottom = 81.0
 columns = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="TirarBirrall" type="GridContainer" parent="Control2"]
-layout_mode = 2
-offset_left = 190.0
-offset_top = 30.0
-offset_right = 270.0
-offset_bottom = 94.0
+[node name="TiraBirraGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(78, 24)
+
+[node name="Background" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(85, 60.5)
+scale = Vector2(3.09091, 2.68182)
+texture = ExtResource("4_kibv2")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(47, 40)
+texture = ExtResource("5_ka7g1")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(47, 96)
+texture = ExtResource("6_wbs1q")
+
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(117, 96)
+texture = ExtResource("7_17ldj")
+
+[node name="Vertical3" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(47, 75)
+texture = ExtResource("8_3j8wt")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(47, 58)
+texture = ExtResource("8_3j8wt")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(117, 40)
+texture = ExtResource("9_rkfxf")
+
+[node name="Vertical4" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(117, 74)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(117, 58)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(87, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(67, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(98, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(98, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(89, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/TiraBirraGroup"]
+position = Vector2(68, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="TirarBirrall" type="GridContainer" parent="Control2/TiraBirraGroup"]
+offset_left = 51.0
+offset_top = 36.0
+offset_right = 118.0
+offset_bottom = 77.0
 columns = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="TirAll" type="GridContainer" parent="Control2"]
-layout_mode = 2
-offset_left = 52.0
-offset_top = 102.0
-offset_right = 119.0
-offset_bottom = 166.0
+[node name="TirAllGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(183, 23)
+
+[node name="Background" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(85, 60.5)
+scale = Vector2(3.09091, 2.68182)
+texture = ExtResource("4_kibv2")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(47, 40)
+texture = ExtResource("5_ka7g1")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(47, 96)
+texture = ExtResource("6_wbs1q")
+
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(117, 96)
+texture = ExtResource("7_17ldj")
+
+[node name="Vertical3" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(47, 75)
+texture = ExtResource("8_3j8wt")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(47, 58)
+texture = ExtResource("8_3j8wt")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(117, 40)
+texture = ExtResource("9_rkfxf")
+
+[node name="Vertical4" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(117, 74)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(117, 58)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(87, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(67, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(98, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(98, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(89, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/TirAllGroup"]
+position = Vector2(68, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="TirAll" type="GridContainer" parent="Control2/TirAllGroup"]
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 82.0
 columns = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Allioli" type="GridContainer" parent="Control2"]
-layout_mode = 2
-offset_left = 191.0
-offset_top = 101.0
-offset_right = 270.0
-offset_bottom = 165.0
+[node name="AllioliGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(6, 124)
+
+[node name="Background" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(85, 60.5)
+scale = Vector2(3.09091, 2.68182)
+texture = ExtResource("4_kibv2")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(47, 40)
+texture = ExtResource("5_ka7g1")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(47, 96)
+texture = ExtResource("6_wbs1q")
+
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(117, 96)
+texture = ExtResource("7_17ldj")
+
+[node name="Vertical3" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(47, 75)
+texture = ExtResource("8_3j8wt")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(47, 58)
+texture = ExtResource("8_3j8wt")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(117, 40)
+texture = ExtResource("9_rkfxf")
+
+[node name="Vertical4" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(117, 74)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(117, 58)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(87, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(67, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(98, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(98, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(89, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/AllioliGroup"]
+position = Vector2(68, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Allioli" type="GridContainer" parent="Control2/AllioliGroup"]
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 82.0
 columns = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="EnforArlls" type="GridContainer" parent="Control2"]
-layout_mode = 2
-offset_left = 120.0
-offset_top = 175.0
-offset_right = 228.0
-offset_bottom = 238.0
+[node name="EnforcarAllsGroup" type="CanvasGroup" parent="Control2"]
+position = Vector2(155, 124)
+
+[node name="Background" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(85, 60.5)
+scale = Vector2(3.09091, 2.68182)
+texture = ExtResource("4_kibv2")
+
+[node name="Adaltesquerra" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(47, 40)
+texture = ExtResource("5_ka7g1")
+
+[node name="Abaixesquerra" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(47, 96)
+texture = ExtResource("6_wbs1q")
+
+[node name="Abaixdreta" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(117, 96)
+texture = ExtResource("7_17ldj")
+
+[node name="Vertical3" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(47, 75)
+texture = ExtResource("8_3j8wt")
+
+[node name="Vertical" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(47, 58)
+texture = ExtResource("8_3j8wt")
+
+[node name="Adaltdreta" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(117, 40)
+texture = ExtResource("9_rkfxf")
+
+[node name="Vertical4" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(117, 74)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Vertical2" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(117, 58)
+texture = ExtResource("8_3j8wt")
+flip_h = true
+
+[node name="Horitzontal2" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(87, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(67, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal3" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(98, 40)
+texture = ExtResource("5_m7u8d")
+
+[node name="Horitzontal5" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(98, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal6" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(89, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="Horitzontal4" type="Sprite2D" parent="Control2/EnforcarAllsGroup"]
+position = Vector2(68, 96)
+texture = ExtResource("5_m7u8d")
+flip_v = true
+
+[node name="EnforArlls" type="GridContainer" parent="Control2/EnforcarAllsGroup"]
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 82.0
 columns = 3
 
 [node name="TirarBirrall2" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 190.0
-offset_top = 16.0
-offset_right = 260.0
-offset_bottom = 31.0
+offset_left = 126.0
+offset_top = 37.0
+offset_right = 197.0
+offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
@@ -148,10 +448,10 @@ text = "Tira la Birall
 
 [node name="RecollirAlls2" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 49.0
-offset_top = 17.0
-offset_right = 119.0
-offset_bottom = 32.0
+offset_left = 18.0
+offset_top = 37.0
+offset_right = 88.0
+offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
@@ -159,10 +459,10 @@ text = "Recollir Alls"
 
 [node name="TirAll2" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 92.0
-offset_right = 123.0
-offset_bottom = 107.0
+offset_left = 241.0
+offset_top = 37.0
+offset_right = 311.0
+offset_bottom = 52.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
@@ -170,10 +470,10 @@ text = "Tir a l'All"
 
 [node name="Allioli2" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 185.0
-offset_top = 89.0
-offset_right = 269.0
-offset_bottom = 104.0
+offset_left = 48.0
+offset_top = 139.0
+offset_right = 132.0
+offset_bottom = 154.0
 pivot_offset = Vector2(48, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
@@ -182,25 +482,15 @@ text = "Concurs AlliOli"
 
 [node name="Enforcar" type="Label" parent="Control2"]
 layout_mode = 0
-offset_left = 123.0
-offset_top = 161.0
-offset_right = 207.0
-offset_bottom = 176.0
+offset_left = 199.0
+offset_top = 139.0
+offset_right = 283.0
+offset_bottom = 154.0
 pivot_offset = Vector2(48, 0)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_wywwg")
 theme_override_font_sizes/font_size = 10
 text = "Enforcar Alls"
-
-[node name="Horitzontal4" type="Sprite2D" parent="Control2"]
-position = Vector2(68, 77)
-texture = ExtResource("5_m7u8d")
-flip_v = true
-
-[node name="Horitzontal4" type="Sprite2D" parent="Control2/Horitzontal4"]
-position = Vector2(22, 0)
-texture = ExtResource("5_m7u8d")
-flip_v = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

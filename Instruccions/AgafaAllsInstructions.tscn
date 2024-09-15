@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct377ncxkyl4f"]
+
+[ext_resource type="Script" path="res://Instruccions/back_instructions.gd" id="1_f7m1a"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_yovp3"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_dsn5s"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="3_6ybrn"]
+[ext_resource type="Texture2D" uid="uid://bmwtc13rt7xqv" path="res://Media/imatges/butto/button_1.png" id="4_jpi2b"]
+[ext_resource type="Texture2D" uid="uid://dtrfa62kygpii" path="res://Media/imatges/direccions/direccioamunt/stickadalt_1.png" id="5_nernr"]
+[ext_resource type="Texture2D" uid="uid://d0wxywjxbrnf8" path="res://Media/imatges/direccions/direccioavall/stickbaix.png_1.png" id="6_drqf4"]
+[ext_resource type="Texture2D" uid="uid://bs10l600b1ugs" path="res://Media/imatges/direccions/direccioesquerra/stickdreta_1.png" id="7_hdxdh"]
+
+[node name="AgafaAllsInstructions" type="Node2D"]
+script = ExtResource("1_f7m1a")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_yovp3")
+
+[node name="Torna" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 214.0
+offset_right = 291.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsn5s")
+text = "torna"
+
+[node name="titol" type="Label" parent="."]
+offset_left = 111.0
+offset_top = 12.0
+offset_right = 188.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsn5s")
+text = "Agafaalls"
+
+[node name="body" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 38.0
+offset_right = 305.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_dsn5s")
+theme_override_font_sizes/font_size = 12
+text = "Objectiu: Agafar els alls el mes rapid 
+Com: Sortiran uns dibuxos de les direccions 
+que has de fer amb els controls
+Esquerra:                                  Dreta:
+Amunt:                               Avall:
+Boto:
+
+Si no apretes correctament as de tornar a 
+comencar la combinacio."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 222)
+texture = ExtResource("3_6ybrn")
+
+[node name="Button1" type="Sprite2D" parent="."]
+position = Vector2(77, 136)
+texture = ExtResource("4_jpi2b")
+
+[node name="Stickadalt1" type="Sprite2D" parent="."]
+position = Vector2(100, 118)
+texture = ExtResource("5_nernr")
+
+[node name="Stickbaix_png1" type="Sprite2D" parent="."]
+position = Vector2(258, 116)
+texture = ExtResource("6_drqf4")
+
+[node name="Stickdreta1" type="Sprite2D" parent="."]
+position = Vector2(100, 101)
+texture = ExtResource("7_hdxdh")
+
+[node name="Stickdreta2" type="Sprite2D" parent="."]
+position = Vector2(258, 97)
+texture = ExtResource("7_hdxdh")
+flip_h = true

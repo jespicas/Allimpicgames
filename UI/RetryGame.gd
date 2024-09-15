@@ -50,7 +50,11 @@ func _input(event):
 					Global.goto_scene("res://MiniGames/"+currentGame+".tscn")
 					pass
 				if currentPosition == menupositions.NO:
-					Global.goto_scene("res://MainMenu/Jocs.tscn")
+					if await Global.ShouldAddScore():
+						Global.goto_SaveRecords()
+					else:
+						Global.goto_Jocs()
+ 					#Global.goto_scene("res://MainMenu/Jocs.tscn")
 					pass	
 				pass
 			if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left") or event.is_action_pressed("p1_move_right") or event.is_action_pressed("p2_move_right"):

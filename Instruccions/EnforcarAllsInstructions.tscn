@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b05wf1f2row58"]
+
+[ext_resource type="Script" path="res://Instruccions/back_instructions.gd" id="1_jbk8w"]
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_lh6cr"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_4x6dn"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="3_xvv24"]
+
+[node name="AgafaAllsInstructions" type="Node2D"]
+script = ExtResource("1_jbk8w")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_lh6cr")
+
+[node name="Torna" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 214.0
+offset_right = 291.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4x6dn")
+text = "torna"
+
+[node name="titol" type="Label" parent="."]
+offset_left = 79.0
+offset_top = 12.0
+offset_right = 221.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4x6dn")
+text = "Enforcar alls"
+
+[node name="body" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 37.0
+offset_right = 303.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4x6dn")
+theme_override_font_sizes/font_size = 12
+text = "Objectiu: Ser el mes rapid en enforcar els alls
+Com: Sempre hi ha 3 branques de canyem que has 
+d' agafar un costat, torçar, llavors el 
+contrari torçar i afegir l' all
+per mouret amb les direccions
+Torçar: boto 1 i boto 2 a l' hora 
+el boto 1 agafa i si no tens agafat el boto 2 no 
+blinca.
+i per afegir l' all es direccio avall
+si torces algun que  no vols es amunt"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 222)
+texture = ExtResource("3_xvv24")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dktchbog0byfm"]
+
+[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="1_iib4f"]
+[ext_resource type="Script" path="res://Instruccions/back_instructions.gd" id="1_x7swi"]
+[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="2_wbyy4"]
+[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="3_7k82v"]
+
+[node name="TiraLAllInstructions" type="Node2D"]
+script = ExtResource("1_x7swi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 320.0
+offset_bottom = 240.0
+texture = ExtResource("1_iib4f")
+
+[node name="Torna" type="Label" parent="."]
+offset_left = 214.0
+offset_top = 214.0
+offset_right = 291.0
+offset_bottom = 237.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wbyy4")
+text = "torna"
+
+[node name="titol" type="Label" parent="."]
+offset_left = 111.0
+offset_top = 12.0
+offset_right = 188.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wbyy4")
+text = "Tir a l' All"
+
+[node name="body" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 38.0
+offset_right = 305.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wbyy4")
+theme_override_font_sizes/font_size = 12
+text = "Objectiu: Fer el maxim de dianes amb el temps 
+que tens.
+Com:  surt una ma es belluda de dreta a 
+esquerra, quan apretes el boto llavors 
+anira amunt avall i en el moment que 
+apretis el boto deixa anar l' all per tirar 
+l' All.
+Cada diana te diferent puntuacio els forats
+mes petits puntuen mes"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(198, 222)
+texture = ExtResource("3_7k82v")

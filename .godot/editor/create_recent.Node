@@ -1,8 +1,9 @@
+Timer
+Sprite2D
+Label
+TextureRect
 CanvasGroup
 RichTextLabel
-Timer
-Label
-Sprite2D
 CanvasLayer
 AnimatedSprite2D
 ColorRect
@@ -11,4 +12,3 @@ Button
 VBoxContainer
 HBoxContainer
 BoxContainer
-TextureRect

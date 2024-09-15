@@ -9,6 +9,7 @@ var concursallioli = "ConcursAlliOli";
 var enforcaralls = "EnforcarAlls";
 
 func _ready():
+
 	var save_data = Global.GetScores()
 
 	#var json = JSON.new()
@@ -17,17 +18,29 @@ func _ready():
 	#var doFileExists = FileAccess.file_exists(Global.pathScores) #: f.file_exists("user://save.cfg")
 	if save_data != null :
 		
-		var recollirAllsRecords = GetRecordsFromGame(agafaAll,save_data)
-		var tirabirrallRecords = GetRecordsFromGame(tiralabirra,save_data)
-		var tirallRecords = GetRecordsFromGame(tirall,save_data)
-		var allioliRecords = GetRecordsFromGame(concursallioli,save_data)
-		var enforcarAllsRecords = GetRecordsFromGame(enforcaralls,save_data)
-		fillGrid(agafaAll,recollirAllsRecords)
-		fillGrid(tiralabirra,tirabirrallRecords)
-		fillGrid(tirall,tirallRecords)
-		fillGrid(concursallioli,allioliRecords)
-		fillGrid(enforcaralls,enforcarAllsRecords)
-
+		if Global.silentWolfWorks:	
+			var recollirAllsRecords = await GetRecordsFromSilentWolf("agafaalls") # GetRecordsFromGame(agafaAll,save_data)
+			fillGrid(agafaAll,recollirAllsRecords)
+			var tirabirrallRecords = await GetRecordsFromSilentWolf("tiralabirra") #GetRecordsFromGame(tiralabirra,save_data)
+			fillGrid(tiralabirra,tirabirrallRecords)
+			var tirallRecords = await GetRecordsFromSilentWolf("tirall") #GetRecordsFromGame(tirall,save_data)
+			fillGrid(tirall,tirallRecords)
+			var allioliRecords = await GetRecordsFromSilentWolf("allioli") #GetRecordsFromGame(concursallioli,save_data)
+			fillGrid(concursallioli,allioliRecords)			
+			var enforcarAllsRecords = await GetRecordsFromSilentWolf("enforcaralls") #GetRecordsFromGame(enforcaralls,save_data)
+			fillGrid(enforcaralls,enforcarAllsRecords)
+		else:
+			
+			var recollirAllsRecords = GetRecordsFromGame(agafaAll,save_data)
+			var tirabirrallRecords = GetRecordsFromGame(tiralabirra,save_data)
+			var tirallRecords = GetRecordsFromGame(tirall,save_data)
+			var allioliRecords = GetRecordsFromGame(concursallioli,save_data)
+			var enforcarAllsRecords = GetRecordsFromGame(enforcaralls,save_data)
+			fillGrid(agafaAll,recollirAllsRecords)
+			fillGrid(tiralabirra,tirabirrallRecords)
+			fillGrid(tirall,tirallRecords)
+			fillGrid(concursallioli,allioliRecords)
+			fillGrid(enforcaralls,enforcarAllsRecords)
 	pass # Replace with function body.
 
 func fillGrid(gridName,values):
@@ -63,25 +76,25 @@ func fillGrid(gridName,values):
 				score.text = str(values[i]["score"])
 				score.visible = true
 				if gridName == agafaAll:
-					$Control2/CanvasGroup/RecollirAlls.add_child(pos)
-					$Control2/CanvasGroup/RecollirAlls.add_child(name)
-					$Control2/CanvasGroup/RecollirAlls.add_child(score)
+					$Control2/RecollirAllGroup/RecollirAlls.add_child(pos)
+					$Control2/RecollirAllGroup/RecollirAlls.add_child(name)
+					$Control2/RecollirAllGroup/RecollirAlls.add_child(score)
 				if gridName == tiralabirra:
-					$Control2/TirarBirrall.add_child(pos)
-					$Control2/TirarBirrall.add_child(name)
-					$Control2/TirarBirrall.add_child(score)
+					$Control2/TiraBirraGroup/TirarBirrall.add_child(pos)
+					$Control2/TiraBirraGroup/TirarBirrall.add_child(name)
+					$Control2/TiraBirraGroup/TirarBirrall.add_child(score)
 				if gridName == tirall:
-					$Control2/TirAll.add_child(pos)
-					$Control2/TirAll.add_child(name)
-					$Control2/TirAll.add_child(score)				
+					$Control2/TirAllGroup/TirAll.add_child(pos)
+					$Control2/TirAllGroup/TirAll.add_child(name)
+					$Control2/TirAllGroup/TirAll.add_child(score)				
 				if gridName == concursallioli:
-					$Control2/Allioli.add_child(pos)
-					$Control2/Allioli.add_child(name)
-					$Control2/Allioli.add_child(score)				
+					$Control2/AllioliGroup/Allioli.add_child(pos)
+					$Control2/AllioliGroup/Allioli.add_child(name)
+					$Control2/AllioliGroup/Allioli.add_child(score)				
 				if gridName == enforcaralls:
-					$Control2/EnforArlls.add_child(pos)
-					$Control2/EnforArlls.add_child(name)
-					$Control2/EnforArlls.add_child(score)				
+					$Control2/EnforcarAllsGroup/EnforArlls.add_child(pos)
+					$Control2/EnforcarAllsGroup/EnforArlls.add_child(name)
+					$Control2/EnforcarAllsGroup/EnforArlls.add_child(score)				
 func customComparison(a, b):
 	if typeof(a["score"]) != typeof(b["score"]):
 		return typeof(a["score"]) < typeof(b["score"])
@@ -94,6 +107,19 @@ func array_to_string(arr: Array) -> String:
 		s += " " + String(i)
 	return s
 
+func GetRecordsFromSilentWolf(leaderboard):
+	var sw_result = await SilentWolf.Scores.get_scores(0, leaderboard).sw_get_scores_complete
+	var scores = sw_result.scores
+	print(scores)
+	var new_game = []
+	for score in scores:
+		var gameRecord = {
+			"score": score["score"],
+			"name": score["player_name"]
+		}
+		new_game.append(gameRecord)
+	return new_game
+		
 func GetRecordsFromGame(game, save_data):
 	var new_game = []
 	
