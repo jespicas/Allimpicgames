@@ -37,6 +37,8 @@ var urlApi = "http://localhost:5267/"
 
 var silentWolfWorks = false
 
+var globalEntered = 0
+
 func set_SilentWolfWorks(value):
 	silentWolfWorks = value
 
@@ -193,10 +195,10 @@ func checkHasConnection():
 
 func storeCurrentProjectSettingsKeyMaps():
 		var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.WRITE)
-		#keymaps = fileDefault.get_var(true) as Dictionary
 		for action in InputMap.get_actions():
 			if InputMap.action_get_events(action).size() != 0:
-				keymaps[action] = InputMap.action_get_events(action)[0]		
+				print(InputMap.action_get_events(action))
+				keymaps[action] = InputMap.action_get_events(action)		
 		fileDefault.store_var(keymaps, true)
 		fileDefault.close()
 		
@@ -208,69 +210,54 @@ func save_keymap() -> void:
 	file.store_var(keymaps, true)
 	file.close()
 	fileDefault.close()	
-	#OnlyEnable to store first time defaultkeymapfile
-	#if not FileAccess.file_exists(defaultKeymapFile):
-	#	var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.WRITE)
-	#	#keymaps = fileDefault.get_var(true) as Dictionary
-	#	for action in InputMap.get_actions():
-	#		if InputMap.action_get_events(action).size() != 0:
-	#			keymaps[action] = InputMap.action_get_events(action)[0]		
-	#	file.store_var(keymaps, true)
-	#	file.close()
-	#	fileDefault.store_var(keymaps, true)
-	#	fileDefault.close()
-	#else:
-	#	var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.READ)
-	#	keymaps = fileDefault.get_var(true) as Dictionary
-	#	file.store_var(keymaps, true)
-	#	file.close()
-	#	fileDefault.close()
+
 
 func load_keymap() -> void:
 	if FileAccess.file_exists(defaultKeymapFile):
 		var fileOriginal = FileAccess.open(defaultKeymapFile, FileAccess.READ)
 		var OriginalKeymaps = fileOriginal.get_var(true) as Dictionary	
 		fileOriginal.close()
-		if not FileAccess.file_exists(keymapsFile):
-			save_keymap() # There is no save file yet, so let's create one.
-			return
 		print("loadKEyMap")
-		var file = FileAccess.open(keymapsFile, FileAccess.READ)
-		var keymaps = file.get_var(true) as Dictionary	
-		file.close()
-	# We don't just replace the keymaps dictionary, because if you
-	# updated your game and removed/added keymaps, the data of this
-	# save file may have invalid actions. So we check one by one to
-	# make sure that the keymap dictionary really has all current actions.
-#		print(OriginalKeymaps.keys())
-#		print(keymaps.keys())
-		for action in OriginalKeymaps.keys():
-			var b = keymaps.get(action)
-			
-			if b != null:
-				InputMap.action_erase_events(action)
-				InputMap.action_add_event(action, b)
-			else:
-				InputMap.action_erase_events(action)
-				InputMap.action_add_event(action, OriginalKeymaps[action])
-				#print_debug(action)
-				#print_debug(e)
-		#if keymaps[action] != null:
-		#	InputMap.action_erase_events(action)
-		#	InputMap.action_add_event(action, keymaps[action])
-		#else:
-		#	InputMap.action_erase_events(action)
-		#	InputMap.action_add_event(action, OriginalKeymaps[action])
-	#for action in keymaps.keys():
-	#	if temp_keymap.has(action):
-	#		keymaps[action] = temp_keymap[action]
-			# Whilst setting the keymap dictionary, we also set the
-			# correct InputMap event
-	#	InputMap.action_erase_events(action)
-	#	InputMap.action_add_event(action, keymaps[action])
+		if FileAccess.file_exists(keymapsFile):
+			var file = FileAccess.open(keymapsFile, FileAccess.READ)
+			var keymaps = file.get_var(true) as Dictionary	
+			file.close()
+			#print(OriginalKeymaps.size())
+			#print(keymaps.size())
+			for action in OriginalKeymaps.keys():
+				var originalAction = InputMap.get(action)
+				var b = keymaps.get(action)
+				if b != null:
+					InputMap.action_erase_events(action)
+					for act in b:
+						InputMap.action_add_event(action, act)
+				else:
+					InputMap.action_erase_events(action)
+					for act in OriginalKeymaps[action]:
+						InputMap.action_add_event(action, act)
+					#print_debug(action)
+					#print_debug(e)
+		else:
+			if not FileAccess.file_exists(keymapsFile):
+				var file := FileAccess.open(keymapsFile, FileAccess.WRITE)
+				file.store_var(OriginalKeymaps, true)
+				file.close()
+				return
 
+func reset_keymap() -> void:
+	var path = ProjectSettings.globalize_path(keymapsFile)
+	DirAccess.remove_absolute(path)
+	OS.move_to_trash(ProjectSettings.globalize_path(keymapsFile))
+	
+	if FileAccess.file_exists(keymapsFile):
+		print("no borrat")
+	load_keymap()
+		
 func _ready():
-	storeCurrentProjectSettingsKeyMaps()
+	globalEntered += 1
+	load_keymap()
+	print_debug("Global ready Entered "+str(globalEntered))
+	#storeCurrentProjectSettingsKeyMaps()
 	#if existsKeyMapsUser() == false:
 	#	save_keymap()
 	#else:
@@ -310,7 +297,7 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
 	print(current_scene)
-	print("Global ready")
+#	print("Global ready")
 	pass # Replace with function body.
 
 func SaveNick(nick):
