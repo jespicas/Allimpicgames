@@ -60,29 +60,23 @@ func set_Movements(movments):
 
 func addPressed(action):
 	pressed.append(action)
-	print(pressed)
 	
 func checkIsOk():
 	if numAllsRecolectats <= 2:	
-#		print(namePlayer)
 		if pressed.size() == 1:
 			$".".set_animation("01ajupir")
 			$".".play("01ajupir")
-			#$".".playing = true
 		if pressed.size() == 2:
 			emit_signal("emitEliminaAll",currentPosMovement, name)
 			$".".set_animation("02recollint")
 			$".".play("02recollint")
-			#$".".playing = true
 		if pressed.size() == 0:
 			emit_signal("emitShownAll", currentPosMovement, name)
 			$".".set_animation("default")
 			$".".play("default")
-			#$".".playing = false					
 		var amountOK = 0
 		if namePlayer != "":
 			for n in pressed.size():
-				#print(movements)
 				if pressed[n] == movements[currentPosMovement][n]:
 					amountOK += 1
 					emit_signal("emitButtonWellPressed",n)
@@ -90,37 +84,24 @@ func checkIsOk():
 					pressed = []
 					$".".set_animation("default")
 					$".".play("default")
-					#$".".playing = false					
-					
 					emit_signal("emitResetWellButtons")
 					break
-			#print("Abanspetar"+namePlayer)
 			if amountOK == movements[currentPosMovement].size() and currentPosMovement < 4:
-				#$".".playing = true
 				pressed = []
 				itsOK = true
 				currentPosMovement += 1
 				sumTimes += timeOK
 				timeOK = 0
-	#			print(currentPosMovement)
-	#			print(numMovements)
 				if numMovements > currentPosMovement:
-	#				print("emitok")
 					numAllsRecolectats += 1
-		#			print(numAllsRecolectats)
 					$".".set_animation("default")
 					$".".play("default")	
-					#$".".playing = false				
 					emit_signal("emitItsOk", currentPosMovement)
 
 				if numMovements == currentPosMovement:				
 					pass
-					#emit_signal("emitFinish", sumTimes)
-					#print(sumTimes)
 				sumTimes += timeOK
 				timeOK = 0
-				#shouldbeCheck = false
-				#numMovements -= 1		
 	else:
 		pressed = []
 		started = false
@@ -133,25 +114,21 @@ func _input(event):
 				up_Pressed = true
 			if Input.is_action_just_released("p1_move_up") and up_Pressed == true:
 				up_Pressed = false
-				print("up")
 				pressed.append("up")
 			if Input.is_action_pressed("p1_move_down") and down_Pressed == false:
 				down_Pressed = true
 			if Input.is_action_just_released("p1_move_down") and down_Pressed == true:
 				down_Pressed = false
-				print("down")
 				pressed.append("down")
 			if Input.is_action_pressed("p1_move_left") and left_Pressed == false:
 				left_Pressed = true
 			if Input.is_action_just_released("p1_move_left") and left_Pressed == true:
 				left_Pressed = false
-				print("left")
 				pressed.append("left")
 			if Input.is_action_pressed("p1_move_right") and right_Pressed == false:
 				right_Pressed = true
 			if Input.is_action_just_released("p1_move_right") and right_Pressed == true:
 				right_Pressed = false
-				print("right")
 				pressed.append("right")
 			if Input.is_action_pressed("p1_press_button") and button_Pressed == false:
 				button_Pressed = true
@@ -163,25 +140,21 @@ func _input(event):
 				up_Pressed = true
 			if Input.is_action_just_released("p2_move_up") and up_Pressed == true:
 				up_Pressed = false
-				print("up")
 				pressed.append("up")
 			if Input.is_action_pressed("p2_move_down") and down_Pressed == false:
 				down_Pressed = true
 			if Input.is_action_just_released("p2_move_down") and down_Pressed == true:
 				down_Pressed = false
-				print("down")
 				pressed.append("down")
 			if Input.is_action_pressed("p2_move_left") and left_Pressed == false:
 				left_Pressed = true
 			if Input.is_action_just_released("p2_move_left") and left_Pressed == true:
 				left_Pressed = false
-				print("left")
 				pressed.append("left")
 			if Input.is_action_pressed("p2_move_right") and right_Pressed == false:
 				right_Pressed = true
 			if Input.is_action_just_released("p2_move_right") and right_Pressed == true:
 				right_Pressed = false
-				print("right")
 				pressed.append("right")
 			if Input.is_action_pressed("p2_press_button") and button_Pressed == false:
 				button_Pressed = true

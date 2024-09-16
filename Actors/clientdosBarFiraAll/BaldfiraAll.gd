@@ -26,31 +26,19 @@ func _physics_process(delta):
 		#move_and_slide()
 		if direction == "right":
 			if position.y >= 200:
-				#print(" out !")
 				emit_signal("out")
 			if position.x >= target.x:
 				if shownOneTime == true:
-					print("PositionBald" + str(position.x))
-					#print("Lasposition" + str(position.x+290))
 					shownOneTime = false				
 				emit_signal("arrived")
-				#print("avi")
-				#$AnimatedSprite2D.stop()
 			else:
-				#print(target.x)
-				#print(position.x)				
 				move_and_slide()
 		if direction == "left":
 			if position.y >= 200:
-				#print(" out !")
 				emit_signal("out")			
 			if position.x <= target.x:
 				emit_signal("arrived")
-				#$AnimatedSprite2D.stop()
 			else:
-				#$AnimatedSprite2D.play()
-				#print(target.x)
-				#print(position.x)				
 				move_and_slide()
 
 	pass

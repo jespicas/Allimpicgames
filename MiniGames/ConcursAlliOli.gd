@@ -50,59 +50,42 @@ func _input(event):
 		if estasFentP1 == true:
 			timeLastInputPressP1 = timeP1
 			if Input.is_action_pressed("p1_move_up"):
-#				print("up")
-				#$Allioli.emit_signal("mou_amunt")
 				$AllioliCenital1.emit_signal("mou_amunt_fer")
 				if (lastPressP1 == "" or lastPressP1 == "left"):
 					orderKeyPressP1[0] = true			
 					if (lastPressP1 == "left" and orderKeyPressP1[0] == true and orderKeyPressP1[1] == true and orderKeyPressP1[2] == true and orderKeyPressP1[3] == true ):
 						hafetunavoltaP1 = true
 						numvoltesP1 += 1
-#						print(numvoltes)
-#						print(start)
 						if startP1 != null:
 							$VelocitatIndicatorP1.emit_signal("update_health", startP1 * 100)
 							print(startP1 * 100)
 							if startP1 >= 0.25 and startP1 <= 0.4:
-								#var textParticipant = [
-								#	"Bona segueix ",
-								#	"aquesta",
-								#	"velocitat"
-								#]
-								#$CanvasLayer2/SquareInformationP1.ShowSquareP2(30,70,30,100,120,70,120,100,textParticipant,true)
 								puntOKP1 += 1
 								hasStartOKP1 = true
-								print (" bona segueix aquesta velocitat")
 							else:
 								$VelocitatIndicatorP1.emit_signal("update_health_critical", startP1 * 100)
 								if hasStartOKP1 == true:
 									puntsFailP1 += 1
-								print ( " eis .. vigila ")
-#						print(time)
 						startP1 = timeP1
 						timeP1 = 0
 						orderKeyPressP1 = [true,false,false,false]
 					lastPressP1 = "up"
 			if Input.is_action_pressed("p1_move_right"):
-				#$Allioli.emit_signal("mou_esquerra")
 				$AllioliCenital1.emit_signal("mou_dreta_fer")
 				if (lastPressP1 == "up"):			
 					orderKeyPressP1[1] = true
 					lastPressP1 = "right"
 			if Input.is_action_pressed("p1_move_down"):
-				#$Allioli.emit_signal("mou_avall")
 				$AllioliCenital1.emit_signal("mou_avall_fer")
 				if (lastPressP1 == "right"):			
 					orderKeyPressP1[2] = true
 					lastPressP1 = "down"
 			if Input.is_action_pressed("p1_move_left"):
-				#$Allioli.emit_signal("mou_dreta")
 				$AllioliCenital1.emit_signal("mou_esquerra_fer")
 				if (lastPressP1 == "down"):			
 					orderKeyPressP1[3] = true
 					lastPressP1 = "left"				
 			if Input.is_action_pressed("p1_press_button"):
-				#print("moud")
 				$BiberoOliP1.show()
 				$BiberoOliP1.emit_signal("mou")
 				$OliIndicatorP1.emit_signal("update_health", 100)
@@ -123,58 +106,41 @@ func _input(event):
 		if estasFent == true:
 			timeLastInputPress = time
 			if Input.is_action_pressed("p2_move_up"):
-#				print("up")
-				#$Allioli.emit_signal("mou_amunt")
 				$AllioliCenital2.emit_signal("mou_amunt_fer")
 				if (lastPress == "" or lastPress == "left"):
 					orderKeyPress[0] = true			
 					if (lastPress == "left" and orderKeyPress[0] == true and orderKeyPress[1] == true and orderKeyPress[2] == true and orderKeyPress[3] == true ):
 						hafetunavolta = true
 						numvoltes += 1
-#						print(numvoltes)
-#						print(start)
 						if start != null:
 							$VelocitatIndicatorP2.emit_signal("update_health", start * 100)
 							if start >= 0.25 and start <= 0.4:
-								#var textParticipant = [
-								#	"Bona segueix ",
-								#	"aquesta",
-								#	"velocitat"
-								#]
-								#$CanvasLayer3/SquareInformationP2.ShowSquareP2(190,70,190,100,280,70,280,100,textParticipant,true)
 								puntOKP2 += 1
 								hasStartOKP2 = true
-								print (" bona segueix aquesta velocitat")
 							else:
 								$VelocitatIndicatorP2.emit_signal("update_health_critical", start * 100)
 								if hasStartOKP2 == true:
 									puntsFailP2 += 1
-								print ( " eis .. vigila ")
-#						print(time)
 						start = time
 						time = 0
 						orderKeyPress = [true,false,false,false]
 					lastPress = "up"
 			if Input.is_action_pressed("p2_move_right"):
-				#$Allioli.emit_signal("mou_esquerra")
 				$AllioliCenital2.emit_signal("mou_dreta_fer")
 				if (lastPress == "up"):			
 					orderKeyPress[1] = true
 					lastPress = "right"
 			if Input.is_action_pressed("p2_move_down"):
-				#$Allioli.emit_signal("mou_avall")
 				$AllioliCenital2.emit_signal("mou_avall_fer")
 				if (lastPress == "right"):			
 					orderKeyPress[2] = true
 					lastPress = "down"
 			if Input.is_action_pressed("p2_move_left"):
-				#$Allioli.emit_signal("mou_dreta")
 				$AllioliCenital2.emit_signal("mou_esquerra_fer")
 				if (lastPress == "down"):			
 					orderKeyPress[3] = true
 					lastPress = "left"
 			if Input.is_action_pressed("p2_press_button"):
-				#print("moud")
 				$BiberoOliP2.show()
 				$BiberoOliP2.emit_signal("mou")
 				$OliIndicatorP2.emit_signal("update_health", 100)
@@ -222,10 +188,6 @@ func _ready():
 	$BiberoOliP1.connect("animation_finish", Callable(self, "animationBiberoFinishedP1"))
 		
 	$BiberoOliP2.connect("animation_finish", Callable(self, "animationBiberoFinished"))
-	#$CanvasLayer/SquareInformation.connect("allTextShown", Callable(self,"squarefinished"))
-	
-	#$CanvasLayer3/SquareInformationP2.connect("hiddenSquare", Callable(self,"hiddenSquare2"))
-	#$CanvasLayer/SquareInformation.show()
 	$Info.show()
 	is_Showing_Square = true
 	var text = [
@@ -240,7 +202,7 @@ func _ready():
 		"Vigila amb la velocitat i quantitat d' oli    ",
 		"o l'allioli es negara   "
 	]
-	#$CanvasLayer/SquareInformation.ShowSquare(text)
+
 
 	$Hud.hideMessageP1()
 	$Hud.hideMessageP2()
@@ -287,10 +249,6 @@ func animationBiberoFinishedP1():
 	
 func hiddenSquare2():
 	pass
-	#if is_SquareP2_ShownOneTime == true:
-		#print("onetime")
-		#is_SquareP2_Shown = false
-		#$CanvasLayer3/SquareInformationP2.hide()
 	
 func squarefinished():
 	$Hud.showTiming()
@@ -316,19 +274,15 @@ func squarefinished():
 
 	
 func finisthTimerP2():
-#	print("finishtimer")
 	madeMorterDretaMoviment = false
 
 func finisthTimerP1():
-#	print("finishtimer")
 	madeMorterEsquerraMoviment = false	
 func animationFinishP1():
-#	print("animationfinish")
 	animationfinishedP1 = true
 	$AllioliCenital1.emit_signal("mou_amunt")
 		
 func animationFinishP2():
-#	print("animationfinish")
 	animationfinished = true
 	$AllioliCenital2.emit_signal("mou_amunt")
 func animationStarted():
@@ -341,7 +295,6 @@ func _process(delta):
 	time += delta
 	timeP1 += delta
 	if numeroDretaXafadesAll == 10:
-		#$AllioliCenital.hide()
 		if is_SquareP2_Shown == false:
 			is_SquareP2_ShownOneTime = true
 			is_SquareP2_Shown = true
@@ -350,13 +303,6 @@ func _process(delta):
 			$InfoPlayer2/Label.text = "Mou joystick "
 			$InfoPlayer2/Label2.text = "a velocitat"
 			$InfoPlayer2/Label3.text = "constant"
-			#var textParticipant = [
-			#	"Mou joystick ",
-			#	"velocitat",
-			#	"constant"
-			#]
-			#$InfoPlayer2/SquareInformationP2.ShowSquareP2(190,70,190,100,280,70,280,100,textParticipant,true)
-
 		estasFent = true		
 		if finishedGame == true:
 			$VelocitatIndicatorP2.hide()
@@ -369,11 +315,7 @@ func _process(delta):
 
 		if timeLastInputPress != null and timeLastInputPress >= 0.9:
 			$VelocitatIndicatorP2.emit_signal("update_health_critical", timeLastInputPress * 100)
-			#print("1 segon sense premer res?")
-#		print("estasFentTrue")
-		#$Allioli.show()
 	if numeroEsquerraXafadesAll == 10:
-		#$AllioliCenital.hide()
 		if is_SquareP1_Shown == false:
 			is_SquareP1_ShownOneTime = true
 			is_SquareP1_Shown = true
@@ -382,13 +324,6 @@ func _process(delta):
 			$InfoPlayer1/Label.text = "Mou joystick "
 			$InfoPlayer1/Label2.text = "a velocitat"
 			$InfoPlayer1/Label3.text = "constant"
-			#var textParticipant = [
-			#	"Mou joystick ",
-			#	"velocitat",
-			#	"constant"
-			#]
-			#$InfoPlayer1/SquareInformationP1.ShowSquareP2(30,70,30,100,120,70,120,100,textParticipant,true)
-
 		estasFentP1 = true		
 		if finishedGame == true:
 			$VelocitatIndicatorP1.hide()
@@ -401,9 +336,6 @@ func _process(delta):
 
 		if timeLastInputPressP1 != null and timeLastInputPressP1 >= 0.9:
 			$VelocitatIndicatorP1.emit_signal("update_health_critical", timeLastInputPressP1 * 100)
-			#print("1 segon sense premer res?")
-#		print("estasFentTrue")
-		#$Allioli.show()		
 	pass
 
 func _on_olit_timer_p_2_timeout():
@@ -414,11 +346,9 @@ func _on_olit_timer_p_1_timeout():
 	$OliIndicatorP1.emit_signal("update_health_critical", 50)
 	pass # Replace with function body.
 
-
 func _on_wait_readyto_hide_timeout() -> void:
 	is_SquareReadyToHide = true
 	pass # Replace with function body.
-
 
 func _on_timer_info_player_2_timeout() -> void:
 	$InfoPlayer2.hide()

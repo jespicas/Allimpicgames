@@ -45,7 +45,6 @@ func ShowRetry():
 func _input(event):
 	if menuRetry == true:
 			if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
-				print(currentPosition)
 				if currentPosition == menupositions.SI:
 					Global.goto_scene("res://MiniGames/"+currentGame+".tscn")
 					pass
@@ -54,11 +53,9 @@ func _input(event):
 						Global.goto_SaveRecords()
 					else:
 						Global.goto_Jocs()
- 					#Global.goto_scene("res://MainMenu/Jocs.tscn")
 					pass	
 				pass
 			if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left") or event.is_action_pressed("p1_move_right") or event.is_action_pressed("p2_move_right"):
-				print(currentPosition)
 				if currentPosition == menupositions.SI:
 					$focusAll.position.x = 210
 					currentPosition = menupositions.NO
@@ -68,7 +65,6 @@ func _input(event):
 					currentPosition = menupositions.SI
 					pass					
 				pass
-
 	pass
 
 

@@ -13,7 +13,6 @@ var checkedFriends = false
 var gamesPlaysToYou = null
 
 func _ready():
-	print(Global.tipusdeJoc)
 	currentPosition = menupositions.JOCAGAFARALL
 	pass # Replace with function body.
 
@@ -40,7 +39,6 @@ func _on_backtouch_pressed(extra_arg_0):
 	if extra_arg_0 == "btnRecollir":
 		pass
 	if extra_arg_0 == "btnAgafaall":
-		#SelectCompetitorAndGoToGame()
 		pass # Replace with function body.
 
 func mouAll(pos):
@@ -64,11 +62,7 @@ func mouAll(pos):
 		$focusAll.position.y = 52
 
 func _input(event):
-	#print(event.is_action_released())
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
-		print(str(menupositions.keys()[currentPosition]))
-		print("accept")
-		print(currentPosition)
 		if currentPosition == menupositions.JOCAGAFARALL:
 			GoToGame()
 			pass
@@ -89,8 +83,6 @@ func _input(event):
 			pass
 		
 	if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left"):
-		print("left")
-		print(str(menupositions.keys()[currentPosition]))
 		if currentPosition == menupositions.BACKBUTTON:
 			currentPosition = menupositions.JOCAGAFARALL
 			mouAll(all.firstgame)
@@ -104,32 +96,25 @@ func _input(event):
 			$ContentCompetir/ListAmics.deselect_all()
 
 	if event.is_action_pressed("p1_move_down") or event.is_action_pressed("p2_move_down"):
-		print("down")
-		#print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 		if currentPosition == menupositions.JOCAGAFARALL:
 			currentPosition = menupositions.JOCBIRRALL
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCBIRRALL:
 			currentPosition =  menupositions.JOCTIRALL
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCTIRALL:
 			currentPosition = menupositions.JOCALLIOLI
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCALLIOLI:
 			currentPosition = menupositions.JOCLLIGAR
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCLLIGAR:
 			currentPosition = menupositions.BACKBUTTON
 			mouAll(all.backbutton)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 #		elif currentPosition == menupositions.JOCRECOLLIR:
 #			currentPosition = menupositions.BACKBUTTON
@@ -148,8 +133,6 @@ func _input(event):
 				$ContentCompetir/ListAmics.select(itemListContraTuposition,true)
 				
 	if event.is_action_pressed("p1_move_up") or event.is_action_pressed("p2_move_up"):
-		print(currentPosition)
-		print("up")
 		if currentPosition == menupositions.JOCBIRRALL:
 			currentPosition = menupositions.JOCAGAFARALL
 			mouAll(all.up)
@@ -187,8 +170,6 @@ func _input(event):
 			pass
 
 	if event.is_action_pressed("p1_move_right") or event.is_action_pressed("p2_move_right"):
-		print("right")
-		print(currentPosition)
-		
+		pass
 	if event.is_action_pressed("ui_focus_next") :
 		pass

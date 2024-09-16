@@ -54,7 +54,6 @@ func ConvertReadable(values):
 	var substrLine = line.substr(0,line.length() - 3)
 	return substrLine 	
 func JoinInformation(value):
-	print(value)
 	var values = value.split(" ")
 	if values[0] == "Joypad":
 		if values[1] == "Button":
@@ -162,7 +161,6 @@ func updateModify():
 func _unhandled_input(event) -> void:
 
 	if (event is InputEventKey or event is InputEventMouseButton) and event.is_pressed():
-		print(event)
 		var Allactions = InputMap.get_actions()
 		for code in Allactions:
 			if isActionToBeCheck(code):
@@ -170,14 +168,11 @@ func _unhandled_input(event) -> void:
 				for ev in events:
 					if ev is InputEventKey:
 						if ev.keycode == event.keycode:
-							print("KeyCode in use")
 							InputMap.action_erase_event(code,ev)
 							InputMap.action_add_event(currentAction, event)
 						else:	
 							InputMap.action_add_event(currentAction, event)
-					#print(ev)
 				pass
-	#	InputHelper.replace_keyboard_input_at_index(action_name, changing_input_index, event, true)
 		actionsPos += 1
 		if actionsPos < actions.size():
 			UpdateLabelPerAction(currentAction,event.as_text().substr(0,10))
@@ -185,58 +180,9 @@ func _unhandled_input(event) -> void:
 			updateModify()
 		else:
 			Global.goto_scene("res://MainMenu/MainMenu.tscn")
-		#if actionsPos < actions.size():
-		#	print(currentAction)
-			#var actions = InputMap.action_get_events(currentAction)
-			#InputMap.action_erase_events(currentAction)
-			#InputMap.action_add_event(currentAction, event)
-		#	UpdateLabelPerAction(currentAction,event.as_text().substr(0,10))
-		#	currentAction = actions[actionsPos]
-		#	updateModify()
-			#$P1/HBoxContainer/VBoxContainer2/Amunt.text = InputMap.action_get_events(currentAction)[0].as_text().substr(0,10)
-		#	print(event)	
-			#keymaps[currentAction] = event	
-		#	save_keymap()
-
-		#	print(actionsPos)
-			#if (actionsPos == actions.size()):
-			#	currentAction = "Finish"
-			#	$btn_modification.text = " P1 Redefined"
-			#else:
-			#	currentAction = actions[actionsPos]
-		#else:
-		#	print(actionsPos)
-		#	print(actions.size())
-		#	currentAction = "Finish"
-		#	$btn_modification.text = " P1 Redefined"
-		#	Global.goto_scene("res://MainMenu/MainMenu.tscn")
-		#	InputHelper.replace_joypad_input_at_index(action_name, changing_input_index, event, true)
 
 	elif (event is InputEventJoypadButton or event is InputEventJoypadMotion) and event.is_pressed():
 		pass
-		#actionsPos += 1
-		#if actionsPos <= actions.size():
-		#	InputMap.action_erase_events(currentAction)
-		#	InputMap.action_add_event(currentAction, event)
-		#	UpdateLabelPerAction(currentAction,InputMap.action_get_events(currentAction)[0].as_text().substr(0,10))
-			#$P1/HBoxContainer/VBoxContainer2/Amunt.text = InputMap.action_get_events(currentAction)[0].as_text().substr(0,10)
-		#	print(event)	
-		#	keymaps[currentAction] = event	
-	#		save_keymap()
-		#	print(currentAction)
-		#	print(actionsPos)
-		#	if (actionsPos == actions.size()):
-		#		currentAction = "Finish"
-		#		$btn_modification.text = " P1 Redefined"
-		#	else:
-		#		currentAction = actions[actionsPos]
-		#else:
-		#	print(actionsPos)
-		#	print(actions.size())
-		#	currentAction = "Finish"
-		#	$btn_modification.text = " P1 Redefined"
-		#	Global.goto_scene("res://MainMenu/MainMenu.tscn")
-		#	InputHelper.replace_joypad_input_at_index(action_name, changing_input_index, event, true)
 
 func save_keymap() -> void:
 	# For saving the keymap, we just save the entire dictionary as a var.

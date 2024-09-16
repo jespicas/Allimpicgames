@@ -50,12 +50,9 @@ func fillArrCurrentMovement():
 	for j in 4:
 		currentMovement = []
 		for n in 5:
-			#random = RandomNumberGenerator.new()
 			var rndPos = random.randi_range(0,4)
-			#print(rndPos)
 			currentMovement.append(possibleMovements[rndPos])
 		movements.append(currentMovement)
-	#print(movements)
 	$RecolectorP1.set_CurrentMovement(movements)
 	$RecolectorP1.set_Movements(movements)
 	$RecolectorP1.set_name_player("P1")
@@ -120,17 +117,13 @@ func P1EliminaAll(pos, name):
 func P1Finish(time):
 	P1finish = true
 	timeP1 = time
-	#$Hud.show_messageP1(str(timeP1))
 	$Player1.show()
 	$Player1/Punts.text = str(timeP1).substr(0,5) + " sec"
-	#$Hud.show_message("MoltBE P1" + str(time) + " Prem for next")
 func P2Finish(time):
 	P2finish = true
 	timeP2 = time
-	#$Hud.show_messageP2(str(timeP2))
 	$Player2.show()
 	$Player2/Punts.text = str(timeP2).substr(0,5) + " sec"
-	#$Hud.show_message("MoltBE P2" + str(time) + " Prem for next")
 
 func P1ItsOk(position):
 	$"5controlsleft".FillControls(movements[position])
@@ -200,11 +193,9 @@ func _process(delta):
 
 func moveNextRecolector(player):
 	if player == "P1":
-		#$RecolectorP1.playing = false
 		$RecolectorP1.position.y = $RecolectorP1.position.y + 40
 		next = false		
 	if player == "P2":
-		#$RecolectorP2.playing = false
 		$RecolectorP2.position.y = $RecolectorP2.position.y + 40
 		next = false		
 
@@ -225,16 +216,8 @@ func _on_Timer_timeout():
 
 
 func _on_timer_go_to_records_timeout() -> void:
-	print("timeoutGotoREcords")
-	# Mirar si ha de guardar records
-	# El record esta dintre dels 5 ?
-	
 	if await Global.ShouldAddScore():
 		Global.goto_SaveRecords()
 	else:
 		Global.goto_Jocs()
-	#if Global.ShouldAddScore():
-	#	Global.goto_SaveRecords()
-	#else:
-	#	Global.goto_Jocs()
 	pass # Replace with function body.

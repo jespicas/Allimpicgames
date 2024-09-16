@@ -28,10 +28,6 @@ func _process(delta):
 
 
 func _on_animated_sprite_2d_animation_finished():
-	#print("animatedfinish bibero")
-	#if $CharacterBody2D/AnimatedSprite2D.animation == "stop":
-	#	$CharacterBody2D/AnimatedSprite2D.set_animation("cau")
-	#else:
 	$CharacterBody2D/AnimatedSprite2D.set_animation("stop")
 	$CharacterBody2D/AnimatedSprite2D.play()
 	emit_signal("animation_finish")	

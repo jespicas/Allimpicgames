@@ -39,6 +39,8 @@ var silentWolfWorks = false
 
 var globalEntered = 0
 
+var enableRedefineKeys = true
+
 func set_SilentWolfWorks(value):
 	silentWolfWorks = value
 
@@ -87,7 +89,6 @@ func _http_request_GetNick_completed(result, response_code, headers, body):
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
 	if response != null:
 		listNick = response
-		print("Has Nicks")
 	# Called when the node enters the scene tree for the first time.
 func _http_request_completed(result, response_code, headers, body):
 	var json = JSON.new()
@@ -95,8 +96,6 @@ func _http_request_completed(result, response_code, headers, body):
 	var response = json.get_data()
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
 	if response != null:
-		#print(response.headers["User-Agent"])	
-		print("connected")
 		hasConnection = true
 		setHasConnection(true)
 	else:
@@ -109,13 +108,8 @@ func _http_request_add_nick_completed(result, response_code, headers, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
-	if response != null:
-		#print(response.headers["User-Agent"])	
-		print("Nick Add OK")
-		#hasConnection = true
-	else:
-		print("Nick Failed")
-		#hasConnection = false
+
+
 	# Called when the node enters the scene tree for the first time.	
 	pass
 func _http_request_add_GameToApi_completed(result, response_code, header, body):
@@ -123,14 +117,6 @@ func _http_request_add_GameToApi_completed(result, response_code, header, body):
 	json.parse(body.get_string_from_utf8())
 	var response = json.get_data()
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
-	if response != null:
-		print(response["status"])
-		#print(response.headers["User-Agent"])	
-		
-		#hasConnection = true
-	else:
-		print("Add score failed")
-		#hasConnection = false
 	# Called when the node enters the scene tree for the first time.	
 	pass	
 func _http_request_get_PendingGames_completed(result, response_code, header, body):
@@ -140,13 +126,6 @@ func _http_request_get_PendingGames_completed(result, response_code, header, bod
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
 	if response != null:
 		listPendingGames = response
-		#print(response)
-		#print(response.headers["User-Agent"])	
-		
-		#hasConnection = true
-	else:
-		print("Get pending games fails")
-		#hasConnection = false
 	# Called when the node enters the scene tree for the first time.	
 	pass		
 func _http_request_get_PendingGamesToYou_completed(result, response_code, header, body):
@@ -156,8 +135,8 @@ func _http_request_get_PendingGamesToYou_completed(result, response_code, header
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
 	if response != null:
 		listPendingGamesToYou = response
-	else:
-		print("Get pending games fails")
+
+
 	pass
 func _http_request_get_PlayedGames_completed(result, response_code, header, body):
 	var json = JSON.new()
@@ -166,8 +145,6 @@ func _http_request_get_PlayedGames_completed(result, response_code, header, body
 	# Will print the user agent string used by the HTTPRequest node (as recognized by httpbin.org).
 	if response != null:
 		listPlayedGames = response
-	else:
-		print("Get pending games fails")
 	pass
 	
 func sha_256(str: String) -> String:
@@ -197,7 +174,6 @@ func storeCurrentProjectSettingsKeyMaps():
 		var fileDefault = FileAccess.open(defaultKeymapFile, FileAccess.WRITE)
 		for action in InputMap.get_actions():
 			if InputMap.action_get_events(action).size() != 0:
-				print(InputMap.action_get_events(action))
 				keymaps[action] = InputMap.action_get_events(action)		
 		fileDefault.store_var(keymaps, true)
 		fileDefault.close()
@@ -217,13 +193,10 @@ func load_keymap() -> void:
 		var fileOriginal = FileAccess.open(defaultKeymapFile, FileAccess.READ)
 		var OriginalKeymaps = fileOriginal.get_var(true) as Dictionary	
 		fileOriginal.close()
-		print("loadKEyMap")
 		if FileAccess.file_exists(keymapsFile):
 			var file = FileAccess.open(keymapsFile, FileAccess.READ)
 			var keymaps = file.get_var(true) as Dictionary	
 			file.close()
-			#print(OriginalKeymaps.size())
-			#print(keymaps.size())
 			for action in OriginalKeymaps.keys():
 				var originalAction = InputMap.get(action)
 				var b = keymaps.get(action)
@@ -235,8 +208,6 @@ func load_keymap() -> void:
 					InputMap.action_erase_events(action)
 					for act in OriginalKeymaps[action]:
 						InputMap.action_add_event(action, act)
-					#print_debug(action)
-					#print_debug(e)
 		else:
 			if not FileAccess.file_exists(keymapsFile):
 				var file := FileAccess.open(keymapsFile, FileAccess.WRITE)
@@ -257,16 +228,8 @@ func _ready():
 	globalEntered += 1
 	load_keymap()
 	print_debug("Global ready Entered "+str(globalEntered))
-	#storeCurrentProjectSettingsKeyMaps()
-	#if existsKeyMapsUser() == false:
-	#	save_keymap()
-	#else:
-	#	load_keymap()
-	
-	checkHasConnection()
 	
 	if fileExists() == true:
-		print("exists")
 		var settings = GetSettings()
 		currentNick = settings.nick
 		if hasConnection == true:
@@ -279,7 +242,6 @@ func _ready():
 		pass
 	else:
 		var uniqueId = sha_256(getId())
-		print( uniqueId)
 		var file = FileAccess.open(pathSave, FileAccess.WRITE)
 		var data = {
 		"unique_identifier": uniqueId,
@@ -296,8 +258,6 @@ func _ready():
 		# SI TE INTERNET ves a nick
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
-	print(current_scene)
-#	print("Global ready")
 	pass # Replace with function body.
 
 func SaveNick(nick):
@@ -329,7 +289,6 @@ func SaveNick(nick):
 			UpdateNickToApi(nick,dataOriginal.unique_identifier)
 		else:
 			AddNickToApi(nick,dataOriginal.unique_identifier)
-	print(listNick)
 
 func GetFriends():
 	if FileAccess.file_exists(pathFriendsList) == true: 
@@ -447,16 +406,12 @@ func ShouldAddScore():
 			scores = GetRecordsFromGame(nameJoc,scores)
 			if scores.size() >= 5:
 				if nameJoc == agafaAll or nameJoc == enforcaralls:
-					print("current score" + score)
-					print("p5 score "+scores[4]["score"])
 					if str(scores[4]["score"]).to_float() < str(score).to_float():
 						return false
 					else:
 						return true
 				else:
 					if str(scores[4]["score"]).to_float() > str(score).to_float():
-						print("current score" + score)
-						print("p5 score "+scores[4]["score"])
 						return false
 					else:
 						return true
@@ -485,7 +440,6 @@ func GetRecordsFromGame(game, save_data):
 func GetRecordsFromSilentWolf(leaderboard):
 	var sw_result = await SilentWolf.Scores.get_scores(0, leaderboard).sw_get_scores_complete
 	var scores = sw_result.scores
-	print(scores)
 	var new_game = []
 	for score in scores:
 		var gameRecord = {
@@ -519,7 +473,7 @@ func GetAllNickRegistered():
 		var result = http_request.request(urlApi+"OlimpicAlls/getNicks", headers, HTTPClient.METHOD_GET)
 		await http_request.request_completed
 		return listNick
-		#print(listNick)
+
 
 func AddNickToApi(nick, uniqueIdentifier):
 	var http_request = HTTPRequest.new()	
@@ -533,7 +487,6 @@ func AddNickToApi(nick, uniqueIdentifier):
 	pass
 	
 func UpdateNickToApi(nick, uniqueIdentifier):
-	print("update")
 	var http_request = HTTPRequest.new()	
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_add_nick_completed)
@@ -559,7 +512,6 @@ func UpdateSettings(info):
 
 func AddGameToApi(score):
 
-	print( currentNick + " " + str(score) + " " + currentGame + " vs:" + nickCompetir + " Temps:"  + str(scoreNickCompetir))
 	var http_request = HTTPRequest.new()	
 	add_child(http_request)
 	http_request.request_completed.connect(self._http_request_add_GameToApi_completed)
@@ -642,12 +594,10 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 	
 func _deferred_goto_scene(path):
-	print(current_scene)
 	if is_instance_valid(current_scene):
 		current_scene.free()
 	
 	var s = ResourceLoader.load(path)
-	print(path)
 	current_scene = s.instantiate()
 	get_tree().get_root().add_child(current_scene)
 	get_tree().set_current_scene(current_scene)		

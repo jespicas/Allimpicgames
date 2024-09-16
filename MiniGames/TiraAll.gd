@@ -103,7 +103,6 @@ func _ready():
 	pass # Replace with function body.
 	
 func continueOrUpdatePlayer():
-	print($Timer.is_stopped())
 	if $Timer.is_stopped() == false:
 		StartMa()
 	else:
@@ -168,17 +167,11 @@ func _input(event):
 
 func addPuntuacio(name):
 	if name == "forat5" or name == "forat8":
-		print("8 punts")
 		addPoints(8)
-		#points += 8
 	elif name == "forat3" or name == "forat4":
-		print("10 punts")
 		addPoints(10)
-		#points += 10
 	elif name == "forat1" or name == "forat2" or name == "forat6" or name == "forat7":
-		print("5 punts")
 		addPoints(5)
-		#points += 5
 	UpdateMarcador()
 	continueOrUpdatePlayer()
 	pass
@@ -191,17 +184,13 @@ func dispararMaEsDiana(position):
 		var isXInRange = isBetWeenRanges(diana["rangXmax"], diana["rangXmin"],int(posX))
 		var isYInRange = isBetWeenRanges(diana["rangYmax"], diana["rangYmin"],int(posY))
 		if isXInRange and isYInRange:
-			print(position)
-			print("Diana!!! " + diana["name"])
 			hasDiana = true
 			addPuntuacio(diana["name"])
-	#		print(position)
 		else:
 			pass
 	return hasDiana
 
 func isBetWeenRanges(max, min, pos):
-	#print(str(max)+" "+str(min)+" "+str(pos))
 	return (pos >= min) and (pos <= max)	
 
 	pass
@@ -211,7 +200,6 @@ func countDown():
 	$CanvasLayer/timer.text = str(int($Timer.time_left))
 
 func _on_timer_timeout():
-	print("Ha arribat a 0 Player:" + currentPlayer)
 	$MaTirAll.emit_signal("stop")
 	$Hud/Message2.show()
 	
@@ -220,7 +208,6 @@ func _on_timer_timeout():
 		$Information.show()
 		$Information/Label.text = " Proxim player Jugador 2"
 		currentPlayer = "Player 2"
-		#$Label.text = currentPlayer
 		$CanvasLayer/tornJugador.text = "Jugador 2"
 		readyToStart = true
 	elif currentPlayer == "Player 2":

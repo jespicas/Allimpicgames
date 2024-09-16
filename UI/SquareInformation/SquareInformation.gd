@@ -62,9 +62,6 @@ func clearText():
 		if _i is Label:
 			if _i.name != "original" and _i.name != "Label":
 				_i.queue_free()
-			#else: 
-			#	print(_i)
-		#print(_i)		
 
 func ShowSquareP2(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbaixEsquerra,posXAdaltDreta,posYAdaltDreta,posXAbaixDreta,poxYAbaixDreta,texts,amagar):
 	clearText()
@@ -93,12 +90,7 @@ func ShowSquareP2(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbai
 	AddLineText(texts[1], posXAdaltEsquerra, posYAdaltEsquerra+10)
 	AddLineText(texts[2], posXAdaltEsquerra, posYAdaltEsquerra+20)
 	if amagar == true:
-		#print("timerstart")
 		$Timer.start(2)
-	# 190,60
-	# 190,100
-	# 280,60
-	# 280,100
 
 func ShowSquareFixed(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbaixEsquerra,posXAdaltDreta,posYAdaltDreta,posXAbaixDreta,poxYAbaixDreta,texts):
 	clearText()
@@ -126,10 +118,6 @@ func ShowSquareFixed(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYA
 	AddLineText(texts[0], posXAdaltEsquerra, posYAdaltEsquerra)
 	AddLineText(texts[1], posXAdaltEsquerra, posYAdaltEsquerra+10)
 	AddLineText(texts[2], posXAdaltEsquerra, posYAdaltEsquerra+20)
-	# 190,60
-	# 190,100
-	# 280,60
-	# 280,100
 
 func ShowEmptySquare(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYAbaixEsquerra,posXAdaltDreta,posYAdaltDreta,posXAbaixDreta,poxYAbaixDreta):
 	clearText()
@@ -162,8 +150,6 @@ func ShowEmptySquare(posXAdaltEsquerra,posYAdaltEsquerra,posXAbaixEsquerra,poxYA
 func ShowSquare(texts):
 	is_Showing = true
 	numberofPages = ceil(float(texts.size())/10)
-	#print(ceil(float(texts.size())/10))
-	#print(numberofPages)
 	textsToWork = texts
 	EmplaneText(textsToWork)
 	currentPage = 1
@@ -254,7 +240,6 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	print("hide")
 	$Timer.stop()
 	hide()
 	emit_signal("hiddenSquare")

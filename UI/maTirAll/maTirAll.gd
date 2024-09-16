@@ -60,13 +60,9 @@ func ObreDits(hasDiana):
 	hafetDiana = hasDiana
 	Stop()
 	$AnimatedSprite2D.play("obredits")
-	print("obredits")
-	print(position)
 func AllDintreForat():
-	print("alldintreforat")
 	pass
 func AllForaCau():
-	print("allfora")
 	$Allxoca/AnimatedSprite2D.play("xoca")
 	$Allxoca.caure == true
 
@@ -75,7 +71,6 @@ func disableCollisionAllXoca():
 		$Allxoca/CollisionPolygon2D.disabled = false
 	else:
 		$Allxoca/CollisionPolygon2D.disabled = true
-	#$Allxoca/AnimatedSprite2D.play("xoca")	
 			
 func _ready():
 	a = position.x
@@ -93,20 +88,12 @@ func _ready():
 	connect("stopLeftRight", Callable(self, "stop_Left_Right"))
 	connect("stopUpDown", Callable(self, "stop_Up_Down"))
 	
-#	$Allxoca.connect("animacioxoca", Callable(self, "animacioxoca"))
-#	$Allxoca.connect("caigut", Callable(self, "allcaigut"))
 	pass
-
-
 func animacioxoca():
-	#print("animacioxoca")
 	$AnimatedSprite2D.play("default")
 	Init()		
 	pass
 	
-#func allcaigut():
-#	#print("allcaigut")
-#	pass
 	
 func stop_Left_Right():
 	stopLeftRightHand = true
@@ -130,7 +117,6 @@ func _physics_process(delta):
 		if position.x >= 0 and direction == "left" and stopLeftRightHand == false:
 			positionX = position.x - SPEED
 			position.x = positionX
-		#	move_and_slide()
 			if position.x <= 0 and direction == "left":
 				direction = "right"
 		if direction == "up" and stopUpDownHand == false:
@@ -143,24 +129,16 @@ func _physics_process(delta):
 			position.y = positionY
 			if position.y >= 214:
 				direction = "up"
-		#else:
-		#	position.x = a
-		#	position.y = b
-			
 			
 func _on_animated_sprite_2d_animation_finished():
-	#obreditsFinished
 	allTiratAction = true
 	$AnimatedSprite2D.hide()
 	$Allxoca.position = position
-	print("Finish animation allxoca show")
-	print($Allxoca.position)
 	var initialPosition = $Allxoca.position
 	
 	$Allxoca.position.y = $Allxoca.position.y - 4
 	$Allxoca.position.x = $Allxoca.position.x + 15
 	lastAllPosition = $Allxoca.position
-	#$Allxoca.caure = true
 	$Allxoca.show()
 	$Allxoca.emit_signal("disparat",hafetDiana)
 	pass # Replace with function body.

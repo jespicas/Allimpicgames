@@ -16,16 +16,10 @@ func selectColor(color):
 		
 	if color == "red":
 		pass
-		#$canyemsol.hide()
-		#$canyem.show()
-		#$canyem.modulate = red
-		#$canyemDreta.modulate = red
 	if color == "blue":
 		$canyem.modulate = blue
 	if color == "default":
 		pass
-		#$canyem.modulate = originalColor	
-		#$canyemDreta.modulate = originalColor
 	pass
 
 func changeFlip(value):
@@ -101,6 +95,5 @@ func _process(delta: float) -> void:
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print($AnimatedSprite2D.animation)
 	$AnimatedSprite2D.draw_end_animation()	
 	pass # Replace with function body.

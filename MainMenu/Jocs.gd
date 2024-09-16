@@ -13,7 +13,6 @@ var checkedFriends = false
 var gamesPlaysToYou = null
 
 func _ready():
-	print(Global.tipusdeJoc)
 	currentPosition = menupositions.JOCAGAFARALL
 	pass # Replace with function body.
 
@@ -22,7 +21,6 @@ func IsMyFriend(nickToCheck):
 	var hasFriend = false
 	for friend in friends:
 		if friend == nickToCheck:
-			print(friend)
 			hasFriend = true
 	
 	return hasFriend
@@ -85,23 +83,16 @@ func CheckToCompetir():
 				#then check no friends
 				if IsMyFriend(pendinGame.nick) == true:
 					if IsChecked(pendinGame.nick) == false:
-						print( " Amic vol competir " + pendinGame.nick)
 						currentPosition = 89
 						$AcceptCompetir.show()
 						$AcceptCompetir/VolsCompetir.add_text(pendinGame.nick)
 						$AcceptCompetir/VolsCompetir.add_text("?")
 						Global.setNickCompetir(pendinGame.nick)				
-				#else:
-				#	print(checkedPenndings)
 			checkedFriends = true
-			print("Checked all friends")	#	print(IsChecked(pendinGame.nick))
 		else:					#	print( " No es amic teu !" + pendinGame.nick)
 			for pendinGame in pendingGames:
 				if IsMyFriend(pendinGame.nick) == false:
-					print("ismyfriend pending")
-					print(pendinGame.nick)
 					if IsChecked(pendinGame.nick) == false && pendinGame.nick != Global.currentNick:
-						print( " NO Amic vol competir " + pendinGame.nick)
 						currentPosition = 89
 						$AcceptCompetir.show()
 						$AcceptCompetir/VolsCompetir.add_text(pendinGame.nick)
@@ -146,29 +137,6 @@ func SelectCompetitorAndGoToGame():
 			$ContentCompetir/ListAmics.select(itemListFriendsposition)		
 	if Global.hasConnection == false:
 		GoToGame()
-	#CheckToCompetir()
-	#if Global.tipusdeJoc == "competir" and Global.hasConnection == true:
-	#	pass
-		#Comprova si tens partides pendents...
-		#Comprova si hiha algun dels amics que vol competir  si es aixi : posar  el nick com a competir
-		# si no es amic preguntar si accepta la competicio ,
-		# si accepta posar nick a competir
-		# si no accepta  buscar algu per competir 
-		# si no hiha ningu que vulgui competir 
-		# tria amic per competir
-		#$ContentCompetir.show()
-		#var getfriends = Global.GetFriends()
-		#print(getfriends.size())
-		#if getfriends != null:
-		#	for nick in getfriends:
-			#	print(nick)
-		#		$ContentCompetir/ListAmics.add_item(nick,null,true)
-		#	$ContentCompetir/ListAmics.select(0,false)
-		#	$ContentCompetir/ListAmics.grab_focus()
-		#	print($ContentCompetir/ListAmics.item_count)
-		#	currentPosition = 99
-	#else:
-	#	Global.goto_scene("res://MiniGames/AgafaAlls.tscn")
 func GoToGame():
 	if Global.currentGame == "AgafaAlls":
 		Global.goto_scene("res://MiniGames/AgafaAlls.tscn")
@@ -180,8 +148,6 @@ func GoToGame():
 		Global.goto_scene("res://MiniGames/ConcursAlliOli.tscn")
 	elif Global.currentGame == "EnforcarAlls":
 		Global.goto_scene("res://MiniGames/EnforcarAlls.tscn")
-		
-
 func _on_backtouch_pressed(extra_arg_0):
 	if extra_arg_0 == "btnBack":
 		GoToMainMenu()
@@ -212,11 +178,7 @@ func mouAll(pos):
 		$focusAll.position.y = 52
 
 func _input(event):
-	#print(event.is_action_released())
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
-		print(str(menupositions.keys()[currentPosition]))
-		print("accept")
-		print(currentPosition)
 		if currentPosition == menupositions.JOCAGAFARALL:
 			Global.setCurrentGame("AgafaAlls")
 			if Global.tipusdeJoc == "practicar":
@@ -256,38 +218,29 @@ func _input(event):
 					Global.setPlayWithYou(true)
 			currentPosition = menupositions.SELECCIOCONTRATU
 		elif currentPosition == menupositions.COMPETIRTUCONTRA:
-			print(" COMPETIRTUCONTRA")
 			$ContentCompetir/ListAmics.grab_focus()
 			$ContentCompetir/RichTextLabel.hide()
 			$ContentCompetir/ListCompetidor.hide()
 			currentPosition = menupositions.SELECCIOTUCONTRA
 			$ContentCompetir/ListAmics.select(itemListFriendsposition)
 		elif currentPosition == menupositions.SELECCIOTUCONTRA:
-			print($ContentCompetir/ListAmics.get_item_text(itemListFriendsposition))
 			Global.scoreNickCompetir = null
 			Global.setNickCompetir($ContentCompetir/ListAmics.get_item_text(itemListFriendsposition))
 			Global.setPlayWithYou(false)
 			GoToGame()
 			pass	
 		elif currentPosition == menupositions.SELECCIOCONTRATU:
-			print($ContentCompetir/ListCompetidor.get_item_text(itemListContraTuposition))
 			GetScoreCompetitor($ContentCompetir/ListCompetidor.get_item_text(itemListContraTuposition))
 			Global.setNickCompetir($ContentCompetir/ListCompetidor.get_item_text(itemListContraTuposition))
 			GoToGame()
 			pass
-		print("enter")
 		
 	if event.is_action_pressed("p1_move_left") or event.is_action_pressed("p2_move_left"):
-		print("left")
-		print(str(menupositions.keys()[currentPosition]))
 		if currentPosition == menupositions.BACKBUTTON:
 			currentPosition = menupositions.JOCAGAFARALL
 			mouAll(all.firstgame)
 		elif currentPosition == menupositions.COMPETIRCONTRATU or currentPosition == menupositions.COMPETIRTUCONTRA or currentPosition == menupositions.SELECCIOCONTRATU or currentPosition == menupositions.SELECCIOTUCONTRA:
-			#$ContentCompetir.hide()
 			ShowAllGamesAndHideSeleccion()
-			#$agafarall.show()
-			#$agafaAll.show()
 			mouAll(all.firstgame)
 			currentPosition = menupositions.JOCAGAFARALL
 		elif currentPosition == 21:
@@ -297,36 +250,26 @@ func _input(event):
 			$ContentCompetir/ListAmics.deselect_all()
 
 	if event.is_action_pressed("p1_move_down") or event.is_action_pressed("p2_move_down"):
-		print("down")
-		#print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 		if currentPosition == menupositions.JOCAGAFARALL:
 			currentPosition = menupositions.JOCBIRRALL
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCBIRRALL:
 			currentPosition =  menupositions.JOCTIRALL
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCTIRALL:
 			currentPosition = menupositions.JOCALLIOLI
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCALLIOLI:
 			currentPosition = menupositions.JOCLLIGAR
 			mouAll(all.down)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
 		elif currentPosition == menupositions.JOCLLIGAR:
 			currentPosition = menupositions.BACKBUTTON
 			mouAll(all.backbutton)
-			print(str(menupositions.keys()[currentPosition])+ " " + str(currentPosition))
 			pass
-#		elif currentPosition == menupositions.JOCRECOLLIR:
-#			currentPosition = menupositions.BACKBUTTON
-#			mouAll(all.backbutton)
 			pass
 		elif currentPosition == menupositions.COMPETIRCONTRATU:
 			currentPosition = menupositions.COMPETIRTUCONTRA
@@ -341,8 +284,6 @@ func _input(event):
 				$ContentCompetir/ListAmics.select(itemListContraTuposition,true)
 				
 	if event.is_action_pressed("p1_move_up") or event.is_action_pressed("p2_move_up"):
-		print(currentPosition)
-		print("up")
 		if currentPosition == menupositions.JOCBIRRALL:
 			currentPosition = menupositions.JOCAGAFARALL
 			mouAll(all.up)
@@ -359,9 +300,6 @@ func _input(event):
 			currentPosition = menupositions.JOCALLIOLI
 			mouAll(all.up)
 			pass
-	#	elif currentPosition == menupositions.JOCRECOLLIR:
-	#		currentPosition = menupositions.JOCLLIGAR
-	#		mouAll(all.up)
 		elif currentPosition == menupositions.BACKBUTTON:
 			currentPosition = menupositions.JOCLLIGAR
 			mouAll(all.lastgame)			
@@ -376,23 +314,9 @@ func _input(event):
 			if itemListContraTuposition-1 >= 0:
 				itemListContraTuposition = itemListContraTuposition - 1
 				$ContentCompetir/ListCompetidor.select(itemListContraTuposition,true)
-
 			pass
 
 	if event.is_action_pressed("p1_move_right") or event.is_action_pressed("p2_move_right"):
-		print("right")
-		print(currentPosition)
-		#if currentPosition != 99:
-		#	currentPosition = 6
-		#	$focusAll.position.x = 240
-		#	$focusAll.position.y = 210
-		#if currentPosition == menupositions.COMPETIRCONTRATU:
-		#	currentPosition = 5
-		#	$ContentCompetir.hide()
-		#	$focusAll.position.x = 240
-		#	$focusAll.position.y = 210
-		#	$agafarall.show()
-		#	$agafaAll.show()
-		
+		pass		
 	if event.is_action_pressed("ui_focus_next") :
 		pass

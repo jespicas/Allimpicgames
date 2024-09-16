@@ -113,7 +113,6 @@ func array_to_string(arr: Array) -> String:
 func GetRecordsFromSilentWolf(leaderboard):
 	var sw_result = await SilentWolf.Scores.get_scores(0, leaderboard).sw_get_scores_complete
 	var scores = sw_result.scores
-	print(scores)
 	var new_game = []
 	for score in scores:
 		var gameRecord = {

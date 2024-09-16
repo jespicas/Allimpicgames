@@ -20,7 +20,6 @@ func FillControls(arrayList):
 		pos += 1
 			
 func FillPosControl(pos,animationName):
-	#print(str(pos) + " " + animationName)
 	if pos == 0:
 		$controlFirst.animation = animationName
 		$controlFirst.modulate = Color(1,1,1)

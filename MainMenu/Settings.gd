@@ -19,7 +19,6 @@ func _on_TouchScreenButton_pressed():
 	pass # Replace with function body.
 
 func _input(event):
-	#print(event.is_action_released())
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
 		if currentPosition == 0:
 			$LineEdit.text = $LineEdit.text.replace("\n","")

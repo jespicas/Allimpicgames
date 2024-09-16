@@ -34,17 +34,13 @@ func _input(event):
 	var is_left = false
 	var is_right = false
 	if Input.is_action_pressed("p1_move_right") or Input.is_action_pressed("p2_move_right"):
-		print("right")
 		is_right = true		
 	if Input.is_action_pressed("p1_move_left") or Input.is_action_pressed("p2_move_left"):
 		is_left = true
-		print("left")
 	if Input.is_action_pressed("p1_move_up") or Input.is_action_pressed("p2_move_up"):
 		is_up = true
-		print("up")
 	if Input.is_action_pressed("p1_move_down") or Input.is_action_pressed("p2_move_down"):
 		is_down = true
-		print("down")
 
 	posGrid = 0
 	if is_down == true or is_right == true:
@@ -55,20 +51,14 @@ func _input(event):
 				i.grab_focus()
 			posGrid +=1
 	if is_up == true or is_left == true:
-		print(posGrid)
-		print(posCurrentFocus)
 		for i in $Control2/GridContainer.get_children():
 			if (posGrid == posCurrentFocus -1):
 				i.grab_focus()
 			if (posGrid == posCurrentFocus):
 				i.release_focus()
 			posGrid +=1
-			#var posi = posCurrentFocus 
-			#print(posi)
-			#$Control2/GridContainer[posCurrentFocus+1].grab_focus()	
 	else:
 		if event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button") :
-#			print(event.as_text())
 			if event.is_pressed() == true:
 				for i in $Control2/GridContainer.get_children():
 					if i.has_focus():
@@ -79,11 +69,9 @@ func _input(event):
 func _ready():
 	for i in $Control2/GridContainer.get_children():
 		i.connect("pressed",Callable(self, "_button_pressed"))
-		#i.connect("pressed", Callable(self, "_button_pressed", [i]))
 	redrawName()
 	
 	var total = Global.score
-	#Global.setCurrentGame("savereocrds")
 	$Control/punts.text = str(total)
 	$Control/nomjoc.text = Global.currentGame
 	$Control2/GridContainer/End.grab_focus()
@@ -115,10 +103,7 @@ func removeLabel():
 		labels[pos-1] = "_"
 		pos = pos -1 
 		redrawName()
-	else:
-		print("remove")
-#		for i in 2:
-#			$Control.get_children()[i].text = labels[i]
+	
 func store():
 	if Global.silentWolfWorks:
 		if Global.currentGame == agafaAll:
@@ -160,7 +145,7 @@ func fileExists():
 	return FileAccess.file_exists(Global.pathScores)
 	
 func _button_pressed(button):
-	print(button)
+
 	if (button.text == "Del"):
 		removeLabel()
 	elif (button.text == "End"):

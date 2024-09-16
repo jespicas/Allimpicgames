@@ -63,7 +63,6 @@ func _ready():
 	$RetryGame.currentGame = "TiralaBirra"
 	$RetryGame.colorBlack()
 	
-	print(Global.numPlayers)
 	if Global.numPlayers == 1:
 		participant2Disabled = true
 	StartParticipant1()
@@ -145,7 +144,6 @@ func AviOut():
 	$BirrasP2/CharacterBody2D.moveTo(Vector2(0,0))
 	
 func BaldOut():	
-	print("baldout")
 	readyP1 = false
 	baldPos = randf_range(0, 100)
 	
@@ -182,7 +180,6 @@ func AviArrived():
 	readyP2 = true
 	birraP2PosicioCorrecte = false
 	$BirrasP2.show()
-	#print("P2 ready")
 
 func BottleArrived():
 	$BirrasP2/CharacterBody2D/AnimatedSprite2D.stop()
@@ -209,9 +206,6 @@ func BottleArrived():
 			#$Hud.show_messageP2(str(puntsP2))
 			$Participant2Punts2/Punts.text = str(puntsP2)
 		else:
-#			print("Has fet % de:"+ str(numberprogressP2))
-#			print("Posicio birra es "+str(birraPosition))
-#			print(" Avi posicio "+str(aviCurrentPosition))
 			$AviBarFiraAll/CharacterBody2D.animationToPlay = "default"
 			var puntsProximitat = birraPosition - aviCurrentPosition
 			if puntsProximitat <= 10:
@@ -233,7 +227,6 @@ func BottleArrived():
 			elif puntsProximitat <= 90:	
 				puntsP2 = puntsP2 + 10
 				
-			#$Hud.show_messageP2(str(puntsP2))
 			$Participant2Punts2/Punts.text = str(puntsP2)
 		RestartAvi()
 
@@ -246,14 +239,12 @@ func BottleArrivedP1():
 			
 	if moveBirraP1 == true:
 		moveBirraP1 = false		
-		#var aviCurrentPosition = positionAvi+aviPos
 		var divit100 = float(numberprogressP2)/100
 		var result = divit100*82
 		var birraPosition = result+208
 		var baldCurrentPosition = 100 -float(baldPos)
 		
 		if numberprogressP1+5 >= baldCurrentPosition and numberprogressP1-5 <= baldCurrentPosition:
-			print("Estas dintre marges")
 			$BaldBarFiraAll/CharacterBody2D.animationToPlay = "birra"
 			$BirrasP1.hide()
 			$BirrasP1/CharacterBody2D.position.x = 0
@@ -262,10 +253,8 @@ func BottleArrivedP1():
 			$BirrasP1/CharacterBody2D.moveTo(Vector2(0,0))
 			puntsP1 = puntsP1 + 100
 			birraP1PosicioCorrecte = true
-			#$Hud.show_messageP1(str(puntsP1))
 			$Participant1Punts/Punts.text = str(puntsP1)
 		else:
-		#	print("no has arribat amb "+ str(numberprogressP1))
 			var puntsProximitat = baldCurrentPosition - birraPosition
 			if puntsProximitat <= 10:
 				puntsP1 = puntsP1 + 90
@@ -285,27 +274,9 @@ func BottleArrivedP1():
 				puntsP1 = puntsP1 + 20
 			elif puntsProximitat <= 90:	
 				puntsP1 = puntsP1 + 10
-				
-			#$Hud.show_messageP1(str(puntsP1))			
+
 			$Participant1Punts/Punts.text = str(puntsP1)
-		#if birraPosition+10 >= aviCurrentPosition and birraPosition-10 <= aviCurrentPosition:
-		#	print("Estas dintre valors!")
-			#$AviBarFiraAll/CharacterBody2D.beuBirra()
-		#	print(" hauria de fer play")
-			#$AviBarFiraAll/CharacterBody2D.animationToPlay = "birra"
-		#	$BirrasP2.hide()
-		#	$BirrasP2/CharacterBody2D.position.x = 0
-		#	$BirrasP2/CharacterBody2D.checkposition = true
-		#	$BirrasP2/CharacterBody2D/AnimatedSprite2D.play("default")
-		#	$BirrasP2/CharacterBody2D.moveTo(Vector2(0,0))
-			#puntsP1 = puntsP1 + 100
-			#$Hud.show_messageP2(str(puntsP1))
 		RestartBald()
-		#else:
-#			print("Has fet % de:"+ str(numberprogressP2))
-#			print("Posicio birra es "+str(birraPosition))
-#			print(" Avi posicio "+str(aviCurrentPosition))
-		#	$AviBarFiraAll/CharacterBody2D.animationToPlay = "default"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -329,7 +300,6 @@ func _input(event):
 		$TimerP2.stop()
 		$textProgressP2.text = str(numberprogressP2)+" %"
 		var birraposition = $BirrasP2/CharacterBody2D.position.x		
-		#var positioAccordingBar = float(numberprogressP2)*82/100
 		var positioAccordingBar = float(numberprogressP2)*90/100
 		var ab = birraposition + positioAccordingBar
 		
@@ -341,39 +311,22 @@ func _input(event):
 		
 	if event.is_action_pressed("p1_press_button") and readyP1 == true && finishGame == false:
 		$TimerP1.stop()
-		print("p1...")
 		$textProgressP1.text = str(numberprogressP1)+" %"
-		#numberprogressP1 = 100
-		#var baldCurrentPosition = 100 -float(baldPos)
-		
-		#print("posicio tocaria "+ str(baldCurrentPosition))
-		
-		#if numberprogressP1+5 >= baldCurrentPosition and numberprogressP1-5 <= baldCurrentPosition:
-	#		print("Estas dintre marges")
-	#	else:
-	#		print("no has arribat amb "+ str(numberprogressP1))
-			
 		var divit100 = float(numberprogressP1)/100
 		print(divit100)
 		var result = divit100*82
 		print(result)
 		var tantperCentPosition = result+208
 				
-	#	print(positionXBirraP1)
-	#	print(numberprogressP1)
 		var birraposition = $BirrasP1/CharacterBody2D.position.x
 		var positioAccordingBar = float(numberprogressP1)*94/100
 		var ab = birraposition + positioAccordingBar
-	#	print("Position anira birra"+str( baldCurrentPosition-positioAccordingBar))
-	#	print("Birra hauria d' estar "+str(ab))		
 		$BirrasP1/CharacterBody2D.checkposition = true
 		$BirrasP1/CharacterBody2D.direction = "left"
 		$BirrasP1/CharacterBody2D/AnimatedSprite2D.play("default")
 		$BirrasP1/CharacterBody2D.moveTo(Vector2(-numberprogressP1,0))
 		birraP1PosicioCorrecte = true
 		moveBirraP1 = true
-	#$BirrasP1/CharacterBody2D.moveTo(Vector2(-120,0))
-#	RestartBald()
  
 func _on_timer_timeout():
 	if sumaP2 == false:
