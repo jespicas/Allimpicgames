@@ -181,9 +181,7 @@ func _input(event):
 	if event.is_action_pressed("ui_accept") or event.is_action_pressed("p1_press_button") or event.is_action_pressed("p2_press_button"):
 		if currentPosition == menupositions.JOCAGAFARALL:
 			Global.setCurrentGame("AgafaAlls")
-			if Global.tipusdeJoc == "practicar":
-				GoToGame()
-			SelectCompetitorAndGoToGame()
+			GoToGame()
 			pass
 		elif currentPosition == menupositions.JOCBIRRALL:
 			Global.setCurrentGame("TiralaBirra")

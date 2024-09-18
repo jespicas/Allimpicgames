@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqk5nkciehnl8"]
 
 [ext_resource type="FontFile" path="res://fontBase.tres" id="1"]
-[ext_resource type="Texture2D" uid="uid://cu2v3j7xoqx51" path="res://Media/imatges/mainmenu/olimpicring.png" id="2"]
-[ext_resource type="FontFile" uid="uid://bgqt1vjshdk4n" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3"]
-[ext_resource type="Texture2D" uid="uid://doir7g7rkqqmo" path="res://Media/imatges/mainmenu/background.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cs2xsi6jalx2t" path="res://Media/imatges/mainmenu/olimpicring.png" id="2"]
+[ext_resource type="FontFile" uid="uid://chgq8h7yweu8u" path="res://Media/Fonts/zero_cool/ZeroCool.ttf" id="3"]
+[ext_resource type="Texture2D" uid="uid://c05vce2fpphaw" path="res://Media/imatges/mainmenu/background.png" id="4"]
 [ext_resource type="Script" path="res://MainMenu/MainMenu.gd" id="5"]
-[ext_resource type="Texture2D" uid="uid://cyroxc8joeq1i" path="res://Media/imatges/capdalls.png" id="6_tghwv"]
+[ext_resource type="Texture2D" uid="uid://ufbl6upggo86" path="res://Media/imatges/capdalls.png" id="6_tghwv"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(74, 16)

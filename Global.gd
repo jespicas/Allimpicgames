@@ -39,7 +39,7 @@ var silentWolfWorks = false
 
 var globalEntered = 0
 
-var enableRedefineKeys = true
+var enableRedefineKeys = false
 
 func set_SilentWolfWorks(value):
 	silentWolfWorks = value

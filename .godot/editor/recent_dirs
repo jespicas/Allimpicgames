@@ -1,6 +1,7 @@
-/home/espi/Develop/Games/AllimpicGames
-/home/espi/Develop/Games/AllimpicGamesLinux
-/home/espi/Develop/Godot/ExportOlimpicAllsGames/Web43
+C:/penbackup/AllimpicGamesArcade
+C:/penbackup/AllimpicLinux
+C:/penbackup/Web
+C:/penbackup/GameExport
 res://Instruccions
 res://Media/Fonts/zero_cool
 res://OtherOptions
@@ -9,5 +10,4 @@ res://UI/enforcarAlls
 res://
 res://UI/Bilinearbar/textures
 res://UI/Bilinearbar
-/home/espi/Develop/Godot/ExportOlimpicAllsGames/Web
 res://MiniGames
