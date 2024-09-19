@@ -3,5 +3,3 @@ res://MainMenu/MainMenu.tscn
 res://UI/OliIndicator/OliIndicator.gd
 res://UI/enforcarAlls/canyem.gdshader
 res://UI/enforcarAlls/canyem1.gdshader
-res://MainMenu/Jocs.gd
-res://Global.gd
